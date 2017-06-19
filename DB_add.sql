@@ -34,11 +34,11 @@ CREATE TABLE request (
 				req_close DATETIME,
 				status VARCHAR(60),
 				prioritet VARCHAR(60),
-				creator INT,
-				executor INT,
+				creator_user_id INT,
+				executor_user_id INT,
 				PRIMARY KEY(id),
-				FOREIGN KEY(creator) REFERENCES user(id),
-				FOREIGN KEY(executor) REFERENCES user(id));
+				FOREIGN KEY(creator_user_id) REFERENCES user(id),
+				FOREIGN KEY(executor_user_id) REFERENCES user(id));
                     
 CREATE TABLE announcement (
 				id INT AUTO_INCREMENT,
@@ -47,9 +47,9 @@ CREATE TABLE announcement (
 				an_create DATETIME,
 				begin DATETIME,
 				end DATETIME,
-				creator INT,
+				creator_user_id INT,
 				PRIMARY KEY(id),
-				FOREIGN KEY(creator) REFERENCES user(id));
+				FOREIGN KEY(creator_user_id) REFERENCES user(id));
                     
 
                     
