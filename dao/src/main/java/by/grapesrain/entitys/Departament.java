@@ -14,15 +14,13 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "departament")
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
-public class Departament {
+public class Departament extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private long id;
+    public Departament(String name) {
+        this.name = name;
+    }
 
     @Getter
     @Setter

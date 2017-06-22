@@ -14,6 +14,11 @@
 
 
         <mapping class="by.grapesrain.entitys.User"/>
+        <mapping class="by.grapesrain.entitys.BaseEntity"/>
+        <mapping class="by.grapesrain.dao.UserDao"/>
+        <mapping class="by.grapesrain.dao.RequestDao"/>
+        <mapping class="by.grapesrain.dao.AnnouncementDao"/>
+
         <mapping class="by.grapesrain.entitys.UserRole"/>
         <mapping class="by.grapesrain.entitys.Departament"/>
         <mapping class="by.grapesrain.entitys.Request"/>

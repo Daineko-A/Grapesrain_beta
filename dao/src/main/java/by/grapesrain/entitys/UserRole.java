@@ -15,15 +15,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user_role")
-@ToString
+@ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
-public class UserRole {
+public class UserRole extends BaseEntity {
 
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
+    public UserRole(String role) {
+        this.role = role;
+    }
 
     @Getter
     @Setter

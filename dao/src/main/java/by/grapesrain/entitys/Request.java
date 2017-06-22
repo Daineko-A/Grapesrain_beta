@@ -56,7 +56,8 @@ public class Request {
     @Getter
     @Setter
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @Getter
     @Setter

@@ -1,5 +1,6 @@
 package by.grapesrain;
 
+import by.grapesrain.dao.UserDao;
 import by.grapesrain.entitys.UserRole;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,12 +13,6 @@ import java.util.List;
  */
 public class Test {
     public List<UserRole> showRole(){
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-
-        List<UserRole> userRoles =
-                session.createQuery("from UserRole", UserRole.class).getResultList();
-
-        return userRoles;
+        return UserDao.getInstance().showRole();
     }
 }

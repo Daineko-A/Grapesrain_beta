@@ -10,7 +10,7 @@
   
   <groupId>by.grapesrain</groupId>
   <artifactId>service</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>${project.version}</version>
   <name>service</name>
   <url>http://maven.apache.org</url>
 

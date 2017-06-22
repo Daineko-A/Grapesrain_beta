@@ -4,12 +4,17 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/grapesrain_db</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
 
+
+        <mapping class="by.grapesrain.dao.UserDao"/>
+        <mapping class="by.grapesrain.dao.RequestDao"/>
+        <mapping class="by.grapesrain.dao.AnnouncementDao"/>
         <mapping class="by.grapesrain.entitys.User"/>
+        <mapping class="by.grapesrain.entitys.BaseEntity"/>
         <mapping class="by.grapesrain.entitys.UserRole"/>
         <mapping class="by.grapesrain.entitys.Departament"/>
         <mapping class="by.grapesrain.entitys.Request"/>

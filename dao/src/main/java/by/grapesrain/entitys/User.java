@@ -13,15 +13,17 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user")
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
-public class User {
+public class User extends BaseEntity {
 
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    public User(String firstName, String lastName, String password, long phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     @Getter
     @Setter
