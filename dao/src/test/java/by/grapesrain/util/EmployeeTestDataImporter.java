@@ -54,9 +54,13 @@ public class EmployeeTestDataImporter {
         session.save(user);
         session.save(client);
 
-        session.save(alex);
-        session.save(olga);
-        session.save(dima);
+//        session.save(alex);
+//        session.save(olga);
+//        session.save(dima);
+
+        UserDao.getInstance().saveEntity(session, alex);
+        UserDao.getInstance().saveEntity(session, olga);
+        UserDao.getInstance().saveEntity(session, dima);
 
         session.getTransaction().commit();
         session.close();

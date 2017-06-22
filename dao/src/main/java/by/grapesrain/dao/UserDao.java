@@ -34,15 +34,8 @@ public class UserDao {
     }
 
     //saveUser
-    public void saveEntity(BaseEntity baseEntity){
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-
-        session.save(baseEntity);
-
-        session.getTransaction().commit();
-        session.close();
+    public void saveEntity(Session session, BaseEntity baseEntity){
+        session.saveOrUpdate(baseEntity);
     }
 
     public List<UserRole> findAllRole(Session session) {

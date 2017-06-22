@@ -13,6 +13,13 @@ import java.util.List;
  */
 public class Test {
     public List<UserRole> showRole(){
-        return UserDao.getInstance().showRole();
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+
+
+        List<UserRole> userRoles = UserDao.getInstance().findAllRole(session);
+        sessionFactory.close();
+
+        return userRoles;
     }
 }
