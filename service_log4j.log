@@ -1,0 +1,17 @@
+2017-06-22 12:54:28,050 INFO  - HHH000412: Hibernate Core {5.2.10.Final}
+2017-06-22 12:54:28,052 INFO  - HHH000206: hibernate.properties not found
+2017-06-22 12:54:28,350 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-06-22 12:54:28,500 WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-06-22 12:54:28,509 INFO  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/grapesrain_db]
+2017-06-22 12:54:28,509 INFO  - HHH10001001: Connection properties: {user=root, password=****}
+2017-06-22 12:54:28,510 INFO  - HHH10001003: Autocommit mode: false
+2017-06-22 12:54:28,514 INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-06-22 12:54:28,983 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2017-06-22 12:54:30,109 INFO  - HHH000397: Using ASTQueryTranslatorFactory
+2017-06-22 12:54:30,329 WARN  - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-06-22 12:54:30,329 INFO  - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/grapesrain_db]
+2017-06-22 12:54:30,330 INFO  - HHH10001001: Connection properties: {user=root, password=****}
+2017-06-22 12:54:30,330 INFO  - HHH10001003: Autocommit mode: false
+2017-06-22 12:54:30,330 INFO  - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-06-22 12:54:30,346 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2017-06-22 12:54:30,400 INFO  - HHH000397: Using ASTQueryTranslatorFactory
