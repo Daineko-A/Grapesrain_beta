@@ -2,10 +2,7 @@ package by.grapesrain.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -19,33 +16,33 @@ import java.util.Properties;
  * Created by PloSkiY on 29.06.2017.
  */
 @Configuration
-@ComponentScan(basePackages = {"by.grapesrain.dao"})
+@ComponentScan(basePackages = {"by.grapesrain.dao", "by.grapesrain.entitys"})
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class Config {
 
-    @Value("$jdbc.url")
+    @Value("${jdbc.url}")
     private String dbUrl;
 
-    @Value("$jdbc.driver")
+    @Value("${jdbc.driver}")
     private String driver;
 
-    @Value("$jdbc.username")
+    @Value("${jdbc.username}")
     private String username;
 
-    @Value("$jdbc.password")
+    @Value("${jdbc.password}")
     private String password;
 
-    @Value("$hibernate.dialect")
+    @Value("${hibernate.dialect}")
     private String dialect;
 
-    @Value("$hibernate.show_sql")
+    @Value("${hibernate.show_sql}")
     private String showSql;
 
-    @Value("$hibernate.format_sql")
+    @Value("${hibernate.format_sql}")
     private String formatSql;
 
-    @Value("$hibernate.creation_policy")
+    @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
     @Bean
@@ -64,6 +61,7 @@ public class Config {
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("by.grapesrain.entitys");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
+
         return sessionFactoryBean;
     }
 

@@ -14,7 +14,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "departament")
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
 public class Departament extends BaseEntity {
 

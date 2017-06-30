@@ -20,13 +20,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>by.grapesrain</groupId>
       <artifactId>dao</artifactId>
       <version>1.0-SNAPSHOT</version>

@@ -16,16 +16,16 @@ import javax.sql.DataSource;
 @Import(Config.class)
 public class TestConfig {
 
-    @Value("$jdbc.url")
+    @Value("${jdbc.url}")
     private String dbUrl;
 
-    @Value("$jdbc.driver")
+    @Value("${jdbc.driver}")
     private String driver;
 
-    @Value("$jdbc.username")
+    @Value("${jdbc.username}")
     private String username;
 
-    @Value("$jdbc.password")
+    @Value("${jdbc.password}")
     private String password;
 
     @Bean

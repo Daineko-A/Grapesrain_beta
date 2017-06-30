@@ -18,8 +18,7 @@ public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("testvalue", new Test().showRole().get(1).toString());
-        getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(req, resp);
+
     }
 
 
