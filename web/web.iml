@@ -8,14 +8,13 @@
           <file>file://$MODULE_DIR$/../service/src/main/java/by/grapesrain/config/Config.java</file>
           <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/Config.java</file>
           <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/ThymeleafConfig.java</file>
+          <file>file://$MODULE_DIR$/../dao/src/main/java/by/grapesrain/config/ConfigDB.java</file>
+          <file>file://$MODULE_DIR$/../service/src/main/java/by/grapesrain/config/ConfigServices.java</file>
         </fileset>
       </configuration>
     </facet>
     <facet type="web" name="Web">
       <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
@@ -32,13 +31,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf-spring4:3.0.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf:3.0.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.attoparser:attoparser:2.0.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.8.RELEASE" level="project" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="dao" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.2.10.Final" level="project" />

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+    <ul>
+        <li th:each="userRole : ${allUserRole}"
+        th:text="${#strings.capitalize(#strings.toLowerCase(userRole))}">userRoles</li>
+    </ul>
 
 </body>
 </html>

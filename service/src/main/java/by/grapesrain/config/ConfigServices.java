@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @Configuration
 @ComponentScan(basePackages = {"by.grapesrain.services"})
-@ContextConfiguration(classes = Config.class)
-@Import(Config.class)
-public class Config {
+@ContextConfiguration(classes = ConfigDB.class)
+@Import(ConfigDB.class)
+public class ConfigServices {
 
 }

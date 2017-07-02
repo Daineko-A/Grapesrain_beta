@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
  * Created by PloSkiY on 30.06.2017.
  */
 @Configuration
-@Import(Config.class)
+@Import(ConfigDB.class)
 public class TestConfig {
 
     @Value("${jdbc.url}")

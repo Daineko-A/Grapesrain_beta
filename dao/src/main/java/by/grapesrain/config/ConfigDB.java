@@ -19,7 +19,7 @@ import java.util.Properties;
 @ComponentScan(basePackages = {"by.grapesrain.dao", "by.grapesrain.entitys"})
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
-public class Config {
+public class ConfigDB {
 
     @Value("${jdbc.url}")
     private String dbUrl;

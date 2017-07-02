@@ -25,6 +25,6 @@ public class IndexController {
 
     @GetMapping("/index")
     public String indexPage() {
-        return "hello";
+        return "allUserRole";
     }
 }
