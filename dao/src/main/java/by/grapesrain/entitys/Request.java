@@ -2,7 +2,9 @@ package by.grapesrain.entitys;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.*;
@@ -13,13 +15,9 @@ import java.time.*;
 
 @Entity
 @Table(name = "request")
-public class Request {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private long id;
+@ToString(callSuper = true)
+@NoArgsConstructor
+public class Request extends BaseEntity {
 
     @Getter
     @Setter

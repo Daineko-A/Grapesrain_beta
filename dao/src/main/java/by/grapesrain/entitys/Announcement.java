@@ -13,15 +13,9 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "announcement")
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
-public class Announcement {
-
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Announcement extends BaseEntity {
 
     @Setter
     @Getter
