@@ -16,7 +16,7 @@ import java.util.Properties;
  * Created by PloSkiY on 29.06.2017.
  */
 @Configuration
-@ComponentScan(basePackages = {"by.grapesrain.dao", "by.grapesrain.entitys"})
+@ComponentScan(basePackages = {"by.grapesrain.dao", "by.grapesrain.entitys", "by.grapesrain.dao.common"})
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class ConfigDB {

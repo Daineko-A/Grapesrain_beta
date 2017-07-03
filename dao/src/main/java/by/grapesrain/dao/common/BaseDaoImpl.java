@@ -3,6 +3,7 @@ package by.grapesrain.dao.common;
 import by.grapesrain.entitys.BaseEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.GenericTypeResolver;
 
@@ -34,7 +35,8 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     @Override
     public List<T> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from " + modelClass.getSimpleName(), modelClass)
+        return session.createQuery(
+                "from " + modelClass.getSimpleName(), modelClass)
                 .getResultList();
     }
 }

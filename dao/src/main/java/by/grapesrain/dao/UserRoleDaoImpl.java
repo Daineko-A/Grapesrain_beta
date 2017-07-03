@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserRoleDaoImpl extends BaseDaoImpl<UserRole> implements UserRoleDao {
+
+
 }

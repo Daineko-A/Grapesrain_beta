@@ -9,7 +9,7 @@
     <version>${project.version}</version>
   </parent>
 
-  <groupId>by.grapesrain</groupId>
+  <!--<groupId>by.grapesrain</groupId>-->
   <artifactId>dao</artifactId>
   <version>${project.version}</version>
   <name>dao</name>
@@ -89,4 +89,22 @@
       <version>${spring.version}</version>
     </dependency>
   </dependencies>
+
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>cobertura</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>

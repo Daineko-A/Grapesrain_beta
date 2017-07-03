@@ -4,14 +4,14 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/Config.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/ConfigDB.java</file>
         </fileset>
       </configuration>
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="sessionFactory" />
+          <unit-entry name="sessionFactory" value="4802e50e-2d6e-4eea-aa93-28aa702886a1" />
         </datasource-map>
         <naming-strategy-map />
       </configuration>

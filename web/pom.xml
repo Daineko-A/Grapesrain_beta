@@ -8,7 +8,7 @@
     <version>${project.version}</version>
   </parent>
   
-  <groupId>by.grapesrain</groupId>
+  <!--<groupId>by.grapesrain</groupId>-->
   <artifactId>web</artifactId>
   <version>${project.version}</version>
   <packaging>war</packaging>
@@ -34,18 +34,20 @@
       <version>1.2</version>
     </dependency>
 
+
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-      <scope>provided</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.thymeleaf</groupId>
-      <artifactId>thymeleaf-spring4</artifactId>
-      <version>3.0.6.RELEASE</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
     </dependency>
+
+
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -57,6 +59,21 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+
+
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+      <version>3.0.6.RELEASE</version>
     </dependency>
 
   </dependencies>
