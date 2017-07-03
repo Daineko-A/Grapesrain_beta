@@ -8,7 +8,5 @@ import by.grapesrain.entitys.Announcement;
  */
 public interface AnnouncementDao extends BaseDao<Announcement> {
 
-    //add
-
-    //changeStatus
+    Announcement findByTitle(String title);
 }

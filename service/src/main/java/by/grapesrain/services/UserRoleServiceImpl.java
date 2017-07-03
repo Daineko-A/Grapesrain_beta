@@ -24,6 +24,6 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public List<UserRole> allUserRoles() {
-        return null;
+        return userRoleDao.findAll();
     }
 }
