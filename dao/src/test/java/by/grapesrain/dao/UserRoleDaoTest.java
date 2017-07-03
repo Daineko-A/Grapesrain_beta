@@ -24,4 +24,14 @@ public class UserRoleDaoTest extends BaseDaoTest {
         UserRole admin = userRoleDao.findAll().get(0);
         assertNotNull(userRole);
     }
+
+//    @Test
+//    public void findUserRoleByName() {
+//
+//    }
+//
+//    @Test
+//    public void updateUserRole() {
+//
+//    }
 }
