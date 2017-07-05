@@ -19,6 +19,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.8.RELEASE</spring.version>
+    <spring-security.version>4.2.2.RELEASE</spring-security.version>
   </properties>
 
   <dependencies>
@@ -62,6 +63,24 @@
     </dependency>
 
 
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -75,7 +94,6 @@
       <artifactId>thymeleaf-spring4</artifactId>
       <version>3.0.6.RELEASE</version>
     </dependency>
-
   </dependencies>
 
   <build>

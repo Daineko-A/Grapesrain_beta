@@ -17,6 +17,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.8.RELEASE</spring.version>
+    <spring-security.version>4.2.2.RELEASE</spring-security.version>
   </properties>
 
   <dependencies>
@@ -74,6 +75,25 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring-security.version}</version>
     </dependency>
   </dependencies>
 

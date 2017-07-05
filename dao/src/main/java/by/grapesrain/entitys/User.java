@@ -17,9 +17,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class User extends BaseEntity {
 
-    public User(String firstName, String lastName, String password, long phoneNumber, String email) {
+    public User(String firstName, String lastName, String login, String password, long phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.login = login;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -34,6 +35,11 @@ public class User extends BaseEntity {
     @Setter
     @Column(name = "last_name")
     private String lastName;
+
+    @Getter
+    @Setter
+    @Column(name = "login")
+    private String login;
 
     @Getter
     @Setter

@@ -4,10 +4,11 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/ThymeleafConfig.java</file>
           <file>file://$MODULE_DIR$/../dao/src/main/java/by/grapesrain/config/ConfigDB.java</file>
           <file>file://$MODULE_DIR$/../service/src/main/java/by/grapesrain/config/ConfigServices.java</file>
           <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/ConfigWeb.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/ThymeleafConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/by/grapesrain/config/SecurityConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -29,7 +30,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="library" name="Maven: org.hamcrest:java-hamcrest:2.0.0.0" level="project" />
     <orderEntry type="module" module-name="dao" />
@@ -60,6 +60,10 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:4.2.2.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf-spring4:3.0.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf:3.0.6.RELEASE" level="project" />

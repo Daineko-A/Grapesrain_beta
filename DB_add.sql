@@ -16,7 +16,8 @@ CREATE TABLE departament (
 CREATE TABLE user (
 				id INT AUTO_INCREMENT, 
                 first_name VARCHAR(60) UNIQUE NOT NULL, 
-                last_name VARCHAR(60) UNIQUE NOT NULL, 
+                last_name VARCHAR(60) UNIQUE NOT NULL,
+                login VARCHAR(60) NOT NULL,
                 password VARCHAR(60) NOT NULL,
                 phone_number INT,
 				email VARCHAR(60) UNIQUE NOT NULL,
@@ -60,3 +61,6 @@ INSERT INTO user_role (role) VALUES ('User');
 INSERT INTO user_role (role) VALUES ('Secretary');
 INSERT INTO user_role (role) VALUES ('Coordinator');
 INSERT INTO user_role (role) VALUES ('Head of Department');
+
+INSERT INTO user (first_name, last_name, login, password, email, user_role_id, phone_number) VALUES ('FAdmin', 'LAdmin', 'Admin', '12345', 'admin@admin.by', 1, 12345);
+INSERT INTO user (first_name, last_name, login, password, email, user_role_id, phone_number) VALUES ('FUser', 'LUser', 'User', '12345', 'user@user.by', 2, 12345);

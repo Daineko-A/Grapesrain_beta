@@ -3,6 +3,7 @@ package by.grapesrain;
 import by.grapesrain.config.ConfigDB;
 import by.grapesrain.config.ConfigServices;
 import by.grapesrain.config.ConfigWeb;
+import by.grapesrain.config.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -11,8 +12,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
-//        return new Class[] {ConfigServices.class};
+//        return new Class[0];
+        return new Class[] {SecurityConfig.class, ConfigServices.class};
     }
 
     @Override
