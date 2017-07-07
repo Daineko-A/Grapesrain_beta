@@ -56,7 +56,6 @@ public class UserDaoTest extends BaseDaoTest {
         user.setPhoneNumber(375291234567L);
         user.setPassword("123456");
         user.setUserRole(userRoleDao.findAll().get(0));
-
         userDao.save(user);
 
         User findUser = userDao.findByLastName("dsa").get(0);

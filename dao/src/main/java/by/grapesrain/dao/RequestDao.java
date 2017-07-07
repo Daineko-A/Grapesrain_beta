@@ -8,13 +8,4 @@ import by.grapesrain.entitys.Request;
  */
 public interface RequestDao extends BaseDao<Request> {
 
-    //add
-
-    //find
-
-    //changestatus
-
-    //addExecutor
-
-    //chengeExecutor
 }

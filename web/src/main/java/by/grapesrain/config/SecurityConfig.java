@@ -27,11 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
 //                .antMatchers("/index")
                 .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .and()
-                .userDetailsService(userDetailsService);
+//                .authenticated()
+                .permitAll();
+//                .and()
+//                .formLogin()
+//                .and()
+//                .userDetailsService(userDetailsService);
 
     }
 }

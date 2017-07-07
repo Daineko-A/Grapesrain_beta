@@ -15,7 +15,7 @@ import java.time.*;
 
 @Entity
 @Table(name = "request")
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = "creator, executor")
 @NoArgsConstructor
 public class Request extends BaseEntity {
 
@@ -59,6 +59,7 @@ public class Request extends BaseEntity {
 
     @Getter
     @Setter
-    @Column(name = "prioritet")
-    private String prioritet;
+    @Column(name = "priority")
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
 }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages = "by.grapesrain.controller")
 @EnableWebMvc
-@Import(value = {ThymeleafConfig.class, ConfigServices.class})
+@Import(value = {ThymeleafConfig.class, ConfigServices.class, InternationalizationConfig.class})
 public class ConfigWeb {
 
 }
