@@ -10,4 +10,6 @@ import java.util.List;
 public interface DepartamentService {
 
     List<Departament> allDepartaments();
+
+    Departament findById(long id);
 }

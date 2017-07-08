@@ -41,7 +41,6 @@ public class RequestDaoTest extends BaseDaoTest {
         user.setLastName("dsa");
         user.setDepartament(departamentDao.findAll().get(0));
         user.setEmail("asd@Asd.asd");
-        user.setPhoneNumber(375291234567L);
         user.setPassword("123456");
         user.setUserRole(userRoleDao.findAll().get(0));
         userDao.save(user);

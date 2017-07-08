@@ -1,4 +1,4 @@
-﻿package by.grapesrain.controller;
+package by.grapesrain.controller;
 
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.User;
@@ -6,9 +6,11 @@ import by.grapesrain.services.DepartamentService;
 import by.grapesrain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -32,14 +34,19 @@ public class RegistrationController {
         return departamentService.allDepartaments();
     }
 
-    @ModelAttribute("allUsers")
-    public List<User> allUsers() {
-        return userService.allUsers();
-    }
+//    @ModelAttribute("allUsers")
+//    public List<User> allUsers() {
+//        return userService.allUsers();
+//    }
 
     @ModelAttribute("user")
     public User user() {
         return new User();
+    }
+
+    @ModelAttribute("departament")
+    public Departament departament() {
+        return new Departament();
     }
 
     @GetMapping("/registration")
@@ -48,11 +55,9 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String saveUser(User user) {
-        System.out.println(user.getFirstName());
-        System.out.println(user.getLastName());
-        System.out.println(user.getLogin());
-//        userService.save(user);
-        return "registration";
+    public String registerUser(User user, Model model, @RequestParam long departament) {
+        user.setDepartament(departamentService.findById(departament));
+        userService.save(user);
+        return "login";
     }
 }

@@ -22,7 +22,6 @@ public class User extends BaseEntity {
         this.lastName = lastName;
         this.login = login;
         this.password = password;
-        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -45,11 +44,6 @@ public class User extends BaseEntity {
     @Setter
     @Column(name = "password")
     private String password;
-
-    @Getter
-    @Setter
-    @Column(name = "phone_number")
-    private long phoneNumber;
 
     @Getter
     @Setter

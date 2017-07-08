@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<meta charset="UTF-8">-->
     <title>Title</title>
-
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -25,42 +24,20 @@
             <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required>
             <label th:for="email" th:text="#{account.email}">e-Mail</label>
             <input type="email" th:field="*{email}" class="form-control" placeholder="eMail" required autofocus>
-            <!--<label th:for="phoneNumber" th:text="#{account.phoneNumber}">Phone Number</label>-->
-            <!--<input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="phoneNumber" required autofocus>-->
-
             <br>
 
-
-            <!--<div class="container">-->
-            <!--<div class="dropdown">-->
-            <!--<label th:for="departament" th:text="#{account.departament}">Departament</label>-->
-            <!--<select th:field="*{departament}" class="btn btn-primary dropdown-toggle">-->
-            <!--<option th:each="departaments : ${allDepartaments}"-->
-            <!--th:value="${departaments}"-->
-            <!--th:text="${departaments.getName()}">Departaments</option>-->
-            <!--</select>-->
-
-            <!--</div>-->
-            <!--</div>-->
+            <div class="container">
+                <div class="dropdown">
+                <label th:for="departament" th:text="#{account.departament}">Departament</label>
+                <select th:field="*{departament}" class="btn btn-primary dropdown-toggle">
+                    <option th:each="departament : ${allDepartaments}"
+                            th:value="${departament.getId()}"
+                            th:text="${departament.getName()}">Departaments</option>
+                </select>
+            </div>
+            </div>
 
             <br>
-
-            <!--<div class="container">-->
-            <!--<div class="dropdown">-->
-            <!--<select class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Departament-->
-            <!--<span class="caret"></span>-->
-
-
-            <!--</select>-->
-            <!--<ul class="dropdown-menu">-->
-            <!--&lt;!&ndash; Add header here &ndash;&gt;-->
-            <!--<li><a href="#">HTML</a></li>-->
-            <!--<li><a href="#">CSS</a></li>-->
-            <!--<li><a href="#">JavaScript</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--</div>-->
-
             <button class="btn btn-lg btn-primary btn-block" type="submit">Registration</button>
         </form>
     </div>

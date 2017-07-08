@@ -26,4 +26,9 @@ public class DepartamentServiceImpl implements DepartamentService {
     public List<Departament> allDepartaments() {
         return departamentDao.findAll();
     }
+
+    @Override
+    public Departament findById(long id) {
+        return departamentDao.findById(id);
+    }
 }
