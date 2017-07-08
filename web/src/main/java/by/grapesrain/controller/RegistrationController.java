@@ -5,6 +5,7 @@ import by.grapesrain.entitys.User;
 import by.grapesrain.services.DepartamentService;
 import by.grapesrain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +23,13 @@ public class RegistrationController {
 
     private final UserService userService;
     private final DepartamentService departamentService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RegistrationController(UserService userService, DepartamentService departamentService) {
+    public RegistrationController(UserService userService, DepartamentService departamentService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.departamentService = departamentService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @ModelAttribute("allDepartaments")
@@ -57,7 +60,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registerUser(User user, Model model, @RequestParam long departament) {
         user.setDepartament(departamentService.findById(departament));
-        System.out.println(user.getFirstName());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         return "login";
     }
