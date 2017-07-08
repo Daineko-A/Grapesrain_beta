@@ -57,6 +57,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registerUser(User user, Model model, @RequestParam long departament) {
         user.setDepartament(departamentService.findById(departament));
+        System.out.println(user.getFirstName());
         userService.save(user);
         return "login";
     }

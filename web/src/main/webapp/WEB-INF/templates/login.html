@@ -13,35 +13,43 @@
 <body>
 
 
-    <!--<div class="container">-->
-        <!--<div class="col-md-4 offset-md-4">-->
-            <!--<form th:action="@{/login}" method="post">-->
-                <!--<h2 class="form-signin-heading">Please sign in</h2>-->
-                <!--&lt;!&ndash;<br>&ndash;&gt;-->
-                <!--&lt;!&ndash;<label for="login">Login: </label>&ndash;&gt;-->
-                <!--<input type="text" name="login" id="login" class="form-control" placeholder="login" required autofocus>-->
+    <div class="container">
+        <div class="col-md-4 offset-md-4">
+            <form th:action="@{/login}" method="post">
+                <h2 class="form-signin-heading">Please sign in</h2>
                 <!--<br>-->
-                <!--&lt;!&ndash;<label for="password">Password: </label>&ndash;&gt;-->
-                <!--<input type="password" name="password" id="password" class="form-control" placeholder="password" required>-->
+                <!--<label for="login">Login: </label>-->
+                <input type="text" name="username" id="username" class="form-control" placeholder="username" required autofocus>
+                <br>
+                <!--<label for="password">Password: </label>-->
+                <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
 
-                <!--<br>-->
-                <!--&lt;!&ndash;<label class="checkbox">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<input type="checkbox" value="remember-me"> Remember me&ndash;&gt;-->
-                <!--&lt;!&ndash;</label>&ndash;&gt;-->
-                <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
+                <br>
+                <!--<label class="checkbox">-->
+                    <!--<input type="checkbox" value="remember-me"> Remember me-->
+                <!--</label>-->
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
 
 
-    <form th:action="@{/login}" method="post">
-        <label for="login">Custom username: </label>
-        <input type="text" name="login" id="login">
-        <label for="password">Custom password: </label>
-        <input type="password" name="password" id="password">
-        <button type="submit">Log in</button>
-    </form>
+    <!--<form th:action="@{/login}" method="post">-->
+        <!--<label th:for="login">Custom username: </label>-->
+        <!--<input type="text" name="login" id="login">-->
+        <!--<label th:for="password">Custom password: </label>-->
+        <!--<input type="password" name="password" id="password">-->
+        <!--<button type="submit">Log in</button>-->
+    <!--</form>-->
 
+
+    <!--<form th:action="@{/login}" method="post">-->
+        <!--<label for="username">Custom username: </label>-->
+        <!--<input type="text" name="username" id="username">-->
+        <!--<label for="password">Custom password: </label>-->
+        <!--<input type="password" name="password" id="password">-->
+        <!--<button type="submit">Log in</button>-->
+    <!--</form>-->
 
 </body>
 </html>
