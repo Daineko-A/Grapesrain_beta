@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNull;
 /**
  * Created by PloSkiY on 03.07.2017.
  */
-//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+
 public class UserDaoTest extends BaseDaoTest {
 
     @Autowired

@@ -24,6 +24,7 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     protected SessionFactory getSessionFactory() {
+        System.out.println(sessionFactory.getStatistics());
         return sessionFactory;
     }
 

@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +22,7 @@ import java.util.Set;
 @Table(name = "user_role")
 @ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cacheSecLev")
 public class UserRole extends BaseEntity {
 
     public UserRole(String role) {

@@ -12,11 +12,13 @@ import java.util.List;
  */
 @Repository
 public class DepartamentDaoImpl extends BaseDaoImpl<Departament> implements DepartamentDao {
+
     @Override
     public Departament findById(long id) {
         List<Departament> departaments = getSessionFactory().getCurrentSession().createQuery(
                 "select d from Departament d where d.id=:id", Departament.class)
                 .setParameter("id", id)
+//                .setHint("org.hibernate.cacheable", true)
                 .getResultList();
 
         return departaments.size() > 0 ? departaments.get(0) : null;
