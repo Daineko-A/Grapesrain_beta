@@ -2,9 +2,15 @@ package by.grapesrain.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+//<bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect"/>
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by PloSkiY on 02.07.2017.
@@ -26,7 +32,14 @@ public class ThymeleafConfig {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setEnableSpringELCompiler(true);
         engine.setTemplateResolver(templateResolver());
+        engine.setAdditionalDialects(additDial());
         return engine;
+    }
+
+    private Set<IDialect> additDial() {
+        Set<IDialect> securityDialect = new HashSet<IDialect>();
+        securityDialect.add(new SpringSecurityDialect());
+        return securityDialect;
     }
 
     @Bean

@@ -1,5 +1,6 @@
 package by.grapesrain.services;
 
+import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 
 import java.util.List;
@@ -10,4 +11,8 @@ import java.util.List;
 public interface RequestService {
 
     List<Request> allRequests();
+
+    Request findById(long id);
+
+    List<Request> findRequestsByDepartament(Departament departament);
 }

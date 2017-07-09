@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>-->
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
@@ -70,7 +72,7 @@
                 <div class="container">
                     <!--<h2>Contextual Classes</h2>-->
                     <!--<p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>-->
-                    <table class="table">
+                    <table class="table" >
                         <thead>
                         <tr>
                             <th>Заголовок</th>
@@ -99,6 +101,9 @@
                     <div class="well">
                         <h4>Users</h4>
                         <p>1 Million</p>
+                        <p th:text="${#authentication.name}"></p>
+                        <p th:text="${#authentication.toString()}"></p>
+                        <p th:text="${#authentication.getAuthorities()}"></p>
                     </div>
                 </div>
                 <div class="col-sm-3">

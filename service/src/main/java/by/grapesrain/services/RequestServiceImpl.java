@@ -1,6 +1,7 @@
 package by.grapesrain.services;
 
 import by.grapesrain.dao.RequestDao;
+import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,18 @@ public class RequestServiceImpl implements RequestService {
         this.requestDao = requestDao;
     }
 
-
     @Override
     public List<Request> allRequests() {
         return requestDao.findAll();
+    }
+
+    @Override
+    public Request findById(long id) {
+        return requestDao.findById(id);
+    }
+
+    @Override
+    public List<Request> findRequestsByDepartament(Departament departament) {
+        return requestDao.findRequestsByDepartament(departament);
     }
 }

@@ -100,7 +100,7 @@ public class ConfigDB {
         properties.setProperty("hibernate.generate_statistics", statistics);
 
         //TODO: connection isolation
-//        properties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));
+        properties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));
         return properties;
     }
 
