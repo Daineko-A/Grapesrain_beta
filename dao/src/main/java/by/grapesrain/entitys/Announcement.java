@@ -47,4 +47,10 @@ public class Announcement extends BaseEntity {
     @Setter
     @Column(name = "an_create")
     private LocalDateTime create;
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "departament_id")
+    private Departament departament;
 }

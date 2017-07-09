@@ -59,6 +59,12 @@ public class Request extends BaseEntity {
 
     @Getter
     @Setter
+    @ManyToOne
+    @JoinColumn(name = "departament_id")
+    private Departament departament;
+
+    @Getter
+    @Setter
     @Column(name = "priority")
     @Enumerated(EnumType.STRING)
     private Priority priority;

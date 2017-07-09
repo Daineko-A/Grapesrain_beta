@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.util.Properties;
 
 
@@ -97,6 +98,9 @@ public class ConfigDB {
         properties.setProperty("hibernate.cache.region.factory_class", cacheRegion);
         properties.setProperty("net.sf.ehcache.configurationResourceName", ehcacheConf);
         properties.setProperty("hibernate.generate_statistics", statistics);
+
+        //TODO: connection isolation
+//        properties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));
         return properties;
     }
 

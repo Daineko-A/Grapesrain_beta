@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 @Configuration
 @ComponentScan(basePackages = {"by.grapesrain.services"})
 @ContextConfiguration(classes = ConfigDB.class)
-@Import(ConfigDB.class)
+@Import(value = {ConfigDB.class, AspectConfig.class})
 public class ConfigServices {
 
 }

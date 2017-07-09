@@ -40,4 +40,13 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
                 "from " + modelClass.getSimpleName(), modelClass)
                 .getResultList();
     }
+
+    @Override
+    public T findById(long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select t from "+ modelClass.getSimpleName() + " t where t.id=:id", modelClass)
+                .setParameter("id", id)
+                .getResultList().get(0);
+    }
 }

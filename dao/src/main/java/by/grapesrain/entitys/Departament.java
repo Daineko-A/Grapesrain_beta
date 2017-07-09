@@ -19,7 +19,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "departament")
-@ToString(callSuper = true, exclude = "users")
+@ToString(callSuper = true, exclude = {"users", "requests", "announcements"})
 @NoArgsConstructor
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cacheSecLev")
 public class Departament extends BaseEntity {
@@ -37,4 +37,14 @@ public class Departament extends BaseEntity {
     @Setter
     @OneToMany(mappedBy = "departament")
     private Set<User> users = new HashSet<User>();
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "departament")
+    private Set<Request> requests = new HashSet<Request>();
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "departament")
+    private Set<Announcement> announcements = new HashSet<Announcement>();
 }

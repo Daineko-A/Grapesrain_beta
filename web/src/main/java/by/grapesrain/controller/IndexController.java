@@ -1,5 +1,7 @@
 package by.grapesrain.controller;
 
+import by.grapesrain.entitys.Announcement;
+import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.UserRole;
 import by.grapesrain.services.RequestService;
@@ -20,11 +22,15 @@ public class IndexController {
     private final UserRoleService userRoleService;
     private final RequestService requestService;
 
+
     @Autowired
     public IndexController(UserRoleService userRoleService, RequestService requestService) {
         this.userRoleService = userRoleService;
         this.requestService = requestService;
+
     }
+
+
 
     @ModelAttribute("allRequests")
     public List<Request> requests() {

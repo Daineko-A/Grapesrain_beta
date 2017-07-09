@@ -61,4 +61,9 @@ public class User extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "departament_id")
     private Departament departament;
+
+    @Version
+    @Setter
+    @Getter
+    private Long version;
 }
