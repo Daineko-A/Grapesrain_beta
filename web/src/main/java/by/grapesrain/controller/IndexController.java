@@ -4,11 +4,14 @@ import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.UserRole;
 import by.grapesrain.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.annotation.SessionScope;
+import sun.plugin.liveconnect.SecurityContextHelper;
 
 import java.util.List;
 
@@ -35,7 +38,8 @@ public class IndexController {
 
     @ModelAttribute("requestsByDep")
     public List<Request> reqByDep() {
-        return requestService.findRequestsByDepartament(departamentService.findById(1));
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        return requestService.findRequestsByDepartament(departamentService.findById(idDep));
     }
 
     @ModelAttribute("allRequests")

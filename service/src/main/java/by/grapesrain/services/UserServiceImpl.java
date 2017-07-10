@@ -48,6 +48,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
+    @Override
+    public Long getDepartamentBylogin(String login) {
+        return userDao.findUserByLogin(login).getDepartament().getId();
+    }
+
     private Set<GrantedAuthority> getUserAuthorities(User user) {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getUserRole().getRole()));

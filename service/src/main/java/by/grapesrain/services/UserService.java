@@ -15,4 +15,6 @@ public interface UserService extends UserDetailsService {
     void save (User user);
 
     List<User> allUsers();
+
+    Long getDepartamentBylogin(String login);
 }

@@ -3,12 +3,12 @@
 
 <!--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>-->
 <head>
+    <title>Dashboard</title>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Bootstrap 3.3.6 -->
     <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
@@ -59,10 +59,10 @@
         <div class="col-sm-3 sidenav hidden-xs">
             <h2>Logo</h2>
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#section1">Dashboard</a></li>
+                <li class="active"><a th:href="@{/index}">Dashboard</a></li>
                 <li><a href="#section2">Age</a></li>
                 <li><a href="#section3">Gender</a></li>
-                <li><a href="#section3">Geo</a></li>
+                <li><a th:href="@{/logout}">Выход</a></li>
             </ul><br>
         </div>
         <br>
@@ -75,19 +75,24 @@
                     <table class="table" >
                         <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Заголовок</th>
                             <th>Создатель</th>
                             <!--<th>Исполнитель</th>-->
+                            <th>Департамент</th>
                             <th>Статус</th>
+                            <th>Департамент</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${allRequests}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                        <tr th:each="requests : ${requestsByDep}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                            <td><a href="request.html" th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
                             <!--<td th:text="${requests.getExecutor().getLogin()} ">Исполнитель</td>-->
                             <!--"${account.number > 0 ? account.number : ''}"-->
+                            <td th:text="${requests.getDepartament().getName()}">Департамент</td>
                             <td th:text="${requests.getStatus()}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
                         </tr>
@@ -101,9 +106,7 @@
                     <div class="well">
                         <h4>Users</h4>
                         <p>1 Million</p>
-                        <p th:text="${#authentication.name}"></p>
-                        <p th:text="${#authentication.toString()}"></p>
-                        <p th:text="${#authentication.getAuthorities()}"></p>
+
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -157,19 +160,16 @@
                 <div class="col-sm-4">
                     <div class="well">
                         <p>Text</p>
+
+                        <p th:text="${#authentication.name}"></p>
+                        <p th:text="${#authentication.toString()}"></p>
+                        <p th:text="${#authentication.getAuthorities()}"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<form th:action="@{/logout}" method="get">
-    <tr>
-        <td><input type="submit" name="prof" value=выйти></td>
-    </tr>
-</form>
-
 
 </body>
 </html>
