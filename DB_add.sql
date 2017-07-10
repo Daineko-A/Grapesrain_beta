@@ -43,6 +43,16 @@ CREATE TABLE request (
                 FOREIGN KEY (departament_id) REFERENCES departament(id),
 				FOREIGN KEY(executor_user_id) REFERENCES user(id));
                     
+CREATE TABLE requestanswer (
+				id INT AUTO_INCREMENT, 
+                request_id INT,
+				body VARCHAR(1000),
+				respondent_user_id INT,
+                answerDate DATETIME,
+				PRIMARY KEY(id),
+				FOREIGN KEY(respondent_user_id) REFERENCES user(id),
+                FOREIGN KEY (request_id) REFERENCES request(id));
+				
 CREATE TABLE announcement (
 				id INT AUTO_INCREMENT,
 				title VARCHAR(120),
