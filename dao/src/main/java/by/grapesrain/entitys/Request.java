@@ -19,6 +19,15 @@ import java.time.*;
 @NoArgsConstructor
 public class Request extends BaseEntity {
 
+    public Request(String title, String body, User creator, Status status, Departament departament, Priority priority) {
+        this.title = title;
+        this.body = body;
+        this.creator = creator;
+        this.status = status;
+        this.departament = departament;
+        this.priority = priority;
+    }
+
     @Getter
     @Setter
     @Column(name = "title")

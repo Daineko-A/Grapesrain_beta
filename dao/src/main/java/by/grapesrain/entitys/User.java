@@ -17,12 +17,21 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class User extends BaseEntity {
 
-    public User(String firstName, String lastName, String login, String password, long phoneNumber, String email) {
+    public User(String firstName, String lastName, String login, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
         this.password = password;
         this.email = email;
+    }
+
+    public User(String firstName, String lastName, String login, String password, String email, Departament departament) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.departament = departament;
     }
 
     @Getter

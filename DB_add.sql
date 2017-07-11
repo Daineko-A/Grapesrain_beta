@@ -101,3 +101,6 @@ INSERT INTO request (title, body, req_create, status, priority, creator_user_id,
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Дедлайн близко', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'WAITING', 'MEDIUM', 1, 2, 2);
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, departament_id) VALUES ('Вот и лето прошло', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'MEDIUM', 1, 1);
+
+
+INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Вы выключали и включали компьютер ?', 1, '2017-01-11');

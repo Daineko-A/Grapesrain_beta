@@ -17,6 +17,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Announcement extends BaseEntity {
 
+    public Announcement(String title, String body, User creator, LocalDateTime begin, LocalDateTime end, Departament departament) {
+        this.title = title;
+        this.body = body;
+        this.creator = creator;
+        this.begin = begin;
+        this.end = end;
+        this.departament = departament;
+    }
+
     @Setter
     @Getter
     @Column(name = "title")
