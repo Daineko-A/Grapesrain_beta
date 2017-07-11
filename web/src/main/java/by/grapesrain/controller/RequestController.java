@@ -1,10 +1,8 @@
 package by.grapesrain.controller;
 
-import by.grapesrain.entitys.Departament;
-import by.grapesrain.entitys.Request;
-import by.grapesrain.entitys.Status;
-import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.*;
 import by.grapesrain.services.DepartamentService;
+import by.grapesrain.services.RequestAnswerService;
 import by.grapesrain.services.RequestService;
 import by.grapesrain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +25,14 @@ public class RequestController {
     private final RequestService requestService;
     private final UserService userService;
     private final DepartamentService departamentService;
+    private final RequestAnswerService requestAnswerService;
 
     @Autowired
-    public RequestController(RequestService requestService, UserService userService, DepartamentService departamentService) {
+    public RequestController(RequestService requestService, UserService userService, DepartamentService departamentService, RequestAnswerService requestAnswerService) {
         this.requestService = requestService;
         this.userService = userService;
         this.departamentService = departamentService;
+        this.requestAnswerService = requestAnswerService;
     }
 
     @ModelAttribute("statuses")
@@ -46,7 +46,10 @@ public class RequestController {
         return departamentService.allDepartaments();
     }
 
-
+    @ModelAttribute("requestAnswers")
+    public List<RequestAnswer> requestAnswers(@PathVariable("requestId") Integer requestId) {
+        return requestAnswerService.findByReques(requestService.findById(requestId));
+    }
 
     @ModelAttribute("request")
     public Request request(@PathVariable("requestId") Integer requestId) {

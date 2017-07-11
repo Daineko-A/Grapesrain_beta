@@ -104,3 +104,6 @@ INSERT INTO request (title, body, req_create, status, priority, creator_user_id,
 
 
 INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Вы выключали и включали компьютер ?', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Сколько вы видите клавишь на клавиатуре ?', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (2, 'Тук тук нео ...', 1, '2017-01-11');

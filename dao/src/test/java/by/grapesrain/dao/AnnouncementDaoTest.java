@@ -16,9 +16,7 @@ public class AnnouncementDaoTest extends BaseDaoTest {
 
     @Test
     public void findByTitleAnnouncement() {
-        Announcement announcement = new Announcement();
-        announcement.setTitle("first");
-//        announcement.setBegin(new LocalDateTime());
+
 
     }
 }

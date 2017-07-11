@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface RequestAnswerDao extends BaseDao<RequestAnswer> {
 
-    public List<RequestAnswer> findRequestAnswersByRequest(Request request);
+    public List<RequestAnswer> findByRequest(Request request);
 }

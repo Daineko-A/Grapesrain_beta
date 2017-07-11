@@ -111,10 +111,27 @@
                     <div class="panel-body" th:text="${request.getBody()}">Тело заявки</div>
                 </div>
 
-                <div class="panel panel-primary">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">Panel with panel-info class</div>
-                        <div class="panel-body">Panel Content</div>
+
+                <!--requestAnswers-->
+                <div class="panel panel-primary" >
+                    <div class="panel panel-info" th:each="reqAns : ${requestAnswers}">
+                        <div class="panel-heading">
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>Создатель</th>
+                                    <th>Дата создания</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="${reqAns.getRespondent().getLogin()}">Создатель</td>
+                                    <td th:text="${reqAns.getAnswerDate()}">Дата создания</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-body" th:text="${reqAns.getBody()}">Panel Content</div>
                     </div>
                 </div>
 

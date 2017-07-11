@@ -14,7 +14,7 @@ import java.util.List;
 public class RequestAnswerDaoImpl extends BaseDaoImpl<RequestAnswer> implements RequestAnswerDao {
 
     @Override
-    public List<RequestAnswer> findRequestAnswersByRequest(Request request) {
+    public List<RequestAnswer> findByRequest(Request request) {
         return getSessionFactory().getCurrentSession().createQuery(
                 "select a from RequestAnswer a where a.request=:request", RequestAnswer.class)
                 .setParameter("request", request)

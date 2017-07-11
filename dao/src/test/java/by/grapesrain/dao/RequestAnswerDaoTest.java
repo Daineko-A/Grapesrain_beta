@@ -37,7 +37,7 @@ public class RequestAnswerDaoTest extends BaseDaoTest {
         requestDao.save(request);
         requestAnswerDao.save(requestAnswer);
 
-        RequestAnswer findRequestAnswer = requestAnswerDao.findRequestAnswersByRequest(request).get(0);
+        RequestAnswer findRequestAnswer = requestAnswerDao.findByRequest(request).get(0);
         User findRAUser = findRequestAnswer.getRespondent();
 
         System.out.println(findRequestAnswer);
