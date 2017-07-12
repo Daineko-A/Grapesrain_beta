@@ -12,4 +12,6 @@ public interface DepartamentService {
     List<Departament> allDepartaments();
 
     Departament findById(long id);
+
+    void update(Departament departament);
 }

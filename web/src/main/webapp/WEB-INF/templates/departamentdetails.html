@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>UserDetails</title>
+    <title>Title</title>
 </head>
 <body>
 
@@ -41,50 +41,54 @@
         </div>
         <br>
 
-
-
-
-
         <div class="col-sm-9">
             <div class="well">
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
 
-
                         <div class="container">
-                            <h2 th:text="${request.getTitle()}">Заголовок</h2>
-                            <p th:text=" ${request.getId()}">№ заявки</p>
-                            <!--th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"-->
+                            <h2 th:text="${departamentDetails.getName()}">Name</h2>
+
                             <table class="table table-condensed">
                                 <thead>
                                 <tr>
-                                    <th>Создатель</th>
-                                    <th>Дата создания</th>
-                                    <th>Статус</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${request.getCreator().getLogin()}">Создатель</td>
-                                    <td th:text="${request.getCreate()}">Дата создания</td>
-                                    <td th:text="${request.getStatus()}">Статус</td>
+                                    <td th:text="${departamentDetails.getId()}">ID</td>
+                                    <td th:text="${departamentDetails.getName()}">Name</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
 
-
                     </div>
-                    <div class="panel-body" th:text="${request.getBody()}">Тело заявки</div>
+
+                    <div class="container">
+
+                        <form th:action="@{/departamentdetails}" method="post" th:object="${departament}">
+                            <h2 class="form-registration-heading">Change departament</h2>
+
+                            <label th:for="name" th:text="departament.name">Department name</label>
+                            <input type="text" th:field="*{name}" th:value="departament.name" placeholder="name" required autofocus>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+                            <br>
+                        </form>
+
+
                 </div>
 
+
             </div>
-
-
-
         </div>
     </div>
+</div>
+
 
 </body>
 </html>

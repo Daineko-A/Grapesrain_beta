@@ -8,5 +8,5 @@ import by.grapesrain.entitys.Departament;
  */
 public interface DepartamentDao extends BaseDao<Departament> {
 
-//    Departament findById(long id);
+    Departament updateDep(Departament departament);
 }

@@ -42,6 +42,17 @@ public class IndexController {
         return requestService.findRequestsByDepartament(departamentService.findById(idDep));
     }
 
+//    @ModelAttribute("requestsByDep")
+//    public List<Request> reqByDep() {
+//
+//        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+//        System.out.println(idDep);
+//        System.out.println("=-==========================================================");
+//        System.out.println(departamentService.findById(idDep));
+//        System.out.println(requestService.findRequestsByDepartament(departamentService.findById(idDep)));
+//        return requestService.allRequests();
+//    }
+
     @ModelAttribute("allRequests")
     public List<Request> requests() {
         return requestService.allRequests();

@@ -39,9 +39,8 @@ public class Request extends BaseEntity {
     private String body;
 
     @Getter
-    @Setter
     @Column(name = "req_create")
-    private LocalDateTime create;
+    private LocalDateTime create = LocalDateTime.now();
 
     @Getter
     @Setter

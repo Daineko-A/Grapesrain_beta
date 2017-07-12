@@ -65,6 +65,14 @@ public class ConfigDB {
     @Value("${hibernate.generate_statistics}")
     private String statistics;
 
+
+    @Value("${hibernate.cache.provider_class}")
+    private String providerClass;
+
+
+
+
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

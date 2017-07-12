@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
 
@@ -14,5 +12,6 @@
            maxElementsInMemory="500"
            eternal="false"
            timeToIdleSeconds="30"
-           timeToLiveSeconds="60"/>
+           timeToLiveSeconds="60">
+    </cache>
 </ehcache>

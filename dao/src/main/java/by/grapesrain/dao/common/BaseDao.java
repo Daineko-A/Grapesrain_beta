@@ -11,6 +11,8 @@ public interface BaseDao<T extends BaseEntity> {
 
     void save(T entity);
 
+    void update(T entity);
+
     List<T> findAll();
 
     T findById(long id);

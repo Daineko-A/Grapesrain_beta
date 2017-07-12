@@ -13,6 +13,12 @@ import java.util.List;
 @Repository
 public class DepartamentDaoImpl extends BaseDaoImpl<Departament> implements DepartamentDao {
 
+    @Override
+    public Departament updateDep(Departament departament) {
+
+        return null;
+    }
+
 //    @Override
 //    public Departament findById(long id) {
 //        List<Departament> departaments = getSessionFactory().getCurrentSession().createQuery(

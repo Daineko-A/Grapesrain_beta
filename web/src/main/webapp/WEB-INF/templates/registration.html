@@ -14,10 +14,13 @@
     <div class="col-md-4 offset-md-4">
         <form th:action="@{/registration}" method="post" th:object="${user}">
             <h2 class="form-registration-heading">Registration</h2>
+
             <label th:for="firstName" th:text="#{account.firstName}">First namer</label>
             <input type="text" th:field="*{firstName}" class="form-control" placeholder="First Name" required autofocus>
+
             <label th:for="lastName" th:text="#{account.lastName}">Last name</label>
             <input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name" required>
+
             <label th:for="login" th:text="#{account.login}">Login</label>
             <input type="text" th:field="*{login}" class="form-control" placeholder="Login" required autofocus>
             <label th:for="password" th:text="#{account.password}">Password</label>

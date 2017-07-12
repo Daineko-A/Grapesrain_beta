@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by Alexandr on 30.06.2017.
  */
+
 public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
     @Autowired
@@ -34,10 +35,22 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     @Override
+    public void update(T entity) {
+        sessionFactory.getCurrentSession().saveOrUpdate(entity);
+    }
+
+    @Override
     public List<T> findAll() {
         Session session = sessionFactory.getCurrentSession();
+        System.out.println("*********************************************************************************************");
+        System.out.println(sessionFactory.getStatistics());
+        System.out.println(sessionFactory.getStatistics().getSecondLevelCacheHitCount());
+        System.out.println(sessionFactory.getStatistics().getSecondLevelCacheMissCount());
+        System.out.println(sessionFactory.getStatistics().getSecondLevelCachePutCount());
+        System.out.println(sessionFactory.getStatistics().getSecondLevelCacheRegionNames());
         return session.createQuery(
                 "from " + modelClass.getSimpleName(), modelClass)
+                .setHint("org.hibernate.cacheable", true)
                 .getResultList();
     }
 

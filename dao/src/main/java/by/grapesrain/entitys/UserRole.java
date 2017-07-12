@@ -38,5 +38,4 @@ public class UserRole extends BaseEntity {
     @Getter
     @Setter
     private Set<User> users = new HashSet<User>();
-
 }

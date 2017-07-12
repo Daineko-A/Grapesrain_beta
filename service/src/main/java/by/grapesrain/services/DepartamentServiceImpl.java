@@ -31,4 +31,9 @@ public class DepartamentServiceImpl implements DepartamentService {
     public Departament findById(long id) {
         return departamentDao.findById(id);
     }
+
+    @Override
+    public void update(Departament departament) {
+        departamentDao.update(departament);
+    }
 }

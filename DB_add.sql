@@ -11,6 +11,7 @@ CREATE TABLE user_role (
 CREATE TABLE departament (
 				id INT AUTO_INCREMENT,
                 name VARCHAR(60) UNIQUE NOT NULL,
+                version INT,
 				PRIMARY KEY(id));
                 
 CREATE TABLE user (
@@ -77,10 +78,10 @@ INSERT INTO user_role (role) VALUES ('Coordinator');
 INSERT INTO user_role (role) VALUES ('Head of Department');
 
 
-INSERT INTO departament (name) VALUES ('IT');
-INSERT INTO departament (name) VALUES ('Managers');
-INSERT INTO departament (name) VALUES ('Buildings');
-INSERT INTO departament (name) VALUES ('Development');
+INSERT INTO departament (name, version) VALUES ('IT', 1);
+INSERT INTO departament (name, version) VALUES ('Managers', 1);
+INSERT INTO departament (name, version) VALUES ('Buildings', 1);
+INSERT INTO departament (name, version) VALUES ('Development', 1);
 
 INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('FAdmin', 'LAdmin', 'Admin', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'admin@admin.by', 1, 1);
 INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('FUser', 'LUser', 'User', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'user@user.by', 2, 4);

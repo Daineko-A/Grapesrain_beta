@@ -48,7 +48,6 @@ public class RequestDaoTest extends BaseDaoTest {
         Request request = new Request();
         request.setTitle("title");
         request.setBody("body");
-        request.setCreate(LocalDateTime.of(2017, 01, 12, 14, 30));
         request.setClose(LocalDateTime.of(2017, 02, 12, 14, 30));
         request.setCreator(userDao.findAll().get(0));
         request.setExecutor(userDao.findAll().get(0));
