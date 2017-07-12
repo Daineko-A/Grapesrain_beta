@@ -16,9 +16,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "departament")
-@ToString(callSuper = true, exclude = {"users", "requests", "announcements", "version"})
+@ToString(callSuper = true, exclude = {"users", "requests", "announcements"})
 @NoArgsConstructor
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Departament extends BaseEntity {
 
     public Departament(String name) {
@@ -30,10 +30,10 @@ public class Departament extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-//    @Version
-//    @Setter
-//    @Getter
-//    private Long version;
+    @Version
+    @Setter
+    @Getter
+    private Long version;
 
     @Getter
     @Setter

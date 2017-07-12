@@ -69,19 +69,19 @@
                     </div>
 
                     <div class="container">
-
-                        <form th:action="@{/departamentdetails}" method="post" th:object="${departament}">
-                            <h2 class="form-registration-heading">Change departament</h2>
-
-                            <label th:for="name" th:text="departament.name">Department name</label>
-                            <input type="text" th:field="*{name}" th:value="departament.name" placeholder="name" required autofocus>
-                            <br>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
-                            <br>
-                        </form>
-
-
-                </div>
+                        <div class="col-md-4 offset-md-4">
+                            <form th:action="@{/departamentdetails/{departamentId} (departamentId = ${departamentDetails.getId()})}"
+                                  th:object="${departament}" method="post">
+                                <h2 class="form-signin-heading">Chenge</h2>
+                                <input type="text" name="id" id="id" class="form-control" placeholder="id" required autofocus>
+                                <br>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="name" required autofocus>
+                                <br>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+                                <br>
+                            </form>
+                        </div>
+                    </div>
 
 
             </div>

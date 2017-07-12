@@ -1,4 +1,5 @@
 DROP DATABASE grapesrain_db;
+-- CREATE DATABASE grapesrain_db charset=utf8;
 CREATE DATABASE grapesrain_db;
 USE grapesrain_db;
 

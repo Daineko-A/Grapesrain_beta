@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.annotation.SessionScope;
-import sun.plugin.liveconnect.SecurityContextHelper;
+//import sun.plugin.liveconnect.SecurityContextHelper;
 
 import java.util.List;
 

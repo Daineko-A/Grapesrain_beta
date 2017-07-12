@@ -101,11 +101,11 @@ public class ConfigDB {
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
 
-        properties.setProperty("hibernate.cache.use_second_level_cache", useSecLevCache);
-        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
-        properties.setProperty("hibernate.cache.region.factory_class", cacheRegion);
-        properties.setProperty("net.sf.ehcache.configurationResourceName", ehcacheConf);
-        properties.setProperty("hibernate.generate_statistics", statistics);
+//        properties.setProperty("hibernate.cache.use_second_level_cache", useSecLevCache);
+//        properties.setProperty("hibernate.cache.use_query_cache", useQueryCache);
+//        properties.setProperty("hibernate.cache.region.factory_class", cacheRegion);
+//        properties.setProperty("net.sf.ehcache.configurationResourceName", ehcacheConf);
+//        properties.setProperty("hibernate.generate_statistics", statistics);
 
         //TODO: connection isolation
         properties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));

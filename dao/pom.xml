@@ -115,10 +115,22 @@
       <version>${spring-security.version}</version>
     </dependency>
 
+    <!--<dependency>-->
+      <!--<groupId>org.hibernate</groupId>-->
+      <!--<artifactId>ehcache-core</artifactId>-->
+      <!--<version>RELEASE</version>-->
+    <!--</dependency>-->
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+
     <dependency>
       <groupId>org.hibernate</groupId>
-      <artifactId>ehcache-core</artifactId>
-      <version>RELEASE</version>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.2.10.Final</version>
     </dependency>
 
   </dependencies>
