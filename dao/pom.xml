@@ -115,11 +115,6 @@
       <version>${spring-security.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>ehcache-core</artifactId>
-      <version>RELEASE</version>
-    </dependency>
 
   </dependencies>
 
