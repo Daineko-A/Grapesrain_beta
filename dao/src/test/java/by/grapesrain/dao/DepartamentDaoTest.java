@@ -77,4 +77,20 @@ public class DepartamentDaoTest extends BaseDaoTest {
         System.out.println(findDepartament5.getName());
         assertNotNull(findDepartament5);
     }
+
+    @Test
+    public void update() {
+        Departament departament = new Departament("it");
+        departamentDao.save(departament);
+
+        Departament departament1 = departamentDao.findById(1);
+        departament1.setName("qwe");
+        departamentDao.update(departament1);
+
+        Departament departament2 = departamentDao.findById(1);
+        System.out.println(departament2);
+
+        assertNotNull(departament2);
+
+    }
 }

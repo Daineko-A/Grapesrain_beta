@@ -15,7 +15,7 @@ import java.time.*;
 
 @Entity
 @Table(name = "request")
-@ToString(callSuper = true, exclude = "creator, executor")
+@ToString(callSuper = true, exclude = "creator")
 @NoArgsConstructor
 public class Request extends BaseEntity {
 

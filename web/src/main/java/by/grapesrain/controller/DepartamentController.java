@@ -39,7 +39,9 @@ public class DepartamentController {
     }
 
     @PostMapping("/departamentdetails/{departamentId}")
-    public String updateDeportament(Model model, Departament departament, @PathVariable("departamentId") Integer departamentId) {
+    public String updateDeportament(Model model, Departament departament, @PathVariable("departamentId") Integer departamentId, @PathVariable("name") String newName ) {
+        departament.setName(newName);
+        System.out.println(departament);
         departamentService.update(departament);
         return "/departamentdetails";
     }

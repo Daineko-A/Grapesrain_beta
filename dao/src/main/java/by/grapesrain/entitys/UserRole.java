@@ -22,7 +22,7 @@ import java.util.Set;
 @Table(name = "user_role")
 @ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cacheSecLev")
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cacheSecLev")
 public class UserRole extends BaseEntity {
 
     public UserRole(String role) {
