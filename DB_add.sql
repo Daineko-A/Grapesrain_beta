@@ -90,11 +90,24 @@ INSERT INTO user (first_name, last_name, login, password, email, user_role_id, d
 INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('Иван', 'Иванов', 'IvanivI', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'IvanivI@user.by', 4, 1);
 INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('Петр', 'Петров', 'PetrovP', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'PetrovP@user.by', 5, 1);
 INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('Бендер', 'Радригес', 'BenderR', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'BenderR@user.by', 2, 1);
-INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('Сергей', 'Сидоров', 'SidorovS', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'SidorovS@user.by', 2, 3);
+INSERT INTO user (first_name, last_name, login, password, email, user_role_id, departament_id) VALUES ('Сергей', 'Сидоров', 'SidorovS', '$2a$10$udT6ECih3K62N/sd5lZFKeeN7bv3nSfs3y2gbNzoc5.4a4u0ZjC/2', 'SidorovS@user.by', 2, 4);
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Ничего не работает', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'VERYHIGH', 1, 1, 1);
-INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Отвалился конфиг', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'MEDIUM', 1, 1, 2);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Отвалился конфиг', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'MEDIUM', 1, 1, 4);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('Шариков не дали', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'LOW', 1, 1, 1);
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) VALUES ('WEB не работает', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'MEDIUM', 1, 2, 2);

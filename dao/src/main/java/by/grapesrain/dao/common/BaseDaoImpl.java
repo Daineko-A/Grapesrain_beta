@@ -25,7 +25,7 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     protected SessionFactory getSessionFactory() {
-        System.out.println(sessionFactory.getStatistics());
+//        System.out.println(sessionFactory.getStatistics());
         return sessionFactory;
     }
 
@@ -44,7 +44,6 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery(
                 "from " + modelClass.getSimpleName(), modelClass)
-//                .setHint("org.hibernate.cacheable", true)
                 .getResultList();
     }
 
