@@ -1,6 +1,6 @@
 package by.grapesrain.config;
 
-import by.grapesrain.aspect.Logger;
+import by.grapesrain.aspect.ServLogger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AspectConfig {
 
     @Bean
-    public Logger logger() {
-        return new Logger();
+    public ServLogger logger() {
+        return new ServLogger();
     }
 }
