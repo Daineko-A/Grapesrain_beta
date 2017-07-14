@@ -1,21 +1,11 @@
 package by.grapesrain.util;
 
-import by.grapesrain.config.TestConfigDB;
-import by.grapesrain.dao.BaseDaoTest;
 import by.grapesrain.dao.DepartamentDao;
+import by.grapesrain.dao.RoleDao;
 import by.grapesrain.dao.UserDao;
-import by.grapesrain.dao.UserRoleDao;
 import by.grapesrain.entitys.Departament;
-import by.grapesrain.entitys.User;
-import by.grapesrain.entitys.UserRole;
-import org.hibernate.SessionFactory;
-import org.junit.runner.RunWith;
+import by.grapesrain.entitys.Role;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.transaction.Transactional;
 
 /**
  * Created by PloSkiY on 22.06.2017.
@@ -26,7 +16,7 @@ public class EmployeeTestDataImporter{
     private UserDao userDao;
 
     @Autowired
-    private UserRoleDao userRoleDao;
+    private RoleDao roleDao;
 
     @Autowired
     private DepartamentDao departamentDao;
@@ -36,9 +26,9 @@ public class EmployeeTestDataImporter{
         departament.setName("ИТ");
         departamentDao.save(departament);
 
-        UserRole userRole = new UserRole();
-        userRole.setRole("Админ");
-        userRoleDao.save(userRole);
+        Role role = new Role();
+        role.setRole("Админ");
+        roleDao.save(role);
 
 //        User user = new User();
 //        user.setFirstName("asd");
@@ -47,7 +37,7 @@ public class EmployeeTestDataImporter{
 //        user.setEmail("asd@Asd.asd");
 //        user.setPhoneNumber(375291234567L);
 //        user.setPassword("123456");
-//        user.setUserRole(userRoleDao.findAll().get(0));
+//        user.setUserRole(roleDao.findAll().get(0));
 //
 //        userDao.save(user);
 
@@ -60,9 +50,9 @@ public class EmployeeTestDataImporter{
 //        Departament buhg = new Departament("Buhg");
 //        Departament managers = new Departament ("Managers");
 //
-//        UserRole admin = new UserRole("Admin");
-//        UserRole user = new UserRole("User");
-//        UserRole client = new UserRole("Client");
+//        Role admin = new Role("Admin");
+//        Role user = new Role("User");
+//        Role client = new Role("Client");
 //
 //        User alex = new User("Alex", "LAlex", "123", 123456789, "asdf@adsf.bt");
 //        User olga = new User("Olga", "LOlga", "321", 122435, "asdf@saf.sa");

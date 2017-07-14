@@ -1,11 +1,12 @@
 package by.grapesrain.dao;
 
 import by.grapesrain.entitys.*;
-import by.grapesrain.util.EmployeeTestDataImporter;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -21,7 +22,7 @@ public class RequestDaoTest extends BaseDaoTest {
     private UserDao userDao;
 
     @Autowired
-    private UserRoleDao userRoleDao;
+    private RoleDao roleDao;
 
     @Autowired
     private DepartamentDao departamentDao;
@@ -32,9 +33,9 @@ public class RequestDaoTest extends BaseDaoTest {
         departament.setName("ИТ");
         departamentDao.save(departament);
 
-        UserRole userRole = new UserRole();
-        userRole.setRole("Админ");
-        userRoleDao.save(userRole);
+        Role role = new Role();
+        role.setRole("Админ");
+        roleDao.save(role);
 
         User user = new User();
         user.setFirstName("asd");
@@ -42,7 +43,11 @@ public class RequestDaoTest extends BaseDaoTest {
         user.setDepartament(departamentDao.findAll().get(0));
         user.setEmail("asd@Asd.asd");
         user.setPassword("123456");
-        user.setUserRole(userRoleDao.findAll().get(0));
+
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleDao.findById(1));
+        user.setRoles(roles);
+
         userDao.save(user);
 
         Request request = new Request();

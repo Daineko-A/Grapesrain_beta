@@ -1,7 +1,7 @@
 package by.grapesrain.services;
 
-import by.grapesrain.dao.UserRoleDao;
-import by.grapesrain.entitys.UserRole;
+import by.grapesrain.dao.RoleDao;
+import by.grapesrain.entitys.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,15 +15,15 @@ import java.util.List;
 @Transactional
 public class UserRoleServiceImpl implements UserRoleService {
 
-    private final UserRoleDao userRoleDao;
+    private final RoleDao roleDao;
 
     @Autowired
-    public UserRoleServiceImpl(UserRoleDao userRoleDao) {
-        this.userRoleDao = userRoleDao;
+    public UserRoleServiceImpl(RoleDao roleDao) {
+        this.roleDao = roleDao;
     }
 
     @Override
-    public List<UserRole> allUserRoles() {
-        return userRoleDao.findAll();
+    public List<Role> allUserRoles() {
+        return roleDao.findAll();
     }
 }

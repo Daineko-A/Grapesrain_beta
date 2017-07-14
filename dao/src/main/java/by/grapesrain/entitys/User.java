@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Daynekoa on 27.05.2017.
@@ -61,9 +63,29 @@ public class User extends BaseEntity {
 
     @Getter
     @Setter
-    @ManyToOne
-    @JoinColumn(name = "user_role_id")
-    private UserRole userRole;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "modelDrvice", column = @Column(name = "first_model_device")),
+            @AttributeOverride(name = "macAddress", column = @Column(name = "first_mac_address"))
+    })
+    private Device firstDevice;
+
+    @Getter
+    @Setter
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "modelDrvice", column = @Column(name = "second_model_device")),
+            @AttributeOverride(name = "macAddress", column = @Column(name = "second_mac_address"))
+    })
+    private Device secondDevice;
+
+    @Getter
+    @Setter
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     @Getter
     @Setter

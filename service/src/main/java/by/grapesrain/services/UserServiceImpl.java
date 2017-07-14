@@ -1,7 +1,8 @@
 package by.grapesrain.services;
 
 import by.grapesrain.dao.UserDao;
-import by.grapesrain.dao.UserRoleDao;
+import by.grapesrain.dao.RoleDao;
+import by.grapesrain.entitys.Role;
 import by.grapesrain.entitys.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,12 +24,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
-    private final UserRoleDao userRoleDao;
+    private final RoleDao roleDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao, UserRoleDao userRoleDao) {
+    public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
         this.userDao = userDao;
-        this.userRoleDao = userRoleDao;
+        this.roleDao = roleDao;
     }
 
 
@@ -39,7 +40,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        user.setUserRole(userRoleDao.findAll().get(1));
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleDao.findById(2));
+        user.setRoles(roles);
         userDao.save(user);
     }
 
@@ -55,7 +58,10 @@ public class UserServiceImpl implements UserService {
 
     private Set<GrantedAuthority> getUserAuthorities(User user) {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority(user.getUserRole().getRole()));
+        Set<Role> roles = user.getRoles();
+        for(Role role : roles) {
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
+        }
 
         return grantedAuthorities;
     }
@@ -68,6 +74,7 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("Пользователь не найден");
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), getUserAuthorities(user));
+        return new org.springframework.security.core.userdetails.User(
+                user.getLogin(), user.getPassword(), getUserAuthorities(user));
     }
 }

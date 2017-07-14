@@ -1,6 +1,6 @@
 package by.grapesrain.services;
 
-import by.grapesrain.entitys.UserRole;
+import by.grapesrain.entitys.Role;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface UserRoleService {
 
-    List<UserRole> allUserRoles();
+    List<Role> allUserRoles();
 }

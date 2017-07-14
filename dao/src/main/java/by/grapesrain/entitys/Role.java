@@ -7,10 +7,7 @@ import lombok.ToString;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,23 +16,27 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "user_role")
+@Table(name = "role")
 @ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
-//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cacheSecLev")
-public class UserRole extends BaseEntity {
+public class Role extends BaseEntity {
 
-    public UserRole(String role) {
+    public Role(String role) {
         this.role = role;
     }
 
     @Getter
     @Setter
     @Column(name = "role")
-    protected String role;
+    private String role;
 
-    @OneToMany(mappedBy = "userRole")
     @Getter
     @Setter
-    private Set<User> users = new HashSet<User>();
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
+
+//    @Getter
+//    @Setter
+//    @OneToMany(mappedBy = "userRole")
+//    private Set<User> users = new HashSet<User>();
 }

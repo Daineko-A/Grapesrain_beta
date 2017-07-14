@@ -1,15 +1,12 @@
 package by.grapesrain.services;
 
-import by.grapesrain.dao.UserRoleDao;
-import by.grapesrain.entitys.UserRole;
+import by.grapesrain.dao.RoleDao;
+import by.grapesrain.entitys.Role;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -20,21 +17,21 @@ import static org.junit.Assert.assertNotNull;
 //@ContextConfiguration(classes = TestConfigDB.class)
 //@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @javax.transaction.Transactional
-public class UserRoleServiceImplTest {
+public class RoleServiceImplTest {
 
     @Autowired
     private UserRoleService userRoleService;
 
     @Autowired
-    private UserRoleDao userRoleDao;
+    private RoleDao roleDao;
 
     @Test
     public void findAllRoles(){
-        UserRole userRole = new UserRole();
-        userRole.setRole("asd");
-        userRoleDao.save(userRole);
+        Role role = new Role();
+        role.setRole("asd");
+        roleDao.save(role);
 
-        UserRole findUserRole = userRoleService.allUserRoles().get(0);
-        assertNotNull(findUserRole);
+        Role findRole = userRoleService.allUserRoles().get(0);
+        assertNotNull(findRole);
     }
 }

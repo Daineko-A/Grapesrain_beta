@@ -1,7 +1,7 @@
 package by.grapesrain.controller;
 
 import by.grapesrain.entitys.Request;
-import by.grapesrain.entitys.UserRole;
+import by.grapesrain.entitys.Role;
 import by.grapesrain.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.context.annotation.SessionScope;
 //import sun.plugin.liveconnect.SecurityContextHelper;
 
 import java.util.List;
@@ -59,7 +57,7 @@ public class IndexController {
     }
 
     @ModelAttribute("allUserRole")
-    public List<UserRole> userRoles() {
+    public List<Role> userRoles() {
         return userRoleService.allUserRoles();
     }
 

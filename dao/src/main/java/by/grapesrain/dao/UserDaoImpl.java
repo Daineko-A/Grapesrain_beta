@@ -1,13 +1,7 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.dao.common.BaseDao;
 import by.grapesrain.dao.common.BaseDaoImpl;
-import by.grapesrain.entitys.BaseEntity;
-import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.User;
-import by.grapesrain.entitys.UserRole;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
