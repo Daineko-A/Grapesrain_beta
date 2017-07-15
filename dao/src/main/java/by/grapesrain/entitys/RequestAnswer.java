@@ -41,6 +41,6 @@ public class RequestAnswer extends BaseEntity{
     private String body;
 
     @Getter
-    @Column(name = "answerDate")
+    @Column(name = "publicateDate")
     private LocalDateTime answerDate = LocalDateTime.now();
 }

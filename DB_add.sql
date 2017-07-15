@@ -23,12 +23,22 @@ CREATE TABLE user (
                 login VARCHAR(60) NOT NULL,
                 password VARCHAR(60) NOT NULL,
 				email VARCHAR(60) UNIQUE NOT NULL,
-                -- user_role_id INT  NOT NULL, 
                 departament_id INT,
                 version INT,
 				PRIMARY KEY(id), 
-                -- FOREIGN KEY (user_role_id) REFERENCES user_role(id),
                 FOREIGN KEY (departament_id) REFERENCES departament(id));
+                
+CREATE TABLE user_card (
+				id INT AUTO_INCREMENT, 
+				user_id INT NOT NULL,
+                first_model_device VARCHAR(60),
+                first_mac_address VARCHAR(60),
+                second_model_device VARCHAR(60),
+                second_mac_address VARCHAR(60),
+                pc_ownership VARCHAR(60),
+                version INT,
+				PRIMARY KEY(id), 
+                FOREIGN KEY (user_id) REFERENCES user(id));
                         
 CREATE TABLE users_roles (
 				role_id INT NOT NULL,
@@ -58,7 +68,19 @@ CREATE TABLE requestanswer (
                 request_id INT,
 				body VARCHAR(1000),
 				respondent_user_id INT,
-                answerDate DATETIME,
+                publicateDate DATETIME,
+				PRIMARY KEY(id),
+				FOREIGN KEY(respondent_user_id) REFERENCES user(id),
+                FOREIGN KEY (request_id) REFERENCES request(id));
+                
+CREATE TABLE faq (
+				id INT AUTO_INCREMENT, 
+                request_id INT,
+                title VARCHAR(100),
+				body VARCHAR(1000),
+                solution VARCHAR(1000),
+				respondent_user_id INT,
+                publicateDate DATETIME,
 				PRIMARY KEY(id),
 				FOREIGN KEY(respondent_user_id) REFERENCES user(id),
                 FOREIGN KEY (request_id) REFERENCES request(id));

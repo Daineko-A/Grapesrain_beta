@@ -63,24 +63,6 @@ public class User extends BaseEntity {
 
     @Getter
     @Setter
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "modelDrvice", column = @Column(name = "first_model_device")),
-            @AttributeOverride(name = "macAddress", column = @Column(name = "first_mac_address"))
-    })
-    private Device firstDevice;
-
-    @Getter
-    @Setter
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "modelDrvice", column = @Column(name = "second_model_device")),
-            @AttributeOverride(name = "macAddress", column = @Column(name = "second_mac_address"))
-    })
-    private Device secondDevice;
-
-    @Getter
-    @Setter
     @ManyToMany
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -92,6 +74,11 @@ public class User extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "departament_id")
     private Departament departament;
+
+    @Getter
+    @Setter
+    @OneToOne
+    private UserCard userCard;
 
     @Version
     @Setter
