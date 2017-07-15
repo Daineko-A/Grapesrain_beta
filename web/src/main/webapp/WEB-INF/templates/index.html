@@ -57,7 +57,7 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${requestsByDep}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                        <tr th:each="requests : ${allReqByDepWithPage}" th:class="${#strings.toLowerCase(requests.getPriority())}">
                             <td><a href="request.html" th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
@@ -69,13 +69,30 @@
                         </tr>
 
                         </tbody>
+
+
+
                     </table>
                 </div>
 
-                <ul class="pager">
-                    <li><a href="#">Previous</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
+
+                <!--<ul class="pagination">-->
+                    <!--<li><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">5</a></li>-->
+                <!--</ul>-->
+
+                <!--<ul class="pager">-->
+                    <!--<li><a href="#">Previous</a></li>-->
+                    <!--<li><a href="#">Next</a></li>-->
+                <!--</ul>-->
+
+                <!--<span>-->
+                <!--<a href="?page=next">next</a>-->
+                <!--<a href="?page=prev">prev</a>-->
+            <!--</span>-->
 
             </div>
 

@@ -32,6 +32,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    public List<Request> allRequestsWithPage(int startR, int limitR) {
+        return requestDao.findAllWithPage(startR, limitR);
+    }
+
+    @Override
     public Request findById(long id) {
         return requestDao.findById(id);
     }
@@ -45,5 +50,15 @@ public class RequestServiceImpl implements RequestService {
     public void save(Request request, String login) {
         request.setCreator(userDao.findUserByLogin(login));
         requestDao.save(request);
+    }
+
+    @Override
+    public List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament) {
+        return requestDao.allRequestsByDepWithPage(startR, limitR, departament);
+    }
+
+    @Override
+    public int quantityRequests(Departament departament){
+        return requestDao.quantityRequests(departament);
     }
 }

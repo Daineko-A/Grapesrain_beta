@@ -23,4 +23,24 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
 
         return requests.size() > 0 ? requests : null;
     }
+
+    @Override
+    public List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament) {
+        List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
+                "select r from Request r where r.departament=:departament", Request.class)
+                .setParameter("departament", departament)
+                .setFirstResult(startR)
+                .setMaxResults(limitR)
+                .getResultList();
+
+        return requests.size() > 0 ? requests : null;
+    }
+
+    @Override
+    public int quantityRequests(Departament departament) {
+        return getSessionFactory().getCurrentSession().createQuery(
+                "select r from Request r where r.departament=:departament", Request.class)
+                .setParameter("departament", departament)
+                .getResultList().size();
+    }
 }

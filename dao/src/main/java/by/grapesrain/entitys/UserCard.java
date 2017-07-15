@@ -42,5 +42,6 @@ public class UserCard extends BaseEntity {
     @Version
     @Setter
     @Getter
+    @Column(name = "version_card")
     private Long version;
 }

@@ -13,4 +13,8 @@ public interface RequestDao extends BaseDao<Request> {
 
     List<Request> findRequestsByDepartament(Departament departament);
 
+    List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament);
+
+    public int quantityRequests(Departament departament);
+
 }

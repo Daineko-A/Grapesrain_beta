@@ -12,9 +12,15 @@ public interface RequestService {
 
     List<Request> allRequests();
 
+    List<Request> allRequestsWithPage(int startR, int limitR);
+
     Request findById(long id);
 
     List<Request> findRequestsByDepartament(Departament departament);
 
     void save(Request request, String login);
+
+    List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament);
+
+    int quantityRequests(Departament departament);
 }

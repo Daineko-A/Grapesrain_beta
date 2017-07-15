@@ -36,7 +36,7 @@ CREATE TABLE user_card (
                 second_model_device VARCHAR(60),
                 second_mac_address VARCHAR(60),
                 pc_ownership VARCHAR(60),
-                version INT,
+                version_card INT,
 				PRIMARY KEY(id), 
                 FOREIGN KEY (user_id) REFERENCES user(id));
                         
@@ -143,17 +143,17 @@ INSERT INTO request (title, body, req_create, status, priority, creator_user_id,
 	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
-	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 2);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id)
 	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
-	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 2);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
-		VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
-INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
-	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+		VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 3);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
 	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
+	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 2);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
 	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
