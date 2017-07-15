@@ -69,8 +69,8 @@ CREATE TABLE requestanswer (
 				body VARCHAR(1000),
 				respondent_user_id INT,
                 publicateDate DATETIME,
-				PRIMARY KEY(id),
-				FOREIGN KEY(respondent_user_id) REFERENCES user(id),
+				PRIMARY KEY (id),
+				FOREIGN KEY (respondent_user_id) REFERENCES user(id),
                 FOREIGN KEY (request_id) REFERENCES request(id));
                 
 CREATE TABLE faq (
@@ -81,8 +81,8 @@ CREATE TABLE faq (
                 solution VARCHAR(1000),
 				respondent_user_id INT,
                 publicateDate DATETIME,
-				PRIMARY KEY(id),
-				FOREIGN KEY(respondent_user_id) REFERENCES user(id),
+				PRIMARY KEY (id),
+				FOREIGN KEY (respondent_user_id) REFERENCES user(id),
                 FOREIGN KEY (request_id) REFERENCES request(id));
 				
 CREATE TABLE announcement (
@@ -185,7 +185,13 @@ INSERT INTO request (title, body, req_create, status, priority, creator_user_id,
 	VALUES ('Вот и лето прошло', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'MEDIUM', 1, 1);
 
 
-INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Вы выключали и включали компьютер ?', 1, '2017-01-11');
-INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
-INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (1, 'Сколько вы видите клавишь на клавиатуре ?', 1, '2017-01-11');
-INSERT INTO requestanswer (request_id, body, respondent_user_id, answerDate) VALUES (2, 'Тук тук нео ...', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Вы выключали и включали компьютер ?', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Сколько вы видите клавишь на клавиатуре ?', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (2, 'Тук тук нео ...', 1, '2017-01-11');
+
+INSERT INTO faq (request_id, title, body, solution, respondent_user_id, publicateDate) VALUES (1, 'Решение ваших проблем faq', 'Причиной могли послужить кривые руки', 'Смотрите в манитор', 1,'2017-01-11');
+INSERT INTO faq (request_id, title, body, solution, respondent_user_id, publicateDate) VALUES (2, 'Решение ваших проблем faq2', 'Причиной могли послужить кривые руки2', 'Закройте глаза и расслабтесь', 1, '2017-01-11');
+
+INSERT INTO user_card (user_id, first_model_device, first_mac_address, second_model_device, second_mac_address, pc_ownership) VALUES (1, 'PC', '00-00-00-00-00-00', 'book', '11-00-00-00-00-00', 'Кулхаскер');
+INSERT INTO user_card (user_id, first_model_device, first_mac_address, second_model_device, second_mac_address, pc_ownership) VALUES (2, 'SEGA', '00-00-00-00-00-00', 'Тамагочи', '11-00-00-00-00-00', 'Ламер');

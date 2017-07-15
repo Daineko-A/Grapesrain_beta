@@ -3,12 +3,12 @@ package by.grapesrain.controller;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.services.DepartamentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.OptimisticLockException;
 
 /**
  * Created by PloSkiY on 12.07.2017.
@@ -39,10 +39,13 @@ public class DepartamentController {
     }
 
     @PostMapping("/departamentdetails/{departamentId}")
-    public String updateDeportament(Model model, Departament departament, @PathVariable("departamentId") Integer departamentId, @PathVariable("name") String newName ) {
-        departament.setName(newName);
-        System.out.println(departament);
-        departamentService.update(departament);
-        return "/departamentdetails";
+    public String updateDeportament(Model model, Departament departament) throws Exception {
+        try {
+            departamentService.update(departament);
+        } catch (HibernateOptimisticLockingFailureException error){
+            return "redirect:/index";
+        }
+
+        return "redirect:/admin";
     }
 }

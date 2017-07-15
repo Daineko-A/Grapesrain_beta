@@ -1,6 +1,7 @@
 package by.grapesrain.services;
 
 import by.grapesrain.dao.RequestDao;
+import by.grapesrain.dao.UserDao;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ import java.util.List;
 public class RequestServiceImpl implements RequestService {
 
     private final RequestDao requestDao;
+    private final UserDao userDao;
 
     @Autowired
-    public RequestServiceImpl(RequestDao requestDao) {
+    public RequestServiceImpl(RequestDao requestDao, UserDao userDao) {
         this.requestDao = requestDao;
+        this.userDao = userDao;
     }
 
     @Override
@@ -36,5 +39,11 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public List<Request> findRequestsByDepartament(Departament departament) {
         return requestDao.findRequestsByDepartament(departament);
+    }
+
+    @Override
+    public void save(Request request, String login) {
+        request.setCreator(userDao.findUserByLogin(login));
+        requestDao.save(request);
     }
 }

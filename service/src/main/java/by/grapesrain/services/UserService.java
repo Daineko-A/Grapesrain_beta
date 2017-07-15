@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface UserService extends UserDetailsService {
 
-    User findByName(String name);
+//    User findByLogin(String login);
 
     void save (User user);
 

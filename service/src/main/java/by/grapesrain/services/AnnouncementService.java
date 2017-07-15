@@ -12,4 +12,6 @@ public interface AnnouncementService {
     List<Announcement> allAnnouncements();
 
     Announcement findById(long id);
+
+    void save(Announcement announcement, String login);
 }

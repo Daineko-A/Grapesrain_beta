@@ -15,7 +15,6 @@ public class DepartamentDaoImpl extends BaseDaoImpl<Departament> implements Depa
 
     @Override
     public Departament updateDep(Departament departament) {
-
         return null;
     }
 

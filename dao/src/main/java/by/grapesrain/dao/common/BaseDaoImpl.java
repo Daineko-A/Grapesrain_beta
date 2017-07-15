@@ -36,7 +36,13 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
     @Override
     public void update(T entity) {
-        sessionFactory.getCurrentSession().saveOrUpdate(entity);
+
+        //        try {
+//        } catch (OptimisticLockException error){
+//            return "redirect:/admin";
+//        }
+
+        sessionFactory.getCurrentSession().update(entity);
     }
 
     @Override

@@ -15,4 +15,6 @@ public interface RequestService {
     Request findById(long id);
 
     List<Request> findRequestsByDepartament(Departament departament);
+
+    void save(Request request, String login);
 }

@@ -55,7 +55,7 @@ public class Announcement extends BaseEntity {
     @Getter
     @Setter
     @Column(name = "an_create")
-    private LocalDateTime create;
+    private LocalDateTime create = LocalDateTime.now();
 
     @Getter
     @Setter

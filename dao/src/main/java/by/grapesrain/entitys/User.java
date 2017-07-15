@@ -84,4 +84,9 @@ public class User extends BaseEntity {
     @Setter
     @Getter
     private Long version;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "creator")
+    private Set<Request> requests = new HashSet<Request>();
 }
