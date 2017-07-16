@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row content">
+
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2>GrapesRain</h2>
+
+            <br>
+
+            <span>
+                <a href="?language=en_US">English</a>
+                <a href="?language=ru_RU">Русский</a>
+            </span>
+
+            <br>
+            <br>
+            <ul class="nav nav-pills nav-stacked">
+
+                <li><a th:href="@{/index}"><span class="glyphicon glyphicon-home"></span> Dashboard </a></li>
+                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog"></span> Admin panel</a></li>
+
+                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user"></span> User details</a></li>
+                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt"></span> Registration</a></li>
+                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn"></span> New request</a></li>
+                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog"></span> New announcement</a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Выход</a></li>
+
+            </ul><br>
+        </div>
+        <br>
+
+        <div class="col-sm-9">
+            <div class="well">
+
+                <div class="container">
+                    <!--<h2>Contextual Classes</h2>-->
+                    <!--<p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>-->
+                    <table class="table" >
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Заголовок</th>
+                            <th>Создатель</th>
+                            <!--<th>Исполнитель</th>-->
+                            <th>Департамент</th>
+                            <th>Статус</th>
+                            <th>Департамент</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr th:each="requests : ${allReqByDepWithPage}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                            <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
+                            <td th:text="${requests.getTitle()}">Заголовок</td>
+                            <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
+                            <!--<td th:text="${requests.getExecutor().getLogin().toString()}">Исполнитель</td>-->
+                            <!--"${account.number > 0 ? account.number : ''}"-->
+                            <td th:text="${requests.getDepartament().getName()}">Департамент</td>
+                            <td th:text="${requests.getStatus()}">Статус</td>
+                            <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+                    <ul class="pager">
+                        <li><a href="/requestopen/1">Открытые заявки</a></li>
+                        <li><a href="/requestclose/1">Закрытые заявки</a></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="well">
+
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                        <h4>Pages</h4>
+                        <p>Ё-моё куда нас бросили</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

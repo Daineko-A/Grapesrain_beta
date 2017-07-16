@@ -70,8 +70,9 @@ CREATE TABLE requestanswer (
 				respondent_user_id INT,
                 publicateDate DATETIME,
 				PRIMARY KEY (id),
-				FOREIGN KEY (respondent_user_id) REFERENCES user(id),
-                FOREIGN KEY (request_id) REFERENCES request(id));
+                FOREIGN KEY (request_id) REFERENCES request(id),
+				FOREIGN KEY (respondent_user_id) REFERENCES user(id));
+                
                 
 CREATE TABLE faq (
 				id INT AUTO_INCREMENT, 

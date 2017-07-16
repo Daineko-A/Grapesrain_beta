@@ -73,27 +73,27 @@
 
 
                 <!--requestAnswers-->
-                <div class="panel panel-primary" >
-                    <div class="panel panel-info" th:each="rqAns : ${rqAnswers}">
-                        <div class="panel-heading">
-                            <table class="table table-condensed">
-                                <thead>
-                                <tr>
-                                    <th>Создатель</th>
-                                    <th>Дата создания</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td th:text="${rqAns.getRespondent().getLogin()}">Создатель</td>
-                                    <td th:text="${rqAns.getAnswerDate()}">Дата создания</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="panel-body" th:text="${rqAns.getBody()}">ответ</div>
-                    </div>
-                </div>
+                <!--<div class="panel panel-primary" >-->
+                    <!--<div class="panel panel-info" th:each="rqAns : ${rqAnswers}">-->
+                        <!--<div class="panel-heading">-->
+                            <!--<table class="table table-condensed">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                    <!--<th>Создатель</th>-->
+                                    <!--<th>Дата создания</th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody>-->
+                                <!--<tr>-->
+                                    <!--<td th:text="${rqAns.getRespondent().getLogin()}">Создатель</td>-->
+                                    <!--<td th:text="${rqAns.getAnswerDate()}">Дата создания</td>-->
+                                <!--</tr>-->
+                                <!--</tbody>-->
+                            <!--</table>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body" th:text="${rqAns.getBody()}">ответ</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <div class="panel panel-primary">
                     <div class="panel panel-warning">
