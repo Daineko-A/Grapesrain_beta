@@ -2,6 +2,7 @@ package by.grapesrain.services;
 
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.Status;
 
 import java.util.List;
 
@@ -22,7 +23,11 @@ public interface RequestService {
 
     List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament);
 
-    List<Request> allRequestsByDepWithPageWithautClose(int startR, int limitR, Departament departament);
+    List<Request> allRequestsByDepWithPageWithoutClose(int startR, int limitR, Departament departament);
 
-    int quantityRequests(Departament departament);
+    List<Request> allRequestsByDepWithPageWithClose(int startR, int limitR, Departament departament);
+
+    int quantityRequests(Departament departament, Status status);
+
+    void update(Request request, String executor, String creator);
 }

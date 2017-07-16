@@ -15,4 +15,6 @@ import java.util.List;
 public interface RequestAnswerService {
 
     List<RequestAnswer> findByRequest(Request request);
+
+    void save(RequestAnswer requestAnswer, String login);
 }

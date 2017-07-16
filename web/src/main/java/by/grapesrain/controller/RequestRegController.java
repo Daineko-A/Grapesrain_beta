@@ -70,11 +70,12 @@ public class RequestRegController {
 
     //POST
     @PostMapping("/requestform")
-    public String createRequest(Request request, @RequestParam long departament) {
+    public String createRequest(Request request, @RequestParam long departament, @RequestParam String priority) {
 
         String login = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         request.setDepartament(departamentService.findById(departament));
         request.setStatus(Status.OPEN);
+        request.setPriority(Priority.valueOf(priority));
 
         if(request.getTitle().isEmpty() && request.getBody().isEmpty()){
             return "redirect: /requestform";

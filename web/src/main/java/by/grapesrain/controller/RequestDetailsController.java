@@ -5,10 +5,12 @@ import by.grapesrain.services.DepartamentService;
 import by.grapesrain.services.RequestAnswerService;
 import by.grapesrain.services.RequestService;
 import by.grapesrain.services.UserService;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -67,27 +69,31 @@ public class RequestDetailsController {
         return requestService.findById(requestId);
     }
 
-//    //W
-//    @PostMapping("/requestform/{findRequestId}")
-//    public String createAnswer(RequestAnswer requestAnswer, @RequestParam String status, @RequestParam String priority) {
-//
-//        String login = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-//
-//
-//        System.out.println("------------------------->" + requestAnswer);
-//        System.out.println("------------------------->" + status);
-//        System.out.println("------------------------->" + priority);
-//
-////        request.setDepartament(departamentService.findById(departament));
-////        request.setStatus(Status.OPEN);
-//
-////        if(request.getTitle().isEmpty() && request.getBody().isEmpty()){
-////            return "redirect: /requestform";
-////        }
-////
-////        requestService.save(request, login);
-//        return "redirect: /index";
-//    }
+    //W
+    @PostMapping("/request/{requestId}")
+    public String createAnswer(Model model,
+                               RequestAnswer requestAnswer,
+                               @RequestParam String status,
+                               @RequestParam String priority,
+                               @RequestParam Integer reqId) {
+
+        String executor = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+
+        if(requestAnswer.getBody().isEmpty()){
+            return "redirect: redirect: /request/{requestId}";
+        }
+
+        Request request = requestService.findById(reqId);
+
+        request.setStatus(Status.valueOf(status));
+        request.setPriority(Priority.valueOf(priority));
+        requestService.update(request, executor, request.getCreator().getLogin());
+
+        requestAnswer.setRequest(request);
+        requestAnswerService.save(requestAnswer, executor);
+
+        return "redirect: /request/{requestId}";
+    }
 
     @GetMapping("/request/{requestId}")
     public String requestPage() {

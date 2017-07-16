@@ -39,21 +39,21 @@ public class IndexController {
         this.departamentService = departamentService;
     }
 
-    @ModelAttribute("allReqByDepWithPageWithautClose")
+    @ModelAttribute("allReqByDepWithPageWithoutClose")
     public List<Request> requestsByDepWithPage() {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
 
-        List<Request> requests = requestService.allRequestsByDepWithPageWithautClose(0, 10, dep);
+        List<Request> requests = requestService.allRequestsByDepWithPageWithoutClose(0, 10, dep);
         return requests;
     }
 
-    @ModelAttribute("pages")
-    public int pages() {
-        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
-        Departament dep = departamentService.findById(idDep);
-        return requestService.quantityRequests(dep);
-    }
+//    @ModelAttribute("pages")
+//    public int pages() {
+//        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+//        Departament dep = departamentService.findById(idDep);
+//        return requestService.quantityRequests(dep);
+//    }
 
     @ModelAttribute("allUserRole")
     public List<Role> userRoles() {

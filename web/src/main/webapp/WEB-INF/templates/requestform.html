@@ -72,6 +72,18 @@
                             </div>
 
                             <br>
+
+                            <div class="container">
+                                <div class="dropdown">
+                                    <label th:for="priority" th:text="#{rq.priority}">Prioritet</label>
+                                    <select name="priority" class="btn btn-primary dropdown-toggle">
+                                        <option th:each="priority : ${priorityes}"
+                                                th:value="${priority}"
+                                                th:text="${#strings.capitalize(#strings.toLowerCase(priority))}">Priority</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <br>
 
                             <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.createreq}">Создать заявку</button>

@@ -58,18 +58,49 @@ public class RequestPageController {
         return departamentService.allDepartaments();
     }
 
-    @ModelAttribute("allReqByDepWithPage")
+    @ModelAttribute("allRequestsByDepWithPageWithoutClose")
     public List<Request> requestsByDepWithPage(@PathVariable("page") Integer page) {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
-        int quantityReq = requestService.quantityRequests(dep);
+//        int quantityReq = requestService.quantityRequests(dep);
         int startR = 0;
 
-        List<Request> requests = requestService.allRequestsByDepWithPageWithautClose(startR, 5, dep);
+        if (page > 1) {
+            startR = page * 5;
+        }
+
+        List<Request> requests = requestService.allRequestsByDepWithPageWithoutClose(startR, 5, dep);
         return requests;
     }
 
+    @ModelAttribute("allRequestsByDepWithPageWithClose")
+    public List<Request> allRequestsByDepWithPageWithClose(@PathVariable("page") Integer page) {
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        Departament dep = departamentService.findById(idDep);
+//        int quantityReq = requestService.quantityRequests(dep, Status.CLOSED);
+        int startR = 0;
 
+        if (page > 1) {
+            startR = page * 5;
+        }
+
+        List<Request> requests = requestService.allRequestsByDepWithPageWithClose(startR, 5, dep);
+        return requests;
+    }
+
+    @ModelAttribute("pagesToClose")
+    public int pagesToClose() {
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        Departament dep = departamentService.findById(idDep);
+        return requestService.quantityRequests(dep, Status.CLOSED);
+    }
+
+    @ModelAttribute("pagesToOpen")
+    public int pagesToOpen() {
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        Departament dep = departamentService.findById(idDep);
+        return requestService.quantityRequests(dep, Status.OPEN);
+    }
 
     @GetMapping("/requestopen/{page}")
     public String requestsOpenToPage() {

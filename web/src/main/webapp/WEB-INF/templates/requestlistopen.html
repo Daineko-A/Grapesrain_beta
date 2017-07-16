@@ -58,7 +58,7 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${allReqByDepWithPage}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                        <tr th:each="requests : ${allRequestsByDepWithPageWithoutClose}" th:class="${#strings.toLowerCase(requests.getPriority())}">
                             <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
@@ -72,6 +72,10 @@
                         </tbody>
 
                     </table>
+
+                    <ul class="pagination" th:each="pages : ${pagesToOpen}">
+                        <li><a th:href="@{/requestclose/{pages}}">1</a></li>
+                    </ul>
 
 
                     <ul class="pager">

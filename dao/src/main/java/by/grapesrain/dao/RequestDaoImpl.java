@@ -38,7 +38,7 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     }
 
     @Override
-    public List<Request> allRequestsByDepWithPageWithautClose(int startR, int limitR, Departament departament) {
+    public List<Request> allRequestsByDepWithPageWithoutClose(int startR, int limitR, Departament departament) {
         List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
                 "select r from Request r where r.status!=:close and r.departament=:departament ", Request.class)
                 .setParameter("departament", departament)
@@ -51,10 +51,33 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     }
 
     @Override
-    public int quantityRequests(Departament departament) {
-        return getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.departament=:departament", Request.class)
+    public List<Request> allRequestsByDepWithPageWithClose(int startR, int limitR, Departament departament) {
+        List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
+                "select r from Request r where r.status=:close and r.departament=:departament ", Request.class)
                 .setParameter("departament", departament)
+                .setParameter("close", Status.CLOSED)
+                .setFirstResult(startR)
+                .setMaxResults(limitR)
+                .getResultList();
+
+        return requests.size() > 0 ? requests : null;
+    }
+
+    @Override
+    public int quantityRequests(Departament departament, Status status) {
+        if (status.equals(Status.CLOSED)){
+            return getSessionFactory().getCurrentSession().createQuery(
+                    "select r from Request r where r.status=:close and r.departament=:departament", Request.class)
+                    .setParameter("departament", departament)
+                    .setParameter("close", Status.CLOSED)
+                    .getResultList().size();
+        }
+
+        return getSessionFactory().getCurrentSession().createQuery(
+                "select r from Request r where r.status!=:close and r.departament=:departament", Request.class)
+                .setParameter("departament", departament)
+                .setParameter("close", Status.CLOSED)
                 .getResultList().size();
+
     }
 }

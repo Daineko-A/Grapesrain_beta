@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "requestanswer")
-@ToString(callSuper = true, exclude = {"respondent"})
+@ToString(callSuper = true, exclude = {"request", "respondent"})
 @NoArgsConstructor
 
 public class RequestAnswer extends BaseEntity{
