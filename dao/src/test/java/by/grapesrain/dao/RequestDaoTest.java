@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,6 +27,26 @@ public class RequestDaoTest extends BaseDaoTest {
 
     @Autowired
     private DepartamentDao departamentDao;
+
+    @Test
+    public void findRequestsByDepartament() {
+//    List<Request> findRequestsByDepartament(Departament departament);
+
+    }
+
+
+    @Test
+    public void allRequestsByDepWithPage(){
+//    List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament);
+
+    }
+
+    @Test
+    public void quantityRequests() {
+//    public int quantityRequests(Departament departament);
+
+    }
+
 
     @Test
     public void findAllRequest() {

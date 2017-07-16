@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -27,6 +28,7 @@ public class UserDaoTest extends BaseDaoTest {
 
     @Autowired
     private DepartamentDao departamentDao;
+
 
     @Test
     public void saveUser(){

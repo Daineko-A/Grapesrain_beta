@@ -43,7 +43,7 @@ public class DepartamentDaoTest extends BaseDaoTest {
     }
 
     @Test
-    public void limit(){
+    public void findAllWithPage(){
         Departament departament = new Departament("it");
         departamentDao.save(departament);
 
@@ -63,13 +63,13 @@ public class DepartamentDaoTest extends BaseDaoTest {
         departamentDao.save(departament5);
 
         List<Departament> departaments = departamentDao.findAllWithPage(1, 3);
-        System.out.println("--------------->" + departaments.size());
 
         assertEquals(departaments.size(), 3);
     }
 
+
     @Test
-    public void FetchSize(){
+    public void findAll(){
         Departament departament = new Departament("it");
         departamentDao.save(departament);
 
@@ -79,10 +79,23 @@ public class DepartamentDaoTest extends BaseDaoTest {
         Departament departament2 = new Departament("dev1");
         departamentDao.save(departament2);
 
-//        int size = departamentDao.getFetchSize();
-        System.out.println("--------------->" + departamentDao.size());
+        List<Departament> departaments = departamentDao.findAll();
+        assertEquals(departaments.size(), 3);
+    }
 
-//        assertEquals(size, 3);
+    @Test
+    public void size(){
+        Departament departament = new Departament("it");
+        departamentDao.save(departament);
+
+        Departament departament1 = new Departament("man");
+        departamentDao.save(departament1);
+
+        Departament departament2 = new Departament("dev1");
+        departamentDao.save(departament2);
+
+        int size = departamentDao.size();
+        assertEquals(size, 3);
     }
 
     @Test
@@ -98,6 +111,5 @@ public class DepartamentDaoTest extends BaseDaoTest {
         System.out.println(departament2);
 
         assertNotNull(departament2);
-
     }
 }

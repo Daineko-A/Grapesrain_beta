@@ -56,14 +56,13 @@ public class IndexController {
         Departament dep = departamentService.findById(idDep);
         int quantityReq = requestService.quantityRequests(dep);
 
-//        int page = 0;
         int startR = 0;
-        int limit = 5;
 
-        System.out.println("------------------------------------>" + page);
-//        startR = limit * page;
+        if (page != 0) {
+            startR = 5 * page;
+        }
 
-        List<Request> requests = requestService.allRequestsByDepWithPage(startR, limit, dep);
+        List<Request> requests = requestService.allRequestsByDepWithPage(startR, 5, dep);
         return requests;
     }
 
@@ -80,7 +79,9 @@ public class IndexController {
     }
 
     @GetMapping("/index")
-    public String indexPage(Model model) {
+    public String indexPage(Model model, @PathVariable("page") Integer page) {
+        model.addAttribute("page", page);
+
         return "index";
     }
 }
