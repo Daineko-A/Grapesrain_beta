@@ -15,7 +15,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "user")
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = {"roles", "requests", "requestAnswers"})
 @NoArgsConstructor
 public class User extends BaseEntity {
 
@@ -89,4 +89,9 @@ public class User extends BaseEntity {
     @Setter
     @OneToMany(mappedBy = "creator")
     private Set<Request> requests = new HashSet<Request>();
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "respondent")
+    private Set<RequestAnswer> requestAnswers = new HashSet<RequestAnswer>();
 }

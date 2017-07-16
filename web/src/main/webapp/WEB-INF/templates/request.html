@@ -45,8 +45,8 @@
 
 
                         <div class="container">
-                            <h2 th:text="${request.getTitle()}">Заголовок</h2>
-                            <p th:text=" ${request.getId()}">№ заявки</p>
+                            <h2 th:text="${findRequest.getTitle()}">Заголовок</h2>
+                            <p th:text=" ${findRequest.getId()}">№ заявки</p>
                             <!--th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"-->
                             <table class="table table-condensed">
                                 <thead>
@@ -58,9 +58,9 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${request.getCreator().getLogin()}">Создатель</td>
-                                    <td th:text="${request.getCreate()}">Дата создания</td>
-                                    <td th:text="${request.getStatus()}">Статус</td>
+                                    <td th:text="${findRequest.getCreator().getLogin()}">Создатель</td>
+                                    <td th:text="${findRequest.getCreate()}">Дата создания</td>
+                                    <td th:text="${findRequest.getStatus()}">Статус</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -68,13 +68,13 @@
 
 
                     </div>
-                    <div class="panel-body" th:text="${request.getBody()}">Тело заявки</div>
+                    <div class="panel-body" th:text="${findRequest.getBody()}">Тело заявки</div>
                 </div>
 
 
                 <!--requestAnswers-->
                 <div class="panel panel-primary" >
-                    <div class="panel panel-info" th:each="reqAns : ${requestAnswers}">
+                    <div class="panel panel-info" th:each="rqAns : ${rqAnswers}">
                         <div class="panel-heading">
                             <table class="table table-condensed">
                                 <thead>
@@ -85,91 +85,102 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${reqAns.getRespondent().getLogin()}">Создатель</td>
-                                    <td th:text="${reqAns.getAnswerDate()}">Дата создания</td>
+                                    <td th:text="${rqAns.getRespondent().getLogin()}">Создатель</td>
+                                    <td th:text="${rqAns.getAnswerDate()}">Дата создания</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="panel-body" th:text="${reqAns.getBody()}">Panel Content</div>
+                        <div class="panel-body" th:text="${rqAns.getBody()}">ответ</div>
                     </div>
                 </div>
 
                 <div class="panel panel-primary">
                     <div class="panel panel-warning">
-                        <div class="panel-heading">Форма ответа на заявку</div>
-                        <div class="panel-body">Panel Content</div>
+                        <div class="panel-heading" th:text="Ответить на заявку">Форма ответа на заявку</div>
+                        <div class="panel-body">
+
+                            <form th:action="@{/requestform/{findRequestId} (findRequestId = ${findRequest.getId()})}" method="post" th:object="${newAnswer}">
+
+                                <!--<div class="form-group">-->
+                                    <!--<label for="title" th:text="#{gr.title}">Title</label>-->
+                                    <!--<input class="form-control input-lg" id="title" type="text" th:field="*{title}">-->
+                                <!--</div>-->
+
+                                <!--<div class="container">-->
+                                    <!--<div class="dropdown">-->
+                                        <!--<label th:for="priority" th:text="#{rq.priority}">Departament</label>-->
+                                        <!--<select name="priority" class="btn btn-primary dropdown-toggle">-->
+                                            <!--<option th:each="priority : ${priorityes}"-->
+                                                    <!--th:value="${priority}"-->
+                                                    <!--th:text="${#strings.capitalize(#strings.toLowerCase(priority))}">Priority</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<br>-->
+
+                                <!--<div class="container">-->
+                                    <!--<div class="dropdown">-->
+                                        <!--<label th:for="status" th:text="#{rq.status}">Status</label>-->
+                                        <!--<select th:field="*{status}" class="btn btn-primary dropdown-toggle">-->
+                                            <!--<option th:each="status : ${statuses}"-->
+                                                    <!--th:value="${status}"-->
+                                                    <!--th:text="${#strings.capitalize(#strings.toLowerCase(status))}">Status</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+
+                                <div class="form-group">
+                                    <label for="body" th:text="#{gr.bodyreq}">Body</label>
+                                    <textarea rows="7" class="form-control input-lg" id="body" type="text" th:field="*{body}"></textarea>
+                                </div>
+
+                                <!--<input type="hidden" name="version" th:value="${departamentDetails.getVersion()}"></input>-->
+                                <!--<input type="hidden" name="id" th:value="${departamentDetails.getId()}"></input>-->
+
+                                <!--<div class="container">-->
+                                    <!--<div class="dropdown">-->
+                                        <!--<label th:for="departament" th:text="#{account.departament}">Departament</label>-->
+                                        <!--<select th:field="*{departament}" class="btn btn-primary dropdown-toggle">-->
+                                            <!--<option th:each="departament : ${departaments}"-->
+                                                    <!--th:value="${departament.getId()}"-->
+                                                    <!--th:text="${departament.getName()}">Departaments</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <br>
+                                <br>
+
+                                <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.createreq}">Ответить</button>
+                            </form>
+
+                            <!--<form th:action="@{/departamentdetails/{findRequestId} (findRequestId = ${findRequest.getId()})}" th:object="${newRequest}" method="post">-->
+                                <!--<h2 class="form-signin-heading">Chenge</h2>-->
+                                <!--&lt;!&ndash;<input type="text" name="id" id="id" class="form-control" placeholder="id" required autofocus>&ndash;&gt;-->
+                                <!--<input type="hidden" name="version" th:value="${departamentDetails.getVersion()}"></input>-->
+                                <!--<input type="hidden" name="id" th:value="${departamentDetails.getId()}"></input>-->
+                                <!--<br>-->
+                                <!--<label for="name" th:text="#{gr.title}">Title</label>-->
+                                <!--<input type="text"  id="name" class="form-control" placeholder="name" th:field="*{name}" required autofocus>-->
+
+                                <!--&lt;!&ndash;<label for="title" th:text="#{gr.title}">Title</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input class="form-control input-lg" id="title" type="text" th:field="*{title}">&ndash;&gt;-->
+                                <!--<br>-->
+                                <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>-->
+                                <!--<br>-->
+                            <!--</form>-->
+
+                        </div>
                     </div>
                 </div>
 
             </div>
 
 
-            <!--<div class="row">-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Users</h4>-->
-                        <!--<p>1 Million</p>-->
-                        <!--<p th:text="${#authentication.name}"></p>-->
-                        <!--<p th:text="${#authentication.toString()}"></p>-->
-                        <!--<p th:text="${#authentication.getAuthorities()}"></p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Pages</h4>-->
-                        <!--<p>100 Million</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Sessions</h4>-->
-                        <!--<p>10 Million</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Bounce</h4>-->
-                        <!--<p>30%</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-sm-8">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+
     </div>
 </div>
 

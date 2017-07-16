@@ -22,5 +22,7 @@ public interface RequestService {
 
     List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament);
 
+    List<Request> allRequestsByDepWithPageWithautClose(int startR, int limitR, Departament departament);
+
     int quantityRequests(Departament departament);
 }

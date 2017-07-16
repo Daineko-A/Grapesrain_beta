@@ -39,6 +39,8 @@ public class DepartamentDaoTest extends BaseDaoTest {
         Departament departament2 = new Departament();
         departament2.setName("it");
 
+        System.out.println("----------------------->" + findDepartament.getClass());
+
         assertEquals(findDepartament.getName(), departament2.getName());
     }
 

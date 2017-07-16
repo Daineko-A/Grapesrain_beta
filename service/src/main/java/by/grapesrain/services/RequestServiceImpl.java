@@ -58,6 +58,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    public List<Request> allRequestsByDepWithPageWithautClose(int startR, int limitR, Departament departament) {
+        return requestDao.allRequestsByDepWithPageWithautClose(startR, limitR, departament);
+    }
+
+    @Override
     public int quantityRequests(Departament departament){
         return requestDao.quantityRequests(departament);
     }

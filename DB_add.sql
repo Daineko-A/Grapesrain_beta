@@ -140,7 +140,7 @@ INSERT INTO users_roles (role_id, user_id) VALUES (5, 6);
 
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
-	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 1);
+	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'CLOSED', 'HIGH', 1, 2, 1);
 
 INSERT INTO request (title, body, req_create, status, priority, creator_user_id, executor_user_id, departament_id) 
 	VALUES ('Не работает dao', 'В dao методы не работают, всё крышится, всё очень плохо', '2017-01-11', 'OPEN', 'HIGH', 1, 2, 2);
@@ -186,8 +186,13 @@ INSERT INTO request (title, body, req_create, status, priority, creator_user_id,
 
 
 INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Вы выключали и включали компьютер ?', 1, '2017-01-11');
-INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
-INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (1, 'Сколько вы видите клавишь на клавиатуре ?', 1, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (2, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (3, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (4, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (5, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (6, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (7, 'Попробуйте постучать по колёсам и протереть стёкла', 2, '2017-01-11');
+INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (3, 'Сколько вы видите клавишь на клавиатуре ?', 1, '2017-01-11');
 INSERT INTO requestanswer (request_id, body, respondent_user_id, publicateDate) VALUES (2, 'Тук тук нео ...', 1, '2017-01-11');
 
 INSERT INTO faq (request_id, title, body, solution, respondent_user_id, publicateDate) VALUES (1, 'Решение ваших проблем faq', 'Причиной могли послужить кривые руки', 'Смотрите в манитор', 1,'2017-01-11');

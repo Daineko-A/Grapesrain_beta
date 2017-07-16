@@ -14,5 +14,5 @@ import java.util.List;
 
 public interface RequestAnswerService {
 
-    List<RequestAnswer> findByReques(Request request);
+    List<RequestAnswer> findByRequest(Request request);
 }

@@ -33,11 +33,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-//    @Override
-//    public User findByLogin(String login) {
-//        return userDao.findUserByLogin(login);
-//    }
-
     @Override
     public void save(User user) {
         Set<Role> roles = new HashSet<>();

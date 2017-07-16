@@ -51,18 +51,18 @@ public class IndexController {
     }
 
     @ModelAttribute("allReqByDepWithPage")
-    public List<Request> requestsByDepWithPage(@PathVariable("page") Integer page) {
+    public List<Request> requestsByDepWithPage() {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
         int quantityReq = requestService.quantityRequests(dep);
 
         int startR = 0;
 
-        if (page != 0) {
-            startR = 5 * page;
-        }
+//        if (page != 0) {
+//            startR = 5 * page;
+//        }
 
-        List<Request> requests = requestService.allRequestsByDepWithPage(startR, 5, dep);
+        List<Request> requests = requestService.allRequestsByDepWithPageWithautClose(startR, 5, dep);
         return requests;
     }
 
@@ -79,9 +79,8 @@ public class IndexController {
     }
 
     @GetMapping("/index")
-    public String indexPage(Model model, @PathVariable("page") Integer page) {
-        model.addAttribute("page", page);
-
+    public String indexPage(Model model) {
+//        model.addAttribute("page", page);
         return "index";
     }
 }

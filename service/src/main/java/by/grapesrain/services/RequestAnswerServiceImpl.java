@@ -1,6 +1,7 @@
 package by.grapesrain.services;
 
 import by.grapesrain.dao.RequestAnswerDao;
+import by.grapesrain.dao.RequestDao;
 import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.RequestAnswer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,16 @@ import java.util.List;
 public class RequestAnswerServiceImpl implements RequestAnswerService {
 
     private final RequestAnswerDao requestAnswerDao;
+    private final RequestDao requestDao;
 
     @Autowired
-    public RequestAnswerServiceImpl(RequestAnswerDao requestAnswerDao) {
+    public RequestAnswerServiceImpl(RequestAnswerDao requestAnswerDao, RequestDao requestDao) {
         this.requestAnswerDao = requestAnswerDao;
+        this.requestDao = requestDao;
     }
 
     @Override
-    public List<RequestAnswer> findByReques(Request request) {
+    public List<RequestAnswer> findByRequest(Request request) {
         return requestAnswerDao.findByRequest(request);
     }
 }
