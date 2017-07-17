@@ -24,14 +24,15 @@
             <br>
             <ul class="nav nav-pills nav-stacked">
 
-                <li><a th:href="@{/index}"><span class="glyphicon glyphicon-home"></span> Dashboard </a></li>
-                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog"></span> Admin panel</a></li>
+                <li><a th:href="@{/index}"> <span class="glyphicon glyphicon-home"th:text="' ' + #{gr.dashboard}"></span> </a></li>
+                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.adminpanel}"></span> </a></li>
 
-                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user"></span> User details</a></li>
-                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt"></span> Registration</a></li>
-                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn"></span> New request</a></li>
-                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog"></span> New announcement</a></li>
-                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Выход</a></li>
+                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user" th:text="' ' + #{gr.userdetails}"></span> </a></li>
+                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
+                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
+                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/statistics}"><span class="glyphicon glyphicon-stats" th:text="' ' + #{gr.statistics}"></span> </a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
 
             </ul><br>
         </div>
@@ -45,8 +46,8 @@
 
 
                         <div class="container">
-                            <h2 th:text="${request.getTitle()}">Заголовок</h2>
-                            <p th:text=" ${request.getId()}">№ заявки</p>
+                            <h2 th:text="${findRequest.getTitle()}">Заголовок</h2>
+                            <p th:text="${findRequest.getId()}">№ заявки</p>
                             <!--th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"-->
                             <table class="table table-condensed">
                                 <thead>
@@ -58,9 +59,9 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${request.getCreator().getLogin()}">Создатель</td>
-                                    <td th:text="${request.getCreate()}">Дата создания</td>
-                                    <td th:text="${request.getStatus()}">Статус</td>
+                                    <td th:text="${findRequest.getCreator().getLogin()}">Создатель</td>
+                                    <td th:text="${findRequest.getCreate()}">Дата создания</td>
+                                    <td th:text="${findRequest.getStatus()}">Статус</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -68,13 +69,15 @@
 
 
                     </div>
-                    <div class="panel-body" th:text="${request.getBody()}">Тело заявки</div>
+                    <div class="panel-body" th:text="${findRequest.getBody()}">Тело заявки</div>
                 </div>
+
+
 
 
                 <!--requestAnswers-->
                 <div class="panel panel-primary" >
-                    <div class="panel panel-info" th:each="reqAns : ${requestAnswers}">
+                    <div class="panel panel-info" th:each="rqAnsw : ${rqAnswers}">
                         <div class="panel-heading">
                             <table class="table table-condensed">
                                 <thead>
@@ -85,91 +88,92 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td th:text="${reqAns.getRespondent().getLogin()}">Создатель</td>
-                                    <td th:text="${reqAns.getAnswerDate()}">Дата создания</td>
+                                    <td th:text="${rqAnsw.getRespondent().getLogin()}">Создатель</td>
+                                    <td th:text="${rqAnsw.getAnswerDate()}">Дата создания</td>
                                 </tr>
                                 </tbody>
                             </table>
+
                         </div>
-                        <div class="panel-body" th:text="${reqAns.getBody()}">Panel Content</div>
+
+                        <div class="panel-body" th:text="${rqAnsw.getBody()}">ответ</div>
+
                     </div>
                 </div>
+
+
 
                 <div class="panel panel-primary">
                     <div class="panel panel-warning">
                         <div class="panel-heading">Форма ответа на заявку</div>
-                        <div class="panel-body">Panel Content</div>
+                        <div class="panel-body">
+
+                            <form th:action="@{/request/{requestId} (requestId = ${findRequest.getId()})}" method="post" th:object="${newAnswer}">
+
+                                <!--<div class="form-group">-->
+                                    <!--<label for="title" th:text="#{gr.title}">Title</label>-->
+                                    <!--<input class="form-control input-lg" id="title" type="text" th:field="*{title}">-->
+                                <!--</div>-->
+
+                                <div class="container">
+                                    <div class="dropdown">
+                                        <label th:for="priority" th:text="#{rq.priority}">Departament</label>
+                                        <select name="priority" class="btn btn-primary dropdown-toggle">
+                                            <option th:each="priority : ${priorityes}"
+                                                    th:value="${priority}"
+                                                    th:text="${#strings.capitalize(#strings.toLowerCase(priority))}">Priority</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="container">
+                                    <div class="dropdown">
+                                        <label th:for="status" th:text="#{rq.status}">Status</label>
+                                        <select name="status" class="btn btn-primary dropdown-toggle">
+                                            <option th:each="status : ${statuses}"
+                                                    th:value="${status}"
+                                                    th:text="${#strings.capitalize(#strings.toLowerCase(status))}">Status</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="reqId" th:value="${findRequest.getId()}"></input>
+
+                                <div class="form-group">
+                                    <label for="body" th:text="#{gr.bodyreq}">Body</label>
+                                    <textarea rows="7" class="form-control input-lg" id="body" type="text" th:field="*{body}"></textarea>
+                                </div>
+
+                                <!--<input type="hidden" name="version" th:value="${departamentDetails.getVersion()}"></input>-->
+                                <!--<input type="hidden" name="id" th:value="${departamentDetails.getId()}"></input>-->
+
+                                <!--<div class="container">-->
+                                    <!--<div class="dropdown">-->
+                                        <!--<label th:for="departament" th:text="#{account.departament}">Departament</label>-->
+                                        <!--<select th:field="*{departament}" class="btn btn-primary dropdown-toggle">-->
+                                            <!--<option th:each="departament : ${departaments}"-->
+                                                    <!--th:value="${departament.getId()}"-->
+                                                    <!--th:text="${departament.getName()}">Departaments</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <br>
+                                <br>
+
+                                <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.createreq}">Ответить</button>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
 
             </div>
 
 
-            <!--<div class="row">-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Users</h4>-->
-                        <!--<p>1 Million</p>-->
-                        <!--<p th:text="${#authentication.name}"></p>-->
-                        <!--<p th:text="${#authentication.toString()}"></p>-->
-                        <!--<p th:text="${#authentication.getAuthorities()}"></p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Pages</h4>-->
-                        <!--<p>100 Million</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Sessions</h4>-->
-                        <!--<p>10 Million</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<div class="well">-->
-                        <!--<h4>Bounce</h4>-->
-                        <!--<p>30%</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<div class="col-sm-8">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-sm-4">-->
-                    <!--<div class="well">-->
-                        <!--<p>Text</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+
     </div>
 </div>
 

@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.OptimisticLockException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Created by PloSkiY on 12.07.2017.
@@ -23,6 +24,8 @@ public class DepartamentController {
         this.departamentService = departamentService;
     }
 
+
+    //MODELS
     @ModelAttribute("departamentDetails")
     public Departament departamentdetails(@PathVariable("departamentId") Integer departamentId) {
         return departamentService.findById(departamentId);
@@ -33,13 +36,22 @@ public class DepartamentController {
         return new Departament();
     }
 
+
+    //GETS
     @GetMapping("/departamentdetails/{departamentId}")
     public String requestPage(@PathVariable("departamentId") Integer requestId, Model model) {
         return "departamentdetails";
     }
 
+
+    // POSTS
     @PostMapping("/departamentdetails/{departamentId}")
     public String updateDeportament(Model model, Departament departament) throws Exception {
+
+        if (departament.getName().isEmpty()) {
+            return "redirect:/admin";
+        }
+
         try {
             departamentService.update(departament);
         } catch (HibernateOptimisticLockingFailureException error){

@@ -25,7 +25,6 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     protected SessionFactory getSessionFactory() {
-//        System.out.println(sessionFactory.getStatistics());
         return sessionFactory;
     }
 
@@ -36,12 +35,6 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
     @Override
     public void update(T entity) {
-
-        //        try {
-//        } catch (OptimisticLockException error){
-//            return "redirect:/admin";
-//        }
-
         sessionFactory.getCurrentSession().update(entity);
     }
 
@@ -54,11 +47,34 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     @Override
+    public List<T> findAllWithPage(int startR, int limitR) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "from " + modelClass.getSimpleName(), modelClass)
+                .setFirstResult(startR)
+                .setMaxResults(limitR)
+                .getResultList();
+    }
+
+
+
+    @Override
     public T findById(long id) {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery(
                 "select t from "+ modelClass.getSimpleName() + " t where t.id=:id", modelClass)
                 .setParameter("id", id)
                 .getResultList().get(0);
+    }
+
+    //TODO: переделать этот кастыль.
+    @Override
+    public int size() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "from " + modelClass.getSimpleName(), modelClass)
+                .getResultList().size();
+
+//        return ((Integer) session.createQuery("select * from " + modelClass.getSimpleName()).iterate().next() ).intValue();
     }
 }

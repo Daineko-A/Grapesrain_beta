@@ -15,5 +15,9 @@ public interface BaseDao<T extends BaseEntity> {
 
     List<T> findAll();
 
+    List<T> findAllWithPage(int startR, int limitR);
+
     T findById(long id);
+
+    int size();
 }

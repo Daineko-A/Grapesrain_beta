@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Table(name = "requestanswer")
 @ToString(callSuper = true, exclude = {"request", "respondent"})
 @NoArgsConstructor
+
 public class RequestAnswer extends BaseEntity{
 
     public RequestAnswer(Request request, User respondent, String body) {

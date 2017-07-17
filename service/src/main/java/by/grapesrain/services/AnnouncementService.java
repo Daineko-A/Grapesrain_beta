@@ -1,6 +1,7 @@
 package by.grapesrain.services;
 
 import by.grapesrain.entitys.Announcement;
+import by.grapesrain.entitys.Departament;
 
 import java.util.List;
 
@@ -10,6 +11,8 @@ import java.util.List;
 public interface AnnouncementService {
 
     List<Announcement> allAnnouncements();
+
+    List<Announcement> allAnnouncementsByDep(Departament departament);
 
     Announcement findById(long id);
 

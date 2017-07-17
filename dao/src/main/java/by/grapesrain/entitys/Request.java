@@ -8,6 +8,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Daynekoa on 27.05.2017.
@@ -15,7 +17,7 @@ import java.time.*;
 
 @Entity
 @Table(name = "request")
-@ToString(callSuper = true, exclude = "creator")
+@ToString(callSuper = true, exclude = {"creator", "executor", "requestAnswers"})
 @NoArgsConstructor
 public class Request extends BaseEntity {
 
@@ -76,4 +78,9 @@ public class Request extends BaseEntity {
     @Column(name = "priority")
     @Enumerated(EnumType.STRING)
     private Priority priority;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "request")
+    private Set<RequestAnswer> requestAnswers = new HashSet<RequestAnswer>();
 }
