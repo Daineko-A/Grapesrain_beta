@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -66,7 +67,7 @@ public class RequestPageController {
         int startR = 0;
 
         if (page > 1) {
-            startR = page * 5;
+            startR = 5 * (page - 1);
         }
 
         List<Request> requests = requestService.allRequestsByDepWithPageWithoutClose(startR, 5, dep);
@@ -81,7 +82,7 @@ public class RequestPageController {
         int startR = 0;
 
         if (page > 1) {
-            startR = page * 5;
+            startR = 5 * (page - 1);
         }
 
         List<Request> requests = requestService.allRequestsByDepWithPageWithClose(startR, 5, dep);
@@ -89,17 +90,43 @@ public class RequestPageController {
     }
 
     @ModelAttribute("pagesToClose")
-    public int pagesToClose() {
+    public List<Integer> pagesToClose() {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
-        return requestService.quantityRequests(dep, Status.CLOSED);
+        int num = requestService.quantityRequests(dep, Status.CLOSED);
+
+        List<Integer> numbers = new ArrayList<>();
+        num = ((int) Math.ceil( num / 5 ));
+
+
+        do {
+            numbers.add(num + 1);
+            num --;
+        } while (num >= 0);
+
+        Collections.reverse(numbers);
+
+        return numbers;
     }
 
     @ModelAttribute("pagesToOpen")
-    public int pagesToOpen() {
+    public List<Integer> pagesToOpen() {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
-        return requestService.quantityRequests(dep, Status.OPEN);
+        int num = requestService.quantityRequests(dep, Status.OPEN);
+
+        List<Integer> numbers = new ArrayList<>();
+        num = ((int) Math.ceil( num / 5 ));
+
+
+        do {
+            numbers.add(num + 1);
+            num --;
+        } while (num >= 0);
+
+        Collections.reverse(numbers);
+
+        return numbers;
     }
 
     @GetMapping("/requestopen/{page}")

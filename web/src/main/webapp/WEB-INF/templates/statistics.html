@@ -7,27 +7,6 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse visible-xs">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a th:href="@{/index}">Dashboard</a></li>
-                <li><a href="#">Age</a></li>
-                <li><a href="#">Gender</a></li>
-                <li><a th:href="@{/logout}">Выход</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-3 sidenav hidden-xs">
@@ -44,13 +23,14 @@
             <br>
             <ul class="nav nav-pills nav-stacked">
 
-                <li><a th:href="@{/index}">Dashboard</a></li>
-                <li><a th:href="@{/admin}">Admin panel</a></li>
-                <li><a th:href="@{/userdetails}">user details</a></li>
-                <li><a th:href="@{/registration}">Registration</a></li>
-                <li><a th:href="@{/requestform}">new request</a></li>
-                <li><a th:href="@{/announcementform}">new announcement</a></li>
-                <li><a th:href="@{/logout}">Выход</a></li>
+                <li><a th:href="@{/index}"> <span class="glyphicon glyphicon-home"th:text="' ' + #{gr.dashboard}"></span> </a></li>
+                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.adminpanel}"></span> </a></li>
+
+                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user" th:text="' ' + #{gr.userdetails}"></span> </a></li>
+                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
+                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
+                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
 
             </ul><br>
         </div>

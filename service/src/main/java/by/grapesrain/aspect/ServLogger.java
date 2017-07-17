@@ -20,7 +20,7 @@ public class ServLogger {
     public void allServices() {};
 
 
-//    @Before("allServices()")
+    @Before("allServices()")
     public void printParametrs(JoinPoint joinPoint) {
         System.out.println("--------------------ASPECT _ printParametrs-------------------");
 

@@ -25,14 +25,14 @@
             <br>
             <ul class="nav nav-pills nav-stacked">
 
-                <li><a th:href="@{/index}"><span class="glyphicon glyphicon-home"></span> Dashboard </a></li>
-                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog"></span> Admin panel</a></li>
+                <li><a th:href="@{/index}"> <span class="glyphicon glyphicon-home"th:text="' ' + #{gr.dashboard}"></span> </a></li>
+                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.adminpanel}"></span> </a></li>
 
-                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user"></span> User details</a></li>
-                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt"></span> Registration</a></li>
-                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn"></span> New request</a></li>
-                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog"></span> New announcement</a></li>
-                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off"></span> Выход</a></li>
+                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user" th:text="' ' + #{gr.userdetails}"></span> </a></li>
+                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
+                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
+                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
 
             </ul><br>
         </div>
@@ -47,24 +47,26 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Заголовок</th>
-                            <th>Создатель</th>
+                            <th th:text="#{gr.title}">Заголовок</th>
+                            <th th:text="#{gr.creator}">Создатель</th>
                             <!--<th>Исполнитель</th>-->
-                            <th>Департамент</th>
-                            <th>Статус</th>
-                            <th>Департамент</th>
+                            <th th:text="#{gr.department}">Департамент</th>
+                            <th th:text="#{gr.status}">Статус</th>
+                            <th th:text="#{gr.priority}">Приоритет</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${allReqByDepWithPageWithoutClose}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                        <!--th:class="${#strings.toLowerCase(requests.getPriority())}"-->
+
+                        <tr th:each="requests : ${allReqByDepWithPageWithoutClose}" th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
                             <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
                             <!--<td th:text="${requests.getExecutor().getLogin().toString()}">Исполнитель</td>-->
                             <!--"${account.number > 0 ? account.number : ''}"-->
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
-                            <td th:text="${requests.getStatus()}">Статус</td>
+                            <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
                         </tr>
 
@@ -74,8 +76,8 @@
 
 
                     <ul class="pager">
-                        <li><a href="/requestopen/1">Открытые заявки</a></li>
-                        <li><a href="/requestclose/1">Закрытые заявки</a></li>
+                        <li><a href="/requestopen/1" th:text="#{gr.openrequests}">Открытые заявки</a></li>
+                        <li><a href="/requestclose/1" th:text="#{gr.closereuests}">Закрытые заявки</a></li>
                     </ul>
                 </div>
 

@@ -53,12 +53,12 @@
                             <!--<th>Исполнитель</th>-->
                             <th>Департамент</th>
                             <th>Статус</th>
-                            <th>Департамент</th>
+                            <th>Приоритет</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${allRequestsByDepWithPageWithoutClose}" th:class="${#strings.toLowerCase(requests.getPriority())}">
+                        <tr th:each="requests : ${allRequestsByDepWithPageWithoutClose}" th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
                             <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
@@ -74,7 +74,7 @@
                     </table>
 
                     <ul class="pagination" th:each="pages : ${pagesToOpen}">
-                        <li><a th:href="@{/requestclose/{pages}}">1</a></li>
+                        <li><a th:href="@{/requestopen/{page} (page = ${pages})}" th:text="${pages}">1</a></li>
                     </ul>
 
 
@@ -84,16 +84,11 @@
                     </ul>
                 </div>
 
-
-
             </div>
-
 
             <div class="row">
                 <div class="col-sm-8">
                     <div class="well">
-
-
 
 
                     </div>
