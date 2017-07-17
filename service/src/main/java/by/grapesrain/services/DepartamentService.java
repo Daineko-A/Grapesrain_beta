@@ -14,4 +14,6 @@ public interface DepartamentService {
     Departament findById(long id);
 
     void update(Departament departament);
+
+    void save(Departament departament);
 }

@@ -36,4 +36,9 @@ public class DepartamentServiceImpl implements DepartamentService {
     public void update(Departament departament) {
         departamentDao.update(departament);
     }
+
+    @Override
+    public void save(Departament departament) {
+        departamentDao.save(departament);
+    }
 }

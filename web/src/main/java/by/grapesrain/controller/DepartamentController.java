@@ -47,6 +47,11 @@ public class DepartamentController {
     // POSTS
     @PostMapping("/departamentdetails/{departamentId}")
     public String updateDeportament(Model model, Departament departament) throws Exception {
+
+        if (departament.getName().isEmpty()) {
+            return "redirect:/admin";
+        }
+
         try {
             departamentService.update(departament);
         } catch (HibernateOptimisticLockingFailureException error){

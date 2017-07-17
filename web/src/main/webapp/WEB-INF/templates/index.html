@@ -32,6 +32,7 @@
                 <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
                 <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
                 <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/statistics}"><span class="glyphicon glyphicon-stats" th:text="' ' + #{gr.statistics}"></span> </a></li>
                 <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
 
             </ul><br>
@@ -49,78 +50,41 @@
                             <th>ID</th>
                             <th th:text="#{gr.title}">Заголовок</th>
                             <th th:text="#{gr.creator}">Создатель</th>
-                            <!--<th>Исполнитель</th>-->
                             <th th:text="#{gr.department}">Департамент</th>
                             <th th:text="#{gr.status}">Статус</th>
                             <th th:text="#{gr.priority}">Приоритет</th>
                         </tr>
                         </thead>
                         <tbody>
-
-                        <!--th:class="${#strings.toLowerCase(requests.getPriority())}"-->
-
                         <tr th:each="requests : ${allReqByDepWithPageWithoutClose}" th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
                             <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
-                            <!--<td th:text="${requests.getExecutor().getLogin().toString()}">Исполнитель</td>-->
-                            <!--"${account.number > 0 ? account.number : ''}"-->
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
                             <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
                         </tr>
-
                         </tbody>
-
                     </table>
-
-
                     <ul class="pager">
                         <li><a href="/requestopen/1" th:text="#{gr.openrequests}">Открытые заявки</a></li>
                         <li><a href="/requestclose/1" th:text="#{gr.closereuests}">Закрытые заявки</a></li>
                     </ul>
                 </div>
-
-
-                <!--<ul class="pagination">-->
-                    <!--<li><a href="#">1</a></li>-->
-                    <!--<li><a href="#">2</a></li>-->
-                    <!--<li><a href="#">3</a></li>-->
-                    <!--<li><a href="#">4</a></li>-->
-                    <!--<li><a href="#">5</a></li>-->
-                <!--</ul>-->
-
-                <!--<ul class="pager">-->
-                    <!--<li><a href="#">Previous</a></li>-->
-                    <!--<li><a href="#">Next</a></li>-->
-                <!--</ul>-->
-
-                <!--<span>-->
-                <!--<a href="?page=next">next</a>-->
-                <!--<a href="?page=prev">prev</a>-->
-            <!--</span>-->
-
             </div>
 
 
             <div class="row">
                 <div class="col-sm-8">
                     <div class="well">
-                        <p>Обьявки сюда</p>
 
-                        <!--<p th:text="${#authentication.getDetails()}"></p>-->
-                        <!--<p th:text="${#authentication.getPrincipal()}"></p>-->
-                        <!--<p th:text="${#authentication.getCredentials()}"></p>-->
-                        <!--<p th:text="${#authentication.isAuthenticated()}"></p>-->
-
-                        <!--<p th:text="${#authentication.name}"></p>-->
-                        <!--<p th:text="${#authentication.toString()}"></p>-->
-                        <!--<p th:if="${#authentication.getAuthorities() != 'Admin'} {th:text='NO'}"></p>-->
-
-                        <!--<div th:switch="${#authentication.getAuthorities()}">-->
-                            <!--<p th:case="${allUserRole.get(0)}">User is an administrator</p>-->
-                            <!--<p th:case="*">User is some other thing</p>-->
-                        <!--</div>-->
+                        <tbody>
+                        <tr th:each="annousm : ${allAnnouncement}" th:class="warning">
+                            <td><span class="glyphicon glyphicon-calendar"></span></td>
+                            <td th:text="${annousm.getTitle()}">Заголовок</td>
+                            <td th:text="${annousm.getBody()}">Тело</td>
+                        </tr>
+                        </tbody>
 
                     </div>
                 </div>
@@ -132,126 +96,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="well">
-
-                        <h4>Количество Юзеров</h4>
-                        <p>1 Million</p>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                40% Complete (success)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                                50% Complete (info)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                                60% Complete (warning)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                70% Complete (danger)
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-
-                        <h4>Количество отделов</h4>
-                        <p>100 Million</p>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                40% Complete (success)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                                50% Complete (info)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                                60% Complete (warning)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                70% Complete (danger)
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-
-                        <h4>Количество заявок</h4>
-                        <p>Всего заявок</p>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                40% Complete (success)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                                50% Complete (info)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                                60% Complete (warning)
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                70% Complete (danger)
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
 
         </div>
     </div>

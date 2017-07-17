@@ -1,5 +1,6 @@
 package by.grapesrain.controller;
 
+import by.grapesrain.entitys.Announcement;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.Role;
@@ -48,6 +49,14 @@ public class IndexController {
         return requests;
     }
 
+    @ModelAttribute("allAnnouncement")
+    public List<Announcement> allAnnouncement() {
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        Departament dep = departamentService.findById(idDep);
+
+        return announcementService.allAnnouncementsByDep(dep);
+    }
+
 //    @ModelAttribute("pages")
 //    public int pages() {
 //        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
@@ -62,7 +71,6 @@ public class IndexController {
 
     @GetMapping("/index")
     public String indexPage(Model model) {
-//        model.addAttribute("page", page);
         return "index";
     }
 }

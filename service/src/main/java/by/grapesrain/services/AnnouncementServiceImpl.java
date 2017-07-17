@@ -3,6 +3,7 @@ package by.grapesrain.services;
 import by.grapesrain.dao.AnnouncementDao;
 import by.grapesrain.dao.UserDao;
 import by.grapesrain.entitys.Announcement;
+import by.grapesrain.entitys.Departament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,11 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     @Override
     public List<Announcement> allAnnouncements() {
         return announcementDao.findAll();
+    }
+
+    @Override
+    public List<Announcement> allAnnouncementsByDep(Departament departament) {
+        return announcementDao.findAllByDep(departament);
     }
 
     @Override

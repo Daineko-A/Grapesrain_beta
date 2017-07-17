@@ -30,6 +30,7 @@
                 <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
                 <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
                 <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/statistics}"><span class="glyphicon glyphicon-stats" th:text="' ' + #{gr.statistics}"></span> </a></li>
                 <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
 
             </ul><br>
@@ -38,58 +39,135 @@
 
         <div class="col-sm-9">
             <div class="well">
-                <h4>Dashboard</h4>
-                <p>Some text..</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Users</h4>
-                        <p>1 Million</p>
+                <h4>Время в проекте</h4>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:5%">
+                        План
+                    </div>
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:15%">
+                        Написание кода
+                    </div>
+                    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:80%">
+                        Устранение багов
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Pages</h4>
-                        <p>100 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Sessions</h4>
-                        <p>10 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Bounce</h4>
-                        <p>30%</p>
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+
+                        <h4>Заявки</h4>
+                        <!--<p>1 Million</p>-->
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                Закрытых заявок.
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                Открытых заявок.
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                Всего заявок из отдела.
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                Общее количество заявок.
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+
+                        <h4>Юзеры и отделы</h4>
+                        <!--<p>100 Million</p>-->
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                Количество юзеров
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                Юзеров из своего отдела
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                Юзеров из чужих отделов
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                Обьявлений
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+
+                        <h4>Статусы заявок</h4>
+                        <!--<p>Всего заявок</p>-->
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                Закрытых заявок
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                Открытых заявок
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                Горящие заявки
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                Всего заявок
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-8">
                     <div class="well">
