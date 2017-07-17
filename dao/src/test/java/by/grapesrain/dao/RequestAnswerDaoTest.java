@@ -24,7 +24,7 @@ public class RequestAnswerDaoTest extends BaseDaoTest {
     private RequestAnswerDao requestAnswerDao;
 
     @Test
-    public void requestAnswersByRequest() {
+    public void findByRequest() {
         Departament departament = new Departament("dep");
         User user = new User("First", "Last", "login", "pass", "e@mail.by", departament);
         User user2 = new User("First2", "Last2", "login2", "pass2", "e2@mail.by", departament);

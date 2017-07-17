@@ -1,34 +1,36 @@
 package by.grapesrain.services;
 
+import by.grapesrain.config.TestConfigServices;
 import by.grapesrain.dao.RoleDao;
 import by.grapesrain.entitys.Role;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.transaction.Transactional;
+import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by PloSkiY on 03.07.2017.
+ * Created by Alexandr on 17.07.2017.
  */
 @RunWith(SpringRunner.class)
-//@ContextConfiguration(classes = TestConfigDB.class)
-//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-@javax.transaction.Transactional
-public class RoleServiceImplTest {
-
-    @Autowired
-    private UserRoleService userRoleService;
+@ContextConfiguration(classes = TestConfigServices.class)
+@Transactional
+public class UserRoleServiceImplTest {
 
     @Autowired
     private RoleDao roleDao;
 
+    @Autowired
+    private UserRoleService userRoleService;
+
     @Test
     public void findAllRoles(){
-        Role role = new Role();
-        role.setRole("asd");
+        Role role = new Role("asd");;
         roleDao.save(role);
 
         Role findRole = userRoleService.allUserRoles().get(0);
