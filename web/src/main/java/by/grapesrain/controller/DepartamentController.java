@@ -24,7 +24,6 @@ public class DepartamentController {
         this.departamentService = departamentService;
     }
 
-
     //MODELS
     @ModelAttribute("departamentDetails")
     public Departament departamentdetails(@PathVariable("departamentId") Integer departamentId) {
@@ -36,13 +35,11 @@ public class DepartamentController {
         return new Departament();
     }
 
-
     //GETS
     @GetMapping("/departamentdetails/{departamentId}")
     public String requestPage(@PathVariable("departamentId") Integer requestId, Model model) {
         return "departamentdetails";
     }
-
 
     // POSTS
     @PostMapping("/departamentdetails/{departamentId}")

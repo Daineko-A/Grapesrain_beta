@@ -60,13 +60,11 @@ public class RequestRegController {
         return new Request();
     }
 
-
     //GET
     @GetMapping("/requestform")
     public String requestForm() {
         return "requestform";
     }
-
 
     //POST
     @PostMapping("/requestform")

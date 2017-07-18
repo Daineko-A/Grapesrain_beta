@@ -37,11 +37,6 @@ public class RegistrationController {
         return departamentService.allDepartaments();
     }
 
-//    @ModelAttribute("allUsers")
-//    public List<User> allUsers() {
-//        return userService.allUsers();
-//    }
-
     @ModelAttribute("user")
     public User user() {
         return new User();
