@@ -18,11 +18,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Alexandr on 17.07.2017.
  */
-@RunWith(SpringRunner.class)
-@ContextConfiguration(classes = TestConfigServices.class)
-@TestPropertySource(locations = "classpath:database.properties")
-@Transactional
-public class UserRoleServiceImplTest {
+public class UserRoleServiceImplTest extends BaseServiceTest {
 
     @Autowired
     private RoleDao roleDao;
