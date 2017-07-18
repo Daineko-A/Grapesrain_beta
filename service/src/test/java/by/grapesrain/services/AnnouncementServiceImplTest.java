@@ -106,4 +106,42 @@ public class AnnouncementServiceImplTest extends BaseServiceTest {
         Announcement findAnnouncement = announcementService.allAnnouncements().get(0);
         assertEquals(findAnnouncement, announcement);
     }
+
+    @Test
+    public void findAllActualByDep() {
+        User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
+        Departament departament = new Departament("test");
+        departamentService.save(departament);
+        Role role = new Role("User");
+        roleDao.save(role);
+        userService.save(user);
+
+        Announcement announcement = new Announcement("zxc", "asd", user, LocalDateTime.now().minusMinutes(2), LocalDateTime.now().plusMinutes(20), departament);
+        announcementService.save(announcement, "zxc");
+
+        Announcement announcement1 = new Announcement("zxc", "asd", user, LocalDateTime.now().minusMinutes(2), LocalDateTime.now().plusMinutes(20), departament);
+        announcementService.save(announcement1, "zxc");
+
+        Announcement findAnnouncement = announcementService.findAllActualByDep(departament).get(0);
+        assertEquals(findAnnouncement, announcement);
+    }
+
+    @Test
+    public void findAllPastByDep() {
+        User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
+        Departament departament = new Departament("test");
+        departamentService.save(departament);
+        Role role = new Role("User");
+        roleDao.save(role);
+        userService.save(user);
+
+        Announcement announcement = new Announcement("zxc", "asd", user, LocalDateTime.now().minusMinutes(2), LocalDateTime.now().plusMinutes(20), departament);
+        announcementService.save(announcement, "zxc");
+
+        Announcement announcement1 = new Announcement("zxc", "asd", user, LocalDateTime.now().minusMinutes(20), LocalDateTime.now().minusMinutes(10), departament);
+        announcementService.save(announcement1, "zxc");
+
+        Announcement findAnnouncement = announcementService.findAllPastByDep(departament).get(0);
+        assertEquals(findAnnouncement, announcement1);
+    }
 }

@@ -5,6 +5,7 @@ import by.grapesrain.entitys.Announcement;
 import by.grapesrain.entitys.Departament;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -28,6 +29,28 @@ public class AnnouncementDaoImpl extends BaseDaoImpl<Announcement> implements An
         List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
                 "select a from Announcement a where a.departament=:departament", Announcement.class)
                 .setParameter("departament", departament)
+                .getResultList();
+
+        return announcementsList.size() > 0 ? announcementsList : null;
+    }
+
+    @Override
+    public List<Announcement> findAllActualByDep(Departament departament) {
+        List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
+                "select a from Announcement a where a.begin<:dateNow and a.end>:dateNow and a.departament=:departament", Announcement.class)
+                .setParameter("departament", departament)
+                .setParameter("dateNow", LocalDateTime.now())
+                .getResultList();
+
+        return announcementsList.size() > 0 ? announcementsList : null;
+    }
+
+    @Override
+    public List<Announcement> findAllPastByDep(Departament departament) {
+        List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
+                "select a from Announcement a where a.end<:dateNow and a.departament=:departament", Announcement.class)
+                .setParameter("departament", departament)
+                .setParameter("dateNow", LocalDateTime.now())
                 .getResultList();
 
         return announcementsList.size() > 0 ? announcementsList : null;

@@ -46,4 +46,14 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         announcement.setCreator(userDao.findUserByLogin(login));
         announcementDao.save(announcement);
     }
+
+    @Override
+    public List<Announcement> findAllActualByDep(Departament departament) {
+        return announcementDao.findAllActualByDep(departament);
+    }
+
+    @Override
+    public List<Announcement> findAllPastByDep(Departament departament) {
+        return announcementDao.findAllPastByDep(departament);
+    }
 }

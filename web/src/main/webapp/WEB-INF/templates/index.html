@@ -41,9 +41,8 @@
         <br>
         <div class="col-sm-9">
             <div class="well">
-                <div class="container">
 
-
+                <div>
                     <table class="table" >
                         <thead>
                         <tr>
@@ -53,6 +52,7 @@
                             <th th:text="#{gr.department}">Департамент</th>
                             <th th:text="#{gr.status}">Статус</th>
                             <th th:text="#{gr.priority}">Приоритет</th>
+                            <th th:text="#{gr.datecreate}">Дата создания</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,6 +63,7 @@
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
                             <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
+                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания</td>
                         </tr>
                         </tbody>
                     </table>
@@ -78,14 +79,34 @@
                 <div class="col-sm-8">
                     <div class="well">
 
+                        <h4>Актуальные мероприятия</h4>
 
                         <table class="table" >
                             <tbody>
-                                <tr th:each="annousm : ${allAnnouncement}" th:class="warning">
+                                <tr th:each="annousm : ${allActualAnnouncement}" th:class="warning">
                                     <td><span class="glyphicon glyphicon-calendar"></span></td>
                                     <td th:text="${annousm.getTitle()}">Заголовок</td>
                                     <td th:text="${annousm.getBody()}">Тело</td>
+                                    <td th:text="${#temporals.format(annousm.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата начала</td>
+                                    <td th:text="${#temporals.format(annousm.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата завершения</td>
                                 </tr>
+                            </tbody>
+                        </table>
+
+                        <br>
+                        <br>
+
+                        <h4>Прошедшие мероприятия</h4>
+
+                        <table class="table" >
+                            <tbody>
+                            <tr th:each="annousmpast : ${allPastAnnouncement}" th:class="info">
+                                <td><span class="glyphicon glyphicon-calendar"></span></td>
+                                <td th:text="${annousmpast.getTitle()}">Заголовок</td>
+                                <td th:text="${annousmpast.getBody()}">Тело</td>
+                                <td th:text="${#temporals.format(annousmpast.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата начала</td>
+                                <td th:text="${#temporals.format(annousmpast.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата завершения</td>
+                            </tr>
                             </tbody>
                         </table>
 

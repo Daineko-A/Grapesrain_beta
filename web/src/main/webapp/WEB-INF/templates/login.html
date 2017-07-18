@@ -10,9 +10,9 @@
 
 
     <div class="container">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-5 offset-md-5">
             <form th:action="@{/login}" method="post">
-                <h2 class="form-signin-heading">Please sign in</h2>
+                <h2 class="form-signin-heading">Please sign in, or <a th:href="@{/registration}">Register</a></h2>
                 <input type="text" name="username" id="username" class="form-control" placeholder="username" required autofocus>
                 <br>
                 <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
@@ -21,6 +21,8 @@
             </form>
         </div>
     </div>
+
+
 
 </body>
 </html>

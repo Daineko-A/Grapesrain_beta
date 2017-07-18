@@ -17,4 +17,8 @@ public interface AnnouncementService {
     Announcement findById(long id);
 
     void save(Announcement announcement, String login);
+
+    List<Announcement> findAllActualByDep(Departament departament);
+
+    List<Announcement> findAllPastByDep(Departament departament);
 }

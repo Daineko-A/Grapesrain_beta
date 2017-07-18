@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +58,10 @@ public class AnnouncementController {
     @PostMapping("/announcementform")
     public String createRequest(Announcement announcement, @RequestParam long departament) {
         String login = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        System.out.println("----------------------------->" + departament);
         announcement.setDepartament(departamentService.findById(departament));
+//        announcement.setBegin(LocalDateTime.now().minusMinutes(2));
+//        announcement.setEnd(LocalDateTime.now().plusMinutes(1));
 
         if(announcement.getTitle().isEmpty() && announcement.getBody().isEmpty()){
             return "redirect: /announcementform";

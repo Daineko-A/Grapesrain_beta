@@ -49,12 +49,20 @@ public class IndexController {
         return requests;
     }
 
-    @ModelAttribute("allAnnouncement")
-    public List<Announcement> allAnnouncement() {
+    @ModelAttribute("allActualAnnouncement")
+    public List<Announcement> allActualAnnouncement() {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
 
-        return announcementService.allAnnouncementsByDep(dep);
+        return announcementService.findAllActualByDep(dep);
+    }
+
+    @ModelAttribute("allPastAnnouncement")
+    public List<Announcement> allPastAnnouncement() {
+        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        Departament dep = departamentService.findById(idDep);
+
+        return announcementService.findAllPastByDep(dep);
     }
 
     @ModelAttribute("allUserRole")

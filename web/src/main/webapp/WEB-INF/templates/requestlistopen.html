@@ -42,19 +42,19 @@
         <div class="col-sm-9">
             <div class="well">
 
-                <div class="container">
+                <div>
                     <!--<h2>Contextual Classes</h2>-->
                     <!--<p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>-->
                     <table class="table" >
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Заголовок</th>
-                            <th>Создатель</th>
-                            <!--<th>Исполнитель</th>-->
-                            <th>Департамент</th>
-                            <th>Статус</th>
-                            <th>Приоритет</th>
+                            <th th:text="#{gr.title}">Заголовок</th>
+                            <th th:text="#{gr.creator}">Создатель</th>
+                            <th th:text="#{gr.department}">Департамент</th>
+                            <th th:text="#{gr.status}">Статус</th>
+                            <th th:text="#{gr.priority}">Приоритет</th>
+                            <th th:text="#{gr.datecreate}">Дата создания</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,11 +63,10 @@
                             <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
-                            <!--<td th:text="${requests.getExecutor().getLogin().toString()}">Исполнитель</td>-->
-                            <!--"${account.number > 0 ? account.number : ''}"-->
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
-                            <td th:text="${requests.getStatus()}">Статус</td>
+                            <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
+                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания</td>
                         </tr>
 
                         </tbody>
@@ -84,13 +83,11 @@
                         <li><a href="/requestclose/1">Закрытые заявки</a></li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="row">
                 <div class="col-sm-8">
                     <div class="well">
-
 
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -45,11 +46,13 @@ public class Announcement extends BaseEntity {
     @Setter
     @Getter
     @Column(name = "begin")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime begin;
 
     @Setter
     @Getter
     @Column(name = "end")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime end;
 
     @Getter

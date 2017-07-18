@@ -13,7 +13,7 @@
 <div class="container">
     <div class="col-md-4 offset-md-4">
         <form th:action="@{/registration}" method="post" th:object="${user}">
-            <h2 class="form-registration-heading">Registration</h2>
+            <h2 class="form-registration-heading">Register, or <a th:href="@{/login}">Sign in</a></h2>
 
             <label th:for="firstName" th:text="#{account.firstName}">First namer</label>
             <input type="text" th:field="*{firstName}" class="form-control" placeholder="First Name" required autofocus>

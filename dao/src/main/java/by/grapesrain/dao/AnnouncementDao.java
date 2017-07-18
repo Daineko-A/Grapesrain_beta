@@ -14,4 +14,8 @@ public interface AnnouncementDao extends BaseDao<Announcement> {
     Announcement findByTitle(String title);
 
     List<Announcement> findAllByDep(Departament departament);
+
+    List<Announcement> findAllActualByDep(Departament departament);
+
+    List<Announcement> findAllPastByDep(Departament departament);
 }
