@@ -46,13 +46,13 @@ public class DepartamentController {
     public String updateDeportament(Model model, Departament departament) throws Exception {
 
         if (departament.getName().isEmpty()) {
-            return "redirect:/admin";
+            return "redirect:/errorpage";
         }
 
         try {
             departamentService.update(departament);
         } catch (HibernateOptimisticLockingFailureException error){
-            return "redirect:/index";
+            return "redirect:/errorpage";
         }
 
         return "redirect:/admin";

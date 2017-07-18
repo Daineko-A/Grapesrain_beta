@@ -74,4 +74,9 @@ public class IndexController {
     public String indexPage(Model model) {
         return "index";
     }
+
+    @GetMapping("/errorpage")
+    public String errorPage() {
+        return "errorpage";
+    }
 }
