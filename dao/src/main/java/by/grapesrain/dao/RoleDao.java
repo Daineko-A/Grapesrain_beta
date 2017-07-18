@@ -8,5 +8,5 @@ import by.grapesrain.entitys.Role;
  */
 public interface RoleDao extends BaseDao<Role> {
 
-
+    Role findByRoleName(String roleName);
 }

@@ -22,6 +22,17 @@ public class RoleDaoTest extends BaseDaoTest {
         roleDao.save(role);
 
         Role admin = roleDao.findAll().get(0);
-        assertNotNull(role);
+        assertNotNull(admin);
+    }
+
+    @Test
+    public void findByRoleName(){
+        Role role = new Role();
+        role.setRole("Admin");
+
+        roleDao.save(role);
+
+        Role admin = roleDao.findByRoleName("Admin");
+        assertNotNull(admin);
     }
 }
