@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 /**
  * Created by Alexandr on 17.07.2017.
  */
@@ -29,6 +31,11 @@ public class RegDepController {
         return new Departament();
     }
 
+    @ModelAttribute("allDepartaments")
+    public List<Departament> allDepartaments() {
+        return departamentService.allDepartaments();
+    }
+
     //GETS
     @GetMapping("/regdepartament")
     public String regDepPage() {
@@ -39,6 +46,6 @@ public class RegDepController {
     @PostMapping("/regdepartament")
     public String regDeportament(Model model, Departament departament) {
         departamentService.save(departament);
-        return "redirect:/admin";
+        return "redirect:/regdepartament";
     }
 }

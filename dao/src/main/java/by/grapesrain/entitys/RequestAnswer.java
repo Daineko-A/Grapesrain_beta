@@ -22,7 +22,6 @@ public class RequestAnswer extends Answer{
         this.request = request;
         this.respondent = respondent;
         this.setBody(body);
-//        this.body = body;
     }
 
     @Getter
@@ -36,13 +35,4 @@ public class RequestAnswer extends Answer{
     @ManyToOne
     @JoinColumn(name = "respondent_user_id")
     private User respondent;
-
-//    @Getter
-//    @Setter
-//    @Column(name = "body")
-//    private String body;
-
-//    @Getter
-//    @Column(name = "publicateDate")
-//    private LocalDateTime answerDate = LocalDateTime.now();
 }

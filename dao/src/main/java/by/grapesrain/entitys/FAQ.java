@@ -18,9 +18,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "answer_id")
 public class FAQ extends Answer  {
-
-    //extends Answer
-
     @Getter
     @Setter
     private String title;
