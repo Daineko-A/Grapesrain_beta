@@ -64,21 +64,21 @@
 
                     </div>
 
-                    <div class="container">
-                        <div class="col-md-4 offset-md-4">
-                            <form th:action="@{/userdetailsadm/{userId} (userId = ${userDetails}.getId())}" th:object="${user}" method="post">
-                                <h2 class="form-signin-heading">Chenge</h2>
-                                <input type="hidden" name="version" th:value="${userDetails.getVersion()}"></input>
-                                <input type="hidden" name="id" th:value="${userDetails.getId()}"></input>
-                                <br>
-                                <label for="firstName" th:text="#{gr.title}">firstName</label>
-                                <input type="text"  id="firstName" class="form-control" placeholder="firstName" th:field="*{firstName}" required autofocus>
-                                <br>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
-                                <br>
-                            </form>
-                        </div>
-                    </div>
+                    <!--<div class="container">-->
+                        <!--<div class="col-md-4 offset-md-4">-->
+                            <!--<form th:action="@{/userdetailsadm/{userId} (userId = ${userDetails}.getId())}" th:object="${user}" method="post">-->
+                                <!--<h2 class="form-signin-heading">Chenge</h2>-->
+                                <!--<input type="hidden" name="version" th:value="${userDetails.getVersion()}"></input>-->
+                                <!--<input type="hidden" name="id" th:value="${userDetails.getId()}"></input>-->
+                                <!--<br>-->
+                                <!--<label for="firstName" th:text="#{gr.title}">firstName</label>-->
+                                <!--<input type="text"  id="firstName" class="form-control" placeholder="firstName" th:field="*{firstName}" required autofocus>-->
+                                <!--<br>-->
+                                <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>-->
+                                <!--<br>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                 </div>
 

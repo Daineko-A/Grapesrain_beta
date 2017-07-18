@@ -36,7 +36,7 @@ public class UserController {
 
     @ModelAttribute("userDetails")
     public User userDetails() {
-        return userService.findByLogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        return userService.findByLogin("Admin");
     }
 
     @GetMapping("/userdetails")
