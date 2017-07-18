@@ -22,8 +22,6 @@ public class ServLogger {
 
     @Before("allServices()")
     public void printParametrs(JoinPoint joinPoint) {
-        System.out.println("--------------------ASPECT _ printParametrs-------------------");
-
         log.info("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv");
         log.info(joinPoint.getTarget().getClass().getSimpleName());
         log.info(joinPoint.getSignature().getName());
@@ -35,7 +33,5 @@ public class ServLogger {
             log.info("---> void");
         }
         log.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-
-        System.out.println("--------------------ASPECT ^^^^^ printParametrs-------------------");
     }
 }

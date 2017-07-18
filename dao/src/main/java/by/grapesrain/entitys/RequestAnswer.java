@@ -15,13 +15,14 @@ import java.time.LocalDateTime;
 @Table(name = "requestanswer")
 @ToString(callSuper = true, exclude = {"request", "respondent"})
 @NoArgsConstructor
-
-public class RequestAnswer extends BaseEntity{
+@PrimaryKeyJoinColumn(name = "answer_id")
+public class RequestAnswer extends Answer{
 
     public RequestAnswer(Request request, User respondent, String body) {
         this.request = request;
         this.respondent = respondent;
-        this.body = body;
+        this.setBody(body);
+//        this.body = body;
     }
 
     @Getter
@@ -36,12 +37,12 @@ public class RequestAnswer extends BaseEntity{
     @JoinColumn(name = "respondent_user_id")
     private User respondent;
 
-    @Getter
-    @Setter
-    @Column(name = "body")
-    private String body;
+//    @Getter
+//    @Setter
+//    @Column(name = "body")
+//    private String body;
 
-    @Getter
-    @Column(name = "publicateDate")
-    private LocalDateTime answerDate = LocalDateTime.now();
+//    @Getter
+//    @Column(name = "publicateDate")
+//    private LocalDateTime answerDate = LocalDateTime.now();
 }

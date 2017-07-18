@@ -57,13 +57,6 @@ public class IndexController {
         return announcementService.allAnnouncementsByDep(dep);
     }
 
-//    @ModelAttribute("pages")
-//    public int pages() {
-//        long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
-//        Departament dep = departamentService.findById(idDep);
-//        return requestService.quantityRequests(dep);
-//    }
-
     @ModelAttribute("allUserRole")
     public List<Role> userRoles() {
         return userRoleService.allUserRoles();

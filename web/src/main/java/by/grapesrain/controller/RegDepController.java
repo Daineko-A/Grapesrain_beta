@@ -29,13 +29,11 @@ public class RegDepController {
         return new Departament();
     }
 
-
     //GETS
     @GetMapping("/regdepartament")
     public String regDepPage() {
         return "regdepartament";
     }
-
 
     // POSTS
     @PostMapping("/regdepartament")

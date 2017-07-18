@@ -63,7 +63,6 @@ public class RequestPageController {
     public List<Request> requestsByDepWithPage(@PathVariable("page") Integer page) {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
-//        int quantityReq = requestService.quantityRequests(dep);
         int startR = 0;
 
         if (page > 1) {
@@ -78,7 +77,6 @@ public class RequestPageController {
     public List<Request> allRequestsByDepWithPageWithClose(@PathVariable("page") Integer page) {
         long idDep = userService.getDepartamentBylogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         Departament dep = departamentService.findById(idDep);
-//        int quantityReq = requestService.quantityRequests(dep, Status.CLOSED);
         int startR = 0;
 
         if (page > 1) {
@@ -98,7 +96,6 @@ public class RequestPageController {
         List<Integer> numbers = new ArrayList<>();
         num = ((int) Math.ceil( num / 5 ));
 
-
         do {
             numbers.add(num + 1);
             num --;
@@ -117,7 +114,6 @@ public class RequestPageController {
 
         List<Integer> numbers = new ArrayList<>();
         num = ((int) Math.ceil( num / 5 ));
-
 
         do {
             numbers.add(num + 1);

@@ -21,5 +21,4 @@ public interface RequestDao extends BaseDao<Request> {
     List<Request> allRequestsByDepWithPageWithClose(int startR, int limitR, Departament departament);
 
     public int quantityRequests(Departament departament, Status status);
-
 }

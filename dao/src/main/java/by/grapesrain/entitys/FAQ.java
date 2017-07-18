@@ -12,12 +12,12 @@ import javax.persistence.Table;
 /**
  * Created by Alexandr on 15.07.2017.
  */
-//@Entity
-//@Table(name = "faq")
-//@ToString(callSuper = true)
-//@NoArgsConstructor
-//@PrimaryKeyJoinColumn(name = "answer_id")
-public class FAQ  {
+@Entity
+@Table(name = "faq")
+@ToString(callSuper = true)
+@NoArgsConstructor
+@PrimaryKeyJoinColumn(name = "answer_id")
+public class FAQ extends Answer  {
 
     //extends Answer
 

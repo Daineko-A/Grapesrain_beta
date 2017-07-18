@@ -43,6 +43,4 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
         return users.size() > 0 ? users.get(0) : null;
     }
-
-
 }
