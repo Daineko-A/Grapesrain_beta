@@ -21,5 +21,4 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 
         return roles.size() > 0 ? roles.get(0) : null;
     }
-
 }

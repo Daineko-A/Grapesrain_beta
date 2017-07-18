@@ -56,8 +56,6 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
                 .getResultList();
     }
 
-
-
     @Override
     public T findById(long id) {
         Session session = sessionFactory.getCurrentSession();
@@ -74,7 +72,5 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
         return session.createQuery(
                 "from " + modelClass.getSimpleName(), modelClass)
                 .getResultList().size();
-
-//        return ((Integer) session.createQuery("select * from " + modelClass.getSimpleName()).iterate().next() ).intValue();
     }
 }
