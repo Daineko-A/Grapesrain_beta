@@ -40,29 +40,52 @@
         <div class="col-sm-9">
             <div class="well">
 
-                <div class="container">
-                    <h2>User details</h2>
-                    <div class="panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Panel with panel-success class</div>
-                            <div class="panel-body">Panel Content</div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                        <div class="container">
+                            <h2 th:text="${userDetails.getLogin()}">Login</h2>
+
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="${userDetails.getFirstName()}">FirstName</td>
+                                    <td th:text="${userDetails.getLastName()}">LastName</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="container">
+                        <div class="col-md-4 offset-md-4">
+                            <form th:action="@{/userdetailsadm/{userId} (userId = ${userDetails}.getId())}" th:object="${user}" method="post">
+                                <h2 class="form-signin-heading">Chenge</h2>
+                                <input type="hidden" name="version" th:value="${userDetails.getVersion()}"></input>
+                                <input type="hidden" name="id" th:value="${userDetails.getId()}"></input>
+                                <br>
+                                <label for="firstName" th:text="#{gr.title}">firstName</label>
+                                <input type="text"  id="firstName" class="form-control" placeholder="firstName" th:field="*{firstName}" required autofocus>
+                                <br>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+                                <br>
+                            </form>
                         </div>
                     </div>
+
                 </div>
+
             </div>
 
 
-            <div class="well">
-                <div class="container">
-                    <h2>Changes panel</h2>
-                    <div class="panel-group">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Panel with panel-success class</div>
-                            <div class="panel-body">Panel Content</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

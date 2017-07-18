@@ -58,10 +58,7 @@ public class AnnouncementController {
     @PostMapping("/announcementform")
     public String createRequest(Announcement announcement, @RequestParam long departament) {
         String login = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-        System.out.println("----------------------------->" + departament);
         announcement.setDepartament(departamentService.findById(departament));
-//        announcement.setBegin(LocalDateTime.now().minusMinutes(2));
-//        announcement.setEnd(LocalDateTime.now().plusMinutes(1));
 
         if(announcement.getTitle().isEmpty() && announcement.getBody().isEmpty()){
             return "redirect: /announcementform";

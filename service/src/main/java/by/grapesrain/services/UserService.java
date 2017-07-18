@@ -10,7 +10,9 @@ import java.util.List;
  */
 public interface UserService extends UserDetailsService {
 
-//    User findByLogin(String login);
+    User findByLogin(String login);
+
+    User findById(Long id);
 
     void save (User user);
 
