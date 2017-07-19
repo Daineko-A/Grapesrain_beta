@@ -57,7 +57,7 @@
                         <tbody>
 
                         <tr th:each="users : ${allUsers}">
-                            <td><a href="userdetails.html" th:href="@{/userdetails/{userId} (userId = ${users.getId()})}" th:text="${users.getId()}">ID</a></td>
+                            <td><a href="useredit/{userId}" th:href="@{/useredit/{userId} (userId = ${users.getId()})}" th:text="${users.getId()}">ID</a></td>
                             <td th:text="${users.getFirstName()}">First Name</td>
                             <td th:text="${users.getLastName()}">Last Name</td>
                             <td th:text="${users.getLogin()}">Login</td>
@@ -111,7 +111,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2 th:text="#{account.departament}">Logo</h2>
+
+            <br>
+
+            <span>
+                <a href="?language=en_US">English</a>
+                <a href="?language=ru_RU">Русский</a>
+                </span>
+
+            <br>
+            <br>
+            <ul class="nav nav-pills nav-stacked">
+
+                <li><a th:href="@{/index}"> <span class="glyphicon glyphicon-home"th:text="' ' + #{gr.dashboard}"></span> </a></li>
+                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.adminpanel}"></span> </a></li>
+
+                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user" th:text="' ' + #{gr.userdetails}"></span> </a></li>
+                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
+                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
+                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
+                <li><a th:href="@{/statistics}"><span class="glyphicon glyphicon-stats" th:text="' ' + #{gr.statistics}"></span> </a></li>
+                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
+
+            </ul><br>
+        </div>
+        <br>
+
+        <div class="col-sm-9">
+            <div class="well">
+
+                <div class="container">
+                    <div class="col-md-4 offset-md-4">
+                        <form th:action="@{useredit/{userId} (userId = ${userDetails.getId()})}" th:object="${user}" method="post">
+                            <h2 class="form-signin-heading">Chenge</h2>
+                            <input type="hidden" name="version" th:value="${userDetails.getVersion()}"></input>
+                            <input type="hidden" name="id" th:value="${userDetails.getId()}"></input>
+                            <br>
+                            <label for="lastName" th:text="First Name">Last Name</label>
+                            <input type="text"  id="lastName" class="form-control" placeholder="lastName" th:field="*{lastName}" required autofocus>
+                            <br>
+                            <label for="email" th:text="email">email</label>
+                            <input type="text"  id="email" class="form-control" placeholder="email" th:field="*{email}" required autofocus>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="container">
+                            <h2 th:text="${userDetails.getLogin()}">Login</h2>
+
+
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Department</th>
+                                    <th>Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="${userDetails.getId()}">ID</td>
+                                    <td th:text="${userDetails.getFirstName()}">FirstName</td>
+                                    <td th:text="${userDetails.getLastName()}">LastName</td>
+                                    <td th:text="${userDetails.getDepartament().getName()}">Department</td>
+                                    <td th:text="${userDetails.getEmail()}">Email</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <table class="table table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>FirstDevice Model</th>
+                                    <th>FirstDevice MAC</th>
+                                    <th>SecondDevice Model</th>
+                                    <th>SecondDevice MAC</th>
+                                    <th>PCOwnership</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="${userDetails.getUserCard().getFirstDevice().getModelDrvice() != null} ? ${userDetails.getUserCard().getFirstDevice().getModelDrvice()} ">FirstDevice Model</td>
+                                    <td th:text="${userDetails.getUserCard().getFirstDevice().getMacAddress() != null} ? ${userDetails.getUserCard().getFirstDevice().getMacAddress()}">FirstDevice MAC</td>
+                                    <td th:text="${userDetails.getUserCard().getSecondDevice().getModelDrvice() != null} ? ${userDetails.getUserCard().getSecondDevice().getModelDrvice()}">SecondDevice Model</td>
+                                    <td th:text="${userDetails.getUserCard().getSecondDevice().getMacAddress() != null} ? ${userDetails.getUserCard().getSecondDevice().getMacAddress()}">SecondDevice MAC</td>
+                                    <td th:text="${userDetails.getUserCard().getPCOwnership() != null} ? ${userDetails.getUserCard().getPCOwnership()}">PCOwnership</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
