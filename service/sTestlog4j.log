@@ -1,51 +1,62 @@
-2017-07-19 12:16:04,187 INFO  - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-2017-07-19 12:16:04,201 INFO  - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
-2017-07-19 12:16:04,218 INFO  - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@604ed9f0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6a4f787b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@685cb137, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6a41eaa2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7cd62f43]
-2017-07-19 12:16:04,448 INFO  - Refreshing org.springframework.context.support.GenericApplicationContext@6fc6f14e: startup date [Wed Jul 19 12:16:04 MSK 2017]; root of context hierarchy
-2017-07-19 12:16:04,966 INFO  - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=by.grapesrain.config.ConfigDB; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.ConfigDB] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=testConfigServices; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.TestConfigServices]
-2017-07-19 12:16:07,029 INFO  - HHH000412: Hibernate Core {5.2.10.Final}
-2017-07-19 12:16:07,033 INFO  - HHH000206: hibernate.properties not found
-2017-07-19 12:16:07,180 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2017-07-19 12:16:08,046 INFO  - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2017-07-19 12:16:09,813 INFO  - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1023150a'
-2017-07-19 12:16:10,183 INFO  - Using DataSource [ds0: url=jdbc:h2:mem:kingdom;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1 user=sa] of Hibernate SessionFactory for HibernateTransactionManager
-2017-07-19 12:16:10,414 INFO  - Closing org.springframework.context.support.GenericApplicationContext@6fc6f14e: startup date [Wed Jul 19 12:16:04 MSK 2017]; root of context hierarchy
-2017-07-19 12:16:10,418 INFO  - Refreshing org.springframework.context.support.GenericApplicationContext@7eb6b6b6: startup date [Wed Jul 19 12:16:10 MSK 2017]; root of context hierarchy
-2017-07-19 12:16:10,643 INFO  - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=by.grapesrain.config.ConfigDB; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.ConfigDB] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=testConfigServices; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.TestConfigServices]
-2017-07-19 12:16:10,889 INFO  - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2017-07-19 12:16:11,300 INFO  - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1023150a'
-2017-07-19 12:16:11,541 INFO  - Using DataSource [ds1: url=jdbc:h2:mem:kingdom;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1 user=sa] of Hibernate SessionFactory for HibernateTransactionManager
-2017-07-19 12:16:11,866 INFO  - Began transaction (1) for test context [DefaultTestContext@1e58512c testClass = UserServiceImplTest, testInstance = by.grapesrain.services.UserServiceImplTest@210308d5, testMethod = getUserCardByUser@UserServiceImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1c758545 testClass = UserServiceImplTest, locations = '{}', classes = '{class by.grapesrain.config.TestConfigServices}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:database.properties}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.hibernate5.HibernateTransactionManager@17c2d509]; rollback [true]
-2017-07-19 12:16:11,890 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:11,902 INFO  - DepartamentServiceImpl
-2017-07-19 12:16:11,906 INFO  - save
-2017-07-19 12:16:11,906 INFO  - ---> Departament(super=BaseEntity(id=0), name=test, version=null)
-2017-07-19 12:16:11,914 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:11,987 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:11,987 INFO  - DepartamentServiceImpl
-2017-07-19 12:16:11,987 INFO  - allDepartaments
-2017-07-19 12:16:11,987 INFO  - ---> void
-2017-07-19 12:16:11,987 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:12,048 INFO  - HHH000397: Using ASTQueryTranslatorFactory
-2017-07-19 12:16:12,393 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:12,393 INFO  - UserServiceImpl
-2017-07-19 12:16:12,393 INFO  - save
-2017-07-19 12:16:12,394 INFO  - ---> User(super=BaseEntity(id=0), firstName=asd, lastName=qwe, login=zxc, password=123, email=qwe@awde.df, departament=Departament(super=BaseEntity(id=1), name=test, version=0), version=null)
-2017-07-19 12:16:12,394 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:12,415 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:12,415 INFO  - UserServiceImpl
-2017-07-19 12:16:12,416 INFO  - findByLogin
-2017-07-19 12:16:12,416 INFO  - ---> zxc
-2017-07-19 12:16:12,417 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:12,457 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:12,457 INFO  - UserServiceImpl
-2017-07-19 12:16:12,458 INFO  - findByLogin
-2017-07-19 12:16:12,458 INFO  - ---> zxc
-2017-07-19 12:16:12,458 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:12,472 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-2017-07-19 12:16:12,472 INFO  - UserServiceImpl
-2017-07-19 12:16:12,472 INFO  - getUserCardByUser
-2017-07-19 12:16:12,472 INFO  - ---> User(super=BaseEntity(id=1), firstName=asd, lastName=qwe, login=zxc, password=null, email=qwe@awde.df, departament=Departament(super=BaseEntity(id=1), name=test, version=0), version=0)
-2017-07-19 12:16:12,472 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2017-07-19 12:16:12,481 INFO  - Rolled back transaction for test context [DefaultTestContext@1e58512c testClass = UserServiceImplTest, testInstance = by.grapesrain.services.UserServiceImplTest@210308d5, testMethod = getUserCardByUser@UserServiceImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1c758545 testClass = UserServiceImplTest, locations = '{}', classes = '{class by.grapesrain.config.TestConfigServices}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:database.properties}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
-2017-07-19 12:16:12,489 INFO  - Closing org.springframework.context.support.GenericApplicationContext@7eb6b6b6: startup date [Wed Jul 19 12:16:10 MSK 2017]; root of context hierarchy
+2017-07-19 13:58:34,698 INFO  - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-07-19 13:58:34,710 INFO  - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2017-07-19 13:58:34,724 INFO  - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@604ed9f0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6a4f787b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@685cb137, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6a41eaa2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7cd62f43]
+2017-07-19 13:58:34,955 INFO  - Refreshing org.springframework.context.support.GenericApplicationContext@6fc6f14e: startup date [Wed Jul 19 13:58:34 MSK 2017]; root of context hierarchy
+2017-07-19 13:58:35,990 INFO  - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=by.grapesrain.config.ConfigDB; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.ConfigDB] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=testConfigServices; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.TestConfigServices]
+2017-07-19 13:58:37,851 INFO  - HHH000412: Hibernate Core {5.2.10.Final}
+2017-07-19 13:58:37,855 INFO  - HHH000206: hibernate.properties not found
+2017-07-19 13:58:37,950 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-07-19 13:58:38,493 INFO  - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2017-07-19 13:58:40,078 INFO  - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3ece1e79'
+2017-07-19 13:58:40,417 INFO  - Using DataSource [ds0: url=jdbc:h2:mem:kingdom;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1 user=sa] of Hibernate SessionFactory for HibernateTransactionManager
+2017-07-19 13:58:40,594 INFO  - Closing org.springframework.context.support.GenericApplicationContext@6fc6f14e: startup date [Wed Jul 19 13:58:34 MSK 2017]; root of context hierarchy
+2017-07-19 13:58:40,598 INFO  - Refreshing org.springframework.context.support.GenericApplicationContext@28e19366: startup date [Wed Jul 19 13:58:40 MSK 2017]; root of context hierarchy
+2017-07-19 13:58:40,763 INFO  - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=by.grapesrain.config.ConfigDB; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.ConfigDB] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=testConfigServices; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in by.grapesrain.config.TestConfigServices]
+2017-07-19 13:58:40,969 INFO  - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2017-07-19 13:58:41,394 INFO  - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3ece1e79'
+2017-07-19 13:58:41,539 INFO  - Using DataSource [ds1: url=jdbc:h2:mem:kingdom;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1 user=sa] of Hibernate SessionFactory for HibernateTransactionManager
+2017-07-19 13:58:41,865 INFO  - Began transaction (1) for test context [DefaultTestContext@23b8d9f3 testClass = UserServiceImplTest, testInstance = by.grapesrain.services.UserServiceImplTest@7f353d99, testMethod = update@UserServiceImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@73a19967 testClass = UserServiceImplTest, locations = '{}', classes = '{class by.grapesrain.config.TestConfigServices}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:database.properties}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.hibernate5.HibernateTransactionManager@25b52284]; rollback [true]
+2017-07-19 13:58:41,883 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:41,886 INFO  - DepartamentServiceImpl
+2017-07-19 13:58:41,896 INFO  - save
+2017-07-19 13:58:41,896 INFO  - ---> Departament(super=BaseEntity(id=0), name=test, version=null)
+2017-07-19 13:58:41,896 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:41,971 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:41,971 INFO  - DepartamentServiceImpl
+2017-07-19 13:58:41,971 INFO  - allDepartaments
+2017-07-19 13:58:41,971 INFO  - ---> void
+2017-07-19 13:58:41,971 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:41,995 INFO  - HHH000397: Using ASTQueryTranslatorFactory
+2017-07-19 13:58:42,292 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,293 INFO  - UserServiceImpl
+2017-07-19 13:58:42,293 INFO  - save
+2017-07-19 13:58:42,293 INFO  - ---> User(super=BaseEntity(id=0), firstName=asd, lastName=qwe, login=zxc, password=123, email=qwe@awde.df, departament=Departament(super=BaseEntity(id=1), name=test, version=0), version=null)
+2017-07-19 13:58:42,293 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,330 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,330 INFO  - UserServiceImpl
+2017-07-19 13:58:42,330 INFO  - findByLogin
+2017-07-19 13:58:42,331 INFO  - ---> zxc
+2017-07-19 13:58:42,332 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,414 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,414 INFO  - UserServiceImpl
+2017-07-19 13:58:42,414 INFO  - findByLogin
+2017-07-19 13:58:42,414 INFO  - ---> zxc
+2017-07-19 13:58:42,415 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,427 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,427 INFO  - UserServiceImpl
+2017-07-19 13:58:42,428 INFO  - getUserCardByUser
+2017-07-19 13:58:42,428 INFO  - ---> User(super=BaseEntity(id=1), firstName=asd, lastName=qwe, login=zxc, password=null, email=qwe@awde.df, departament=Departament(super=BaseEntity(id=1), name=test, version=0), version=0)
+2017-07-19 13:58:42,428 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,432 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,432 INFO  - UserServiceImpl
+2017-07-19 13:58:42,432 INFO  - findByLogin
+2017-07-19 13:58:42,432 INFO  - ---> zxc
+2017-07-19 13:58:42,432 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,467 INFO  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2017-07-19 13:58:42,468 INFO  - UserServiceImpl
+2017-07-19 13:58:42,468 INFO  - update
+2017-07-19 13:58:42,468 INFO  - ---> User(super=BaseEntity(id=1), firstName=asd, lastName=qwe, login=zxc, password=null, email=qwe@awde.df, departament=Departament(super=BaseEntity(id=1), name=test, version=0), version=0)
+2017-07-19 13:58:42,471 INFO  - ---> UserCard(super=BaseEntity(id=1), firstDevice=Device(modelDrvice=123, macAddress=321), secondDevice=null, PCOwnership=54321, version=1)
+2017-07-19 13:58:42,472 INFO  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2017-07-19 13:58:42,490 INFO  - Rolled back transaction for test context [DefaultTestContext@23b8d9f3 testClass = UserServiceImplTest, testInstance = by.grapesrain.services.UserServiceImplTest@7f353d99, testMethod = update@UserServiceImplTest, testException = org.hibernate.NonUniqueObjectException: A different object with the same identifier value was already associated with the session : [by.grapesrain.entitys.User#1], mergedContextConfiguration = [MergedContextConfiguration@73a19967 testClass = UserServiceImplTest, locations = '{}', classes = '{class by.grapesrain.config.TestConfigServices}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:database.properties}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-07-19 13:58:42,574 INFO  - Closing org.springframework.context.support.GenericApplicationContext@28e19366: startup date [Wed Jul 19 13:58:40 MSK 2017]; root of context hierarchy
