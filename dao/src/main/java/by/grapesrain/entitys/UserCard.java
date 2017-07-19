@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user_card")
 @NoArgsConstructor
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = {"user"})
 public class UserCard extends BaseEntity {
 
     @Getter
@@ -44,4 +44,10 @@ public class UserCard extends BaseEntity {
     @Getter
     @Column(name = "version_card")
     private Long version;
+
+    @Setter
+    @Getter
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

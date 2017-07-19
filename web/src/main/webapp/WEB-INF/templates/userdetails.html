@@ -43,23 +43,50 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
 
-                        <div class="container">
-                            <h2 th:text="${userDetails.getLogin()}">Login</h2>
+                            <div class="container">
+                                <h2 th:text="${userDetails.getLogin()}">Login</h2>
 
-                            <table class="table table-condensed">
+                                <table class="table table-condensed">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Department</th>
+                                    <th>Email</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    <td th:text="${userDetails.getId()}">ID</td>
                                     <td th:text="${userDetails.getFirstName()}">FirstName</td>
                                     <td th:text="${userDetails.getLastName()}">LastName</td>
+                                    <td th:text="${userDetails.getDepartament().getName()}">Department</td>
+                                    <td th:text="${userDetails.getEmail()}">Email</td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <br>
+                                <table class="table table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>FirstDevice Model</th>
+                                        <th>FirstDevice MAC</th>
+                                        <th>SecondDevice Model</th>
+                                        <th>SecondDevice MAC</th>
+                                        <th>PCOwnership</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td th:text="${userDetails.getUserCard().getFirstDevice().getModelDrvice()}">FirstDevice Model</td>
+                                        <td th:text="${userDetails.getUserCard().getFirstDevice().getMacAddress()}">FirstDevice MAC</td>
+                                        <td th:text="${userDetails.getUserCard().getSecondDevice().getModelDrvice()}">SecondDevice Model</td>
+                                        <td th:text="${userDetails.getUserCard().getSecondDevice().getMacAddress()}">SecondDevice MAC</td>
+                                        <td th:text="${userDetails.getUserCard().getPCOwnership()}">PCOwnership</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                         </div>
 
                     </div>

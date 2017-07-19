@@ -1,9 +1,11 @@
 package by.grapesrain.services;
 
+import by.grapesrain.dao.UserCardDao;
 import by.grapesrain.dao.UserDao;
 import by.grapesrain.dao.RoleDao;
 import by.grapesrain.entitys.Role;
 import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.UserCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,17 +28,28 @@ public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
     private final RoleDao roleDao;
+    private final UserCardDao userCardDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
+    public UserServiceImpl(UserDao userDao, RoleDao roleDao, UserCardDao userCardDao) {
         this.userDao = userDao;
         this.roleDao = roleDao;
+        this.userCardDao = userCardDao;
     }
 
 
     @Override
     public User findByLogin(String login) {
-        return findByLogin(login);
+        User securityUser = new User();
+        securityUser.setFirstName(userDao.findUserByLogin(login).getFirstName());
+        securityUser.setLastName(userDao.findUserByLogin(login).getLastName());
+        securityUser.setDepartament(userDao.findUserByLogin(login).getDepartament());
+        securityUser.setEmail(userDao.findUserByLogin(login).getEmail());
+        securityUser.setLogin(userDao.findUserByLogin(login).getLogin());
+        securityUser.setVersion(userDao.findUserByLogin(login).getVersion());
+        securityUser.setId(userDao.findUserByLogin(login).getId());
+        securityUser.setUserCard(getUserCardByUser(userDao.findUserByLogin(login)));
+        return securityUser;
     }
 
     @Override
@@ -60,6 +73,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Long getDepartamentBylogin(String login) {
         return userDao.findUserByLogin(login).getDepartament().getId();
+    }
+
+    @Override
+    public UserCard getUserCardByUser(User user) {
+        return userCardDao.findUserCardByUser(user);
     }
 
     private Set<GrantedAuthority> getUserAuthorities(User user) {

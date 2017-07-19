@@ -1,6 +1,7 @@
 package by.grapesrain.services;
 
 import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.UserCard;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface UserService extends UserDetailsService {
     List<User> allUsers();
 
     Long getDepartamentBylogin(String login);
+
+    UserCard getUserCardByUser(User user);
 }

@@ -1,8 +1,6 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.entitys.Departament;
-import by.grapesrain.entitys.Role;
-import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,6 +26,9 @@ public class UserDaoTest extends BaseDaoTest {
 
     @Autowired
     private DepartamentDao departamentDao;
+
+    @Autowired
+    private UserCardDao userCardDao;
 
 
     @Test
@@ -148,9 +149,46 @@ public class UserDaoTest extends BaseDaoTest {
         roles.add(roleDao.findById(1));
         user.setRoles(roles);
 
+        UserCard userCard = new UserCard();
+        userCard.setFirstDevice(new Device("123", "321"));
+        userCardDao.save(userCard);
+        user.setUserCard(userCard);
         userDao.save(user);
 
         User findUser = userDao.findUserByLogin("admin");
+        System.out.println(findUser.getUserCard());
         assertEquals(findUser, user);
+    }
+
+    @Test
+    public void findUserCardByUser() {
+        Departament departament = new Departament();
+        departament.setName("ИТ");
+        departamentDao.save(departament);
+
+        Role role = new Role();
+        role.setRole("Админ");
+        roleDao.save(role);
+
+        User user = new User();
+        user.setFirstName("asd");
+        user.setLastName("dsa");
+        user.setLogin("admin");
+        user.setDepartament(departamentDao.findAll().get(0));
+        user.setEmail("asd@Asd.asd");
+        user.setPassword("123456");
+
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleDao.findById(1));
+        user.setRoles(roles);
+        userDao.save(user);
+
+        UserCard userCard = new UserCard();
+        userCard.setFirstDevice(new Device("123", "321"));
+        userCard.setUser(userDao.findUserByLogin("admin"));
+        userCardDao.save(userCard);
+
+        UserCard findUserCard = userCardDao.findUserCardByUser(userDao.findUserByLogin("admin"));
+        assertNotNull(findUserCard);
     }
 }

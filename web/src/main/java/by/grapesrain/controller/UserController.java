@@ -36,8 +36,15 @@ public class UserController {
 
     @ModelAttribute("userDetails")
     public User userDetails() {
-        return userService.findByLogin("Admin");
+        return userService.findByLogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+//        return null;
     }
+
+//    @ModelAttribute("userCard")
+//    public User userCard() {
+//        return userService.findByLogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+////        return null;
+//    }
 
     @GetMapping("/userdetails")
     public String userPage() {
@@ -59,7 +66,7 @@ public class UserController {
 //
 //    @ModelAttribute("userDetails")
 //    public User userDetails() {
-//        return userService.findByLogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+//        return userService.findByLogin();
 //    }
 //
 //    @ModelAttribute("user")

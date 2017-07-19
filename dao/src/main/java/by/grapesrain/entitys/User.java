@@ -15,7 +15,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "user")
-@ToString(callSuper = true, exclude = {"roles", "requests", "requestAnswers"})
+@ToString(callSuper = true, exclude = {"roles", "requests", "requestAnswers", "userCard"})
 @NoArgsConstructor
 public class User extends BaseEntity {
 
@@ -77,7 +77,7 @@ public class User extends BaseEntity {
 
     @Getter
     @Setter
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private UserCard userCard;
 
     @Version
