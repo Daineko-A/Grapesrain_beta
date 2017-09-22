@@ -5,10 +5,9 @@
   <parent>
     <groupId>by.grapesrain</groupId>
     <artifactId>Grapesrain</artifactId>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   
-  <!--<groupId>by.grapesrain</groupId>-->
   <artifactId>web</artifactId>
   <version>${project.version}</version>
   <packaging>war</packaging>
@@ -89,7 +88,6 @@
       <artifactId>thymeleaf-extras-springsecurity4</artifactId>
       <version>3.0.2.RELEASE</version>
     </dependency>
-
 
     <!--<dependency>-->
       <!--<groupId>javax.servlet</groupId>-->
