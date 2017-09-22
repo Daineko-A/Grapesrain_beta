@@ -17,10 +17,9 @@
     <parent>
     <groupId>by.grapesrain</groupId>
     <artifactId>Grapesrain</artifactId>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
-  
-  <!--<groupId>by.grapesrain</groupId>-->
+
   <artifactId>service</artifactId>
   <version>${project.version}</version>
   <name>service</name>
