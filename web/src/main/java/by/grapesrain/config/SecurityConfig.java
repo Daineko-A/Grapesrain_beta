@@ -52,6 +52,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .csrf().disable();
 
                 http.userDetailsService(userDetailsService);
-
     }
 }
