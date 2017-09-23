@@ -18,5 +18,4 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Import(value = {ThymeleafConfig.class, ConfigServices.class, InternationalizationConfig.class})
 public class ConfigWeb {
 
-
 }

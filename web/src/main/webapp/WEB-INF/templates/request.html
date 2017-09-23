@@ -10,33 +10,9 @@
 <div class="container-fluid">
     <div class="row content">
 
-        <div class="col-sm-3 sidenav hidden-xs">
-            <h2>GrapesRain</h2>
+        <div th:insert="~{fragments/navigation :: #navigation}"></div>
 
-            <br>
-
-            <span>
-                <a href="?language=en_US">English</a>
-                <a href="?language=ru_RU">Русский</a>
-            </span>
-
-            <br>
-            <br>
-            <ul class="nav nav-pills nav-stacked">
-
-                <li><a th:href="@{/index}"> <span class="glyphicon glyphicon-home"th:text="' ' + #{gr.dashboard}"></span> </a></li>
-                <li><a th:href="@{/admin}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.adminpanel}"></span> </a></li>
-
-                <li><a th:href="@{/userdetails}"><span class="glyphicon glyphicon-user" th:text="' ' + #{gr.userdetails}"></span> </a></li>
-                <li><a th:href="@{/registration}"><span class="glyphicon glyphicon-list-alt" th:text="' ' + #{gr.registration}"></span> </a></li>
-                <li><a th:href="@{/requestform}"><span class="glyphicon glyphicon-bullhorn" th:text="' ' + #{gr.newrequest}"></span> </a></li>
-                <li><a th:href="@{/announcementform}"><span class="glyphicon glyphicon-cog" th:text="' ' + #{gr.announcement}"></span> </a></li>
-                <li><a th:href="@{/statistics}"><span class="glyphicon glyphicon-stats" th:text="' ' + #{gr.statistics}"></span> </a></li>
-                <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-off" th:text="' ' + #{gr.exit}"></span></a></li>
-
-            </ul><br>
         </div>
-
         <br>
         <div class="col-sm-9">
             <div class="well">

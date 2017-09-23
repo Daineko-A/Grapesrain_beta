@@ -36,7 +36,6 @@ public class RequestRegController {
         this.requestAnswerService = requestAnswerService;
     }
 
-
     //Models
     @ModelAttribute("statuses")
     public List<Status> statuses() {

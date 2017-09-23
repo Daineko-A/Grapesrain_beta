@@ -69,10 +69,6 @@ public class ConfigDB {
     @Value("${hibernate.cache.provider_class}")
     private String providerClass;
 
-
-
-
-
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -104,7 +100,6 @@ public class ConfigDB {
         properties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));
         return properties;
     }
-
 
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {

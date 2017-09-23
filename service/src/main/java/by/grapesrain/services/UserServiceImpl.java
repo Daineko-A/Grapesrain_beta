@@ -25,7 +25,6 @@ import java.util.Set;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-
     private final UserDao userDao;
     private final RoleDao roleDao;
     private final UserCardDao userCardDao;
@@ -36,7 +35,6 @@ public class UserServiceImpl implements UserService {
         this.roleDao = roleDao;
         this.userCardDao = userCardDao;
     }
-
 
     @Override
     public User findByLogin(String login) {
