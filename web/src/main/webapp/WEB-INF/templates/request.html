@@ -23,7 +23,6 @@
                         <div class="container">
                             <h2 th:text="${findRequest.getTitle()}">Заголовок</h2>
                             <p th:text="${findRequest.getId()}">№ заявки</p>
-                            <!--th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"-->
                             <table class="table table-condensed">
                                 <thead>
                                 <tr>
@@ -46,9 +45,6 @@
                     </div>
                     <div class="panel-body" th:text="${findRequest.getBody()}">Тело заявки</div>
                 </div>
-
-
-
 
                 <!--requestAnswers-->
                 <div class="panel panel-primary" >
@@ -76,8 +72,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="panel panel-primary">
                     <div class="panel panel-warning">
                         <div class="panel-heading">Форма ответа на заявку</div>
@@ -85,10 +79,6 @@
 
                             <form th:action="@{/request/{requestId} (requestId = ${findRequest.getId()})}" method="post" th:object="${newAnswer}">
 
-                                <!--<div class="form-group">-->
-                                    <!--<label for="title" th:text="#{gr.title}">Title</label>-->
-                                    <!--<input class="form-control input-lg" id="title" type="text" th:field="*{title}">-->
-                                <!--</div>-->
 
                                 <div class="container">
                                     <div class="dropdown">
@@ -121,24 +111,10 @@
                                     <textarea rows="7" class="form-control input-lg" id="body" type="text" th:field="*{body}"></textarea>
                                 </div>
 
-                                <!--<input type="hidden" name="version" th:value="${departamentDetails.getVersion()}"></input>-->
-                                <!--<input type="hidden" name="id" th:value="${departamentDetails.getId()}"></input>-->
-
-                                <!--<div class="container">-->
-                                    <!--<div class="dropdown">-->
-                                        <!--<label th:for="departament" th:text="#{account.departament}">Departament</label>-->
-                                        <!--<select th:field="*{departament}" class="btn btn-primary dropdown-toggle">-->
-                                            <!--<option th:each="departament : ${departaments}"-->
-                                                    <!--th:value="${departament.getId()}"-->
-                                                    <!--th:text="${departament.getName()}">Departaments</option>-->
-                                        <!--</select>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
                                 <br>
                                 <br>
 
-                                <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.createreq}">Ответить</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.answered}">Ответить</button>
                             </form>
 
                         </div>
