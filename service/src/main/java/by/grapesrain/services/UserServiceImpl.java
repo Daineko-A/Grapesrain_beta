@@ -1,8 +1,8 @@
 package by.grapesrain.services;
 
+import by.grapesrain.dao.RoleDao;
 import by.grapesrain.dao.UserCardDao;
 import by.grapesrain.dao.UserDao;
-import by.grapesrain.dao.RoleDao;
 import by.grapesrain.entitys.Role;
 import by.grapesrain.entitys.User;
 import by.grapesrain.entitys.UserCard;

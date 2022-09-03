@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
             <div class="well">
 
                 <div class="container">
-                    <table class="table" >
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -31,7 +31,9 @@
                         <tbody>
 
                         <tr th:each="users : ${allUsers}">
-                            <td><a href="userdetails.html" th:href="@{/userdetails/{userId} (userId = ${users.getId()})}" th:text="${users.getId()}">ID</a></td>
+                            <td><a href="userdetails.html"
+                                   th:href="@{/userdetails/{userId} (userId = ${users.getId()})}"
+                                   th:text="${users.getId()}">ID</a></td>
                             <td th:text="${users.getFirstName()}">First Name</td>
                             <td th:text="${users.getLastName()}">Last Name</td>
                             <td th:text="${users.getLogin()}">Login</td>
@@ -44,7 +46,6 @@
                 </div>
 
 
-
             </div>
 
 
@@ -53,7 +54,7 @@
                     <div class="well">
 
                         <div>
-                            <table class="table" >
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -63,7 +64,9 @@
                                 <tbody>
 
                                 <tr th:each="departamentss : ${allDepartaments}">
-                                    <td><a href="departamentdetails.html" th:href="@{/departamentdetails/{departamentId} (departamentId = ${departamentss.getId()})}" th:text="${departamentss.getId()}">ID</a></td>
+                                    <td><a href="departamentdetails.html"
+                                           th:href="@{/departamentdetails/{departamentId} (departamentId = ${departamentss.getId()})}"
+                                           th:text="${departamentss.getId()}">ID</a></td>
                                     <td th:text="${departamentss.getName()}">Departament</td>
                                 </tr>
 
@@ -77,7 +80,8 @@
                 <div class="col-sm-4">
                     <div class="well">
                         <p>Ё-моё ты же админ, ты должен быть крайне ленив. Юзеры сами должны себе помогать.</p>
-                        <img src="https://ru.telegram-store.com/wp-content/uploads/2016/12/image_5776.png" class="img-rounded" alt="Cinque Terre" width="250" height="250">
+                        <img src="https://ru.telegram-store.com/wp-content/uploads/2016/12/image_5776.png"
+                             class="img-rounded" alt="Cinque Terre" width="250" height="250">
                     </div>
                 </div>
             </div>

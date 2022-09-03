@@ -17,7 +17,7 @@ public class AnnouncementDaoImpl extends BaseDaoImpl<Announcement> implements An
     @Override
     public Announcement findByTitle(String title) {
         List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
-                "select a from Announcement a where a.title=:title", Announcement.class)
+                        "select a from Announcement a where a.title=:title", Announcement.class)
                 .setParameter("title", title)
                 .getResultList();
 
@@ -27,7 +27,7 @@ public class AnnouncementDaoImpl extends BaseDaoImpl<Announcement> implements An
     @Override
     public List<Announcement> findAllByDep(Departament departament) {
         List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
-                "select a from Announcement a where a.departament=:departament", Announcement.class)
+                        "select a from Announcement a where a.departament=:departament", Announcement.class)
                 .setParameter("departament", departament)
                 .getResultList();
 
@@ -37,7 +37,7 @@ public class AnnouncementDaoImpl extends BaseDaoImpl<Announcement> implements An
     @Override
     public List<Announcement> findAllActualByDep(Departament departament) {
         List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
-                "select a from Announcement a where a.begin<:dateNow and a.end>:dateNow and a.departament=:departament", Announcement.class)
+                        "select a from Announcement a where a.begin<:dateNow and a.end>:dateNow and a.departament=:departament", Announcement.class)
                 .setParameter("departament", departament)
                 .setParameter("dateNow", LocalDateTime.now())
                 .getResultList();
@@ -48,7 +48,7 @@ public class AnnouncementDaoImpl extends BaseDaoImpl<Announcement> implements An
     @Override
     public List<Announcement> findAllPastByDep(Departament departament) {
         List<Announcement> announcementsList = getSessionFactory().getCurrentSession().createQuery(
-                "select a from Announcement a where a.end<:dateNow and a.departament=:departament", Announcement.class)
+                        "select a from Announcement a where a.end<:dateNow and a.departament=:departament", Announcement.class)
                 .setParameter("departament", departament)
                 .setParameter("dateNow", LocalDateTime.now())
                 .getResultList();

@@ -16,7 +16,7 @@ public class UserCardDaoImpl extends BaseDaoImpl<UserCard> implements UserCardDa
     @Override
     public UserCard findUserCardByUser(User user) {
         List<UserCard> userCards = getSessionFactory().getCurrentSession().createQuery(
-                "select uc from UserCard uc where uc.user=:user", UserCard.class)
+                        "select uc from UserCard uc where uc.user=:user", UserCard.class)
                 .setParameter("user", user)
                 .getResultList();
 

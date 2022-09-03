@@ -51,7 +51,7 @@ public class DepartamentController {
 
         try {
             departamentService.update(departament);
-        } catch (HibernateOptimisticLockingFailureException error){
+        } catch (HibernateOptimisticLockingFailureException error) {
             return "redirect:/errorpage";
         }
 

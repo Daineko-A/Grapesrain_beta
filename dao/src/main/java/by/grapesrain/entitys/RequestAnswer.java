@@ -5,8 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 /**
  * Created by PloSkiY on 10.07.2017.
@@ -16,7 +19,7 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true, exclude = {"request", "respondent"})
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "answer_id")
-public class RequestAnswer extends Answer{
+public class RequestAnswer extends Answer {
 
     public RequestAnswer(Request request, User respondent, String body) {
         this.request = request;

@@ -1,20 +1,14 @@
 package by.grapesrain.services;
 
-import by.grapesrain.config.TestConfigServices;
-import by.grapesrain.dao.DepartamentDao;
 import by.grapesrain.dao.RoleDao;
 import by.grapesrain.dao.UserCardDao;
-import by.grapesrain.dao.UserDao;
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Device;
+import by.grapesrain.entitys.Role;
+import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.UserCard;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.transaction.Transactional;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -37,7 +31,7 @@ public class UserServiceImplTest extends BaseServiceTest {
     private UserCardDao userCardDao;
 
     @Test
-    public void save(){
+    public void save() {
         User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
         Role role = new Role("User");
         roleDao.save(role);
@@ -48,7 +42,7 @@ public class UserServiceImplTest extends BaseServiceTest {
     }
 
     @Test
-    public void allUsers(){
+    public void allUsers() {
         User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
         Role role = new Role("User");
         roleDao.save(role);
@@ -59,7 +53,7 @@ public class UserServiceImplTest extends BaseServiceTest {
     }
 
     @Test
-    public void getDepartamentBylogin(){
+    public void getDepartamentBylogin() {
         User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
         Departament departament = new Departament("test");
         departamentService.save(departament);
@@ -80,7 +74,7 @@ public class UserServiceImplTest extends BaseServiceTest {
     }
 
     @Test
-    public void getUserCardByUser(){
+    public void getUserCardByUser() {
         User user = new User("asd", "qwe", "zxc", "123", "qwe@awde.df");
         Departament departament = new Departament("test");
         departamentService.save(departament);

@@ -1,17 +1,24 @@
 package by.grapesrain.controller;
 
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Priority;
+import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.RequestAnswer;
+import by.grapesrain.entitys.Status;
 import by.grapesrain.services.DepartamentService;
 import by.grapesrain.services.RequestAnswerService;
 import by.grapesrain.services.RequestService;
 import by.grapesrain.services.UserService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,7 +65,7 @@ public class RequestDetailsController {
     public RequestAnswer requestAnswer() {
         return new RequestAnswer();
     }
-    
+
     @ModelAttribute("rqAnswers")
     public List<RequestAnswer> requestAnswers(@PathVariable("requestId") Integer requestId) {
         return requestAnswerService.findByRequest(requestService.findById(requestId));
@@ -79,7 +86,7 @@ public class RequestDetailsController {
 
         String executor = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
 
-        if(requestAnswer.getBody().isEmpty()){
+        if (requestAnswer.getBody().isEmpty()) {
             return "redirect: redirect: /request/{requestId}";
         }
 

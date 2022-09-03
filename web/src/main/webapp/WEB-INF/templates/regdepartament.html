@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,7 +25,8 @@
 
                                     <br>
                                     <label for="name" th:text="#{gr.title}">Title</label>
-                                    <input type="text"  id="name" class="form-control" placeholder="name" th:field="*{name}" required autofocus>
+                                    <input type="text" id="name" class="form-control" placeholder="name"
+                                           th:field="*{name}" required autofocus>
 
                                     <br>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
@@ -40,7 +41,7 @@
                     <div class="well">
 
                         <div>
-                            <table class="table" >
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -50,7 +51,9 @@
                                 <tbody>
 
                                 <tr th:each="departamentss : ${allDepartaments}">
-                                    <td><a href="departamentdetails.html" th:href="@{/departamentdetails/{departamentId} (departamentId = ${departamentss.getId()})}" th:text="${departamentss.getId()}">ID</a></td>
+                                    <td><a href="departamentdetails.html"
+                                           th:href="@{/departamentdetails/{departamentId} (departamentId = ${departamentss.getId()})}"
+                                           th:text="${departamentss.getId()}">ID</a></td>
                                     <td th:text="${departamentss.getName()}">Departament</td>
                                 </tr>
 

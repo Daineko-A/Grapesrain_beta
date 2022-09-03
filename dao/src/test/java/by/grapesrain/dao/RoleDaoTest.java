@@ -26,7 +26,7 @@ public class RoleDaoTest extends BaseDaoTest {
     }
 
     @Test
-    public void findByRoleName(){
+    public void findByRoleName() {
         Role role = new Role();
         role.setRole("Admin");
 

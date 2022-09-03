@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dashboard</title>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
             <div class="well">
 
                 <div>
-                    <table class="table" >
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -30,14 +30,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="requests : ${allReqByDepWithPageWithoutClose}" th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
-                            <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
+                        <tr th:each="requests : ${allReqByDepWithPageWithoutClose}"
+                            th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
+                            <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"
+                                   th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
                             <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
-                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания</td>
+                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -55,15 +58,18 @@
 
                         <h4>Актуальные мероприятия</h4>
 
-                        <table class="table" >
+                        <table class="table">
                             <tbody>
-                                <tr th:each="annousm : ${allActualAnnouncement}" th:class="warning">
-                                    <td><span class="glyphicon glyphicon-calendar"></span></td>
-                                    <td th:text="${annousm.getTitle()}">Заголовок</td>
-                                    <td th:text="${annousm.getBody()}">Тело</td>
-                                    <td th:text="${#temporals.format(annousm.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата начала</td>
-                                    <td th:text="${#temporals.format(annousm.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата завершения</td>
-                                </tr>
+                            <tr th:each="annousm : ${allActualAnnouncement}" th:class="warning">
+                                <td><span class="glyphicon glyphicon-calendar"></span></td>
+                                <td th:text="${annousm.getTitle()}">Заголовок</td>
+                                <td th:text="${annousm.getBody()}">Тело</td>
+                                <td th:text="${#temporals.format(annousm.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата начала
+                                </td>
+                                <td th:text="${#temporals.format(annousm.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата
+                                    завершения
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
 
@@ -72,14 +78,18 @@
 
                         <h4>Прошедшие мероприятия</h4>
 
-                        <table class="table" >
+                        <table class="table">
                             <tbody>
                             <tr th:each="annousmpast : ${allPastAnnouncement}" th:class="info">
                                 <td><span class="glyphicon glyphicon-calendar"></span></td>
                                 <td th:text="${annousmpast.getTitle()}">Заголовок</td>
                                 <td th:text="${annousmpast.getBody()}">Тело</td>
-                                <td th:text="${#temporals.format(annousmpast.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата начала</td>
-                                <td th:text="${#temporals.format(annousmpast.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата завершения</td>
+                                <td th:text="${#temporals.format(annousmpast.getBegin(), 'dd-MM-yyyy HH:mm')}">Дата
+                                    начала
+                                </td>
+                                <td th:text="${#temporals.format(annousmpast.getEnd(), 'dd-MM-yyyy HH:mm')}">Дата
+                                    завершения
+                                </td>
                             </tr>
                             </tbody>
                         </table>

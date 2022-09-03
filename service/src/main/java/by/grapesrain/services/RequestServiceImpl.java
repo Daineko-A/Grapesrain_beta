@@ -5,7 +5,6 @@ import by.grapesrain.dao.UserDao;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.Status;
-import by.grapesrain.entitys.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,7 +69,7 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    public int quantityRequests(Departament departament, Status status){
+    public int quantityRequests(Departament departament, Status status) {
         return requestDao.quantityRequests(departament, status);
     }
 

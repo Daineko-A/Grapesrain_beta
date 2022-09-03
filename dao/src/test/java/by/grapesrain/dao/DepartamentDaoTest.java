@@ -1,7 +1,6 @@
 package by.grapesrain.dao;
 
 import by.grapesrain.entitys.Departament;
-import by.grapesrain.entitys.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,7 +19,7 @@ public class DepartamentDaoTest extends BaseDaoTest {
     private DepartamentDao departamentDao;
 
     @Test
-    public void saveDepartament(){
+    public void saveDepartament() {
         Departament departament = new Departament();
         departament.setName("it");
         departamentDao.save(departament);
@@ -43,7 +42,7 @@ public class DepartamentDaoTest extends BaseDaoTest {
     }
 
     @Test
-    public void findAllWithPage(){
+    public void findAllWithPage() {
         Departament departament = new Departament("it");
         departamentDao.save(departament);
 
@@ -69,7 +68,7 @@ public class DepartamentDaoTest extends BaseDaoTest {
 
 
     @Test
-    public void findAll(){
+    public void findAll() {
         Departament departament = new Departament("it");
         departamentDao.save(departament);
 
@@ -84,7 +83,7 @@ public class DepartamentDaoTest extends BaseDaoTest {
     }
 
     @Test
-    public void size(){
+    public void size() {
         Departament departament = new Departament("it");
         departamentDao.save(departament);
 

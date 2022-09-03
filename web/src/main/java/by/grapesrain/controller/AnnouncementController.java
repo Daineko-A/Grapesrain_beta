@@ -2,9 +2,11 @@ package by.grapesrain.controller;
 
 import by.grapesrain.entitys.Announcement;
 import by.grapesrain.entitys.Departament;
-import by.grapesrain.entitys.Request;
-import by.grapesrain.entitys.Status;
-import by.grapesrain.services.*;
+import by.grapesrain.services.AnnouncementService;
+import by.grapesrain.services.DepartamentService;
+import by.grapesrain.services.RequestAnswerService;
+import by.grapesrain.services.RequestService;
+import by.grapesrain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,9 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -60,7 +59,7 @@ public class AnnouncementController {
         String login = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         announcement.setDepartament(departamentService.findById(departament));
 
-        if(announcement.getTitle().isEmpty() && announcement.getBody().isEmpty()){
+        if (announcement.getTitle().isEmpty() && announcement.getBody().isEmpty()) {
             return "redirect: /announcementform";
         }
 

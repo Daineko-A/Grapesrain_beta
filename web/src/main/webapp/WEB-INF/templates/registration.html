@@ -31,13 +31,14 @@
 
             <div class="container">
                 <div class="dropdown">
-                <label th:for="departament" th:text="#{account.departament}">Departament</label>
-                <select th:field="*{departament}" class="btn btn-primary dropdown-toggle">
-                    <option th:each="departament : ${allDepartaments}"
-                            th:value="${departament.getId()}"
-                            th:text="${departament.getName()}">Departaments</option>
-                </select>
-            </div>
+                    <label th:for="departament" th:text="#{account.departament}">Departament</label>
+                    <select th:field="*{departament}" class="btn btn-primary dropdown-toggle">
+                        <option th:each="departament : ${allDepartaments}"
+                                th:value="${departament.getId()}"
+                                th:text="${departament.getName()}">Departaments
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <br>

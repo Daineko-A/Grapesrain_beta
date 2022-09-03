@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
                 <div>
                     <!--<h2>Contextual Classes</h2>-->
                     <!--<p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>-->
-                    <table class="table" >
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -34,14 +34,17 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="requests : ${allRequestsByDepWithPageWithoutClose}" th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
-                            <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}" th:text="${requests.getId()}">ID</a></td>
+                        <tr th:each="requests : ${allRequestsByDepWithPageWithoutClose}"
+                            th:class="(${requests.getPriority()} == ${requests.getPriority().VERYHIGH} ? 'danger' : 'active' )">
+                            <td><a th:href="@{/request/{requestId} (requestId = ${requests.getId()})}"
+                                   th:text="${requests.getId()}">ID</a></td>
                             <td th:text="${requests.getTitle()}">Заголовок</td>
                             <td th:text="${requests.getCreator().getLogin()}">Создатель</td>
                             <td th:text="${requests.getDepartament().getName()}">Департамент</td>
                             <td th:text="${#strings.toLowerCase(requests.getStatus())}">Статус</td>
                             <td th:text="${#strings.toLowerCase(requests.getPriority())}">Приоритет</td>
-                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания</td>
+                            <td th:text="${#temporals.format(requests.getCreate(), 'dd-MM-yyyy HH:mm')}">Дата создания
+                            </td>
                         </tr>
 
                         </tbody>

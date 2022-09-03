@@ -1,7 +1,6 @@
 package by.grapesrain.dao;
 
 import by.grapesrain.dao.common.BaseDao;
-import by.grapesrain.dao.common.BaseDaoImpl;
 import by.grapesrain.entitys.User;
 
 import java.util.List;

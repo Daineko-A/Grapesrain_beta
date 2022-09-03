@@ -1,11 +1,14 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Device;
+import by.grapesrain.entitys.Role;
+import by.grapesrain.entitys.User;
+import by.grapesrain.entitys.UserCard;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +35,7 @@ public class UserDaoTest extends BaseDaoTest {
 
 
     @Test
-    public void saveUser(){
+    public void saveUser() {
         User user = new User();
         user.setFirstName("asd");
         user.setLastName("dsa");

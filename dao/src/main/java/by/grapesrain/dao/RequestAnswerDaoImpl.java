@@ -24,7 +24,7 @@ public class RequestAnswerDaoImpl extends BaseDaoImpl<RequestAnswer> implements 
     @Override
     public List<RequestAnswer> findByRequest(Request request) {
         List<RequestAnswer> requestAnswers = getSessionFactory().getCurrentSession().createQuery(
-                "select a from RequestAnswer a where a.request=:request", RequestAnswer.class)
+                        "select a from RequestAnswer a where a.request=:request", RequestAnswer.class)
                 .setParameter("request", request)
                 .getResultList();
 

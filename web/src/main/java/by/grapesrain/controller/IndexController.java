@@ -4,7 +4,11 @@ import by.grapesrain.entitys.Announcement;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
 import by.grapesrain.entitys.Role;
-import by.grapesrain.services.*;
+import by.grapesrain.services.AnnouncementService;
+import by.grapesrain.services.DepartamentService;
+import by.grapesrain.services.RequestService;
+import by.grapesrain.services.UserRoleService;
+import by.grapesrain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,8 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

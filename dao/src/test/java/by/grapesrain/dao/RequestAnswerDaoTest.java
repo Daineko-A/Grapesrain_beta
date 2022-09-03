@@ -1,6 +1,11 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Priority;
+import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.RequestAnswer;
+import by.grapesrain.entitys.Status;
+import by.grapesrain.entitys.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

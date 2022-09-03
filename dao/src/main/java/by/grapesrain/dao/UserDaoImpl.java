@@ -16,7 +16,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     @Override
     public List<User> findByLastName(String lastName) {
         List<User> users = getSessionFactory().getCurrentSession().createQuery(
-                "select u from User u where u.lastName=:lastName", User.class)
+                        "select u from User u where u.lastName=:lastName", User.class)
                 .setParameter("lastName", lastName)
                 .getResultList();
 
@@ -26,7 +26,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     @Override
     public User findUserByLoginAndPass(String login, String password) {
         List<User> users = getSessionFactory().getCurrentSession().createQuery(
-                "select u from User u where u.login=:login and u.password=:password", User.class)
+                        "select u from User u where u.login=:login and u.password=:password", User.class)
                 .setParameter("login", login)
                 .setParameter("password", password)
                 .getResultList();
@@ -37,7 +37,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     @Override
     public User findUserByLogin(String login) {
         List<User> users = getSessionFactory().getCurrentSession().createQuery(
-                "select u from User u where u.login=:login", User.class)
+                        "select u from User u where u.login=:login", User.class)
                 .setParameter("login", login)
                 .getResultList();
 

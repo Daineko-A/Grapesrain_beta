@@ -1,17 +1,9 @@
 package by.grapesrain.services;
 
-import by.grapesrain.config.TestConfigServices;
 import by.grapesrain.dao.RoleDao;
 import by.grapesrain.entitys.Role;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.transaction.Transactional;
-import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -27,8 +19,9 @@ public class UserRoleServiceImplTest extends BaseServiceTest {
     private UserRoleService userRoleService;
 
     @Test
-    public void findAllRoles(){
-        Role role = new Role("asd");;
+    public void findAllRoles() {
+        Role role = new Role("asd");
+        ;
         roleDao.save(role);
 
         Role findRole = userRoleService.allUserRoles().get(0);

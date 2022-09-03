@@ -1,23 +1,24 @@
 package by.grapesrain.aspect;
 
-import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by PloSkiY on 09.07.2017.
  */
 @Aspect
-@Log4j
 public class ServLogger {
+    private static final Logger log = LogManager.getLogger();
 
-    @Pointcut ("execution(public * by.grapesrain.services.*.* (..))")
-    public void allServices() {};
+    @Pointcut("execution(public * by.grapesrain.services.*.* (..))")
+    public void allServices() {
+    }
+
+    ;
 
 
     @Before("allServices()")
@@ -26,7 +27,7 @@ public class ServLogger {
         log.info(joinPoint.getTarget().getClass().getSimpleName());
         log.info(joinPoint.getSignature().getName());
         if (joinPoint.getArgs().length > 0) {
-            for (Object argument : joinPoint.getArgs() ) {
+            for (Object argument : joinPoint.getArgs()) {
                 log.info("---> " + argument.toString());
             }
         } else {

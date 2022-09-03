@@ -1,10 +1,14 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Priority;
+import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.Role;
+import by.grapesrain.entitys.Status;
+import by.grapesrain.entitys.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -54,7 +58,7 @@ public class RequestDaoTest extends BaseDaoTest {
 
 
     @Test
-    public void allRequestsByDepWithPage(){
+    public void allRequestsByDepWithPage() {
         Departament departament = new Departament("ИТ");
         departamentDao.save(departament);
 

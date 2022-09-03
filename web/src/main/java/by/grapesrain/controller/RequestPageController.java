@@ -15,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,11 +93,11 @@ public class RequestPageController {
         int num = requestService.quantityRequests(dep, Status.CLOSED);
 
         List<Integer> numbers = new ArrayList<>();
-        num = ((int) Math.ceil( num / 5 ));
+        num = ((int) Math.ceil(num / 5));
 
         do {
             numbers.add(num + 1);
-            num --;
+            num--;
         } while (num >= 0);
 
         Collections.reverse(numbers);
@@ -113,11 +112,11 @@ public class RequestPageController {
         int num = requestService.quantityRequests(dep, Status.OPEN);
 
         List<Integer> numbers = new ArrayList<>();
-        num = ((int) Math.ceil( num / 5 ));
+        num = ((int) Math.ceil(num / 5));
 
         do {
             numbers.add(num + 1);
-            num --;
+            num--;
         } while (num >= 0);
 
         Collections.reverse(numbers);

@@ -1,17 +1,15 @@
 package by.grapesrain.services;
 
-import by.grapesrain.config.TestConfigServices;
 import by.grapesrain.dao.RoleDao;
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Priority;
+import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.RequestAnswer;
+import by.grapesrain.entitys.Role;
+import by.grapesrain.entitys.Status;
+import by.grapesrain.entitys.User;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.transaction.Transactional;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 

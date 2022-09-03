@@ -1,6 +1,5 @@
 package by.grapesrain.dao;
 
-import by.grapesrain.dao.common.BaseDao;
 import by.grapesrain.dao.common.BaseDaoImpl;
 import by.grapesrain.entitys.Departament;
 import by.grapesrain.entitys.Request;
@@ -18,7 +17,7 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     @Override
     public List<Request> findRequestsByDepartament(Departament departament) {
         List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.departament=:departament", Request.class)
+                        "select r from Request r where r.departament=:departament", Request.class)
                 .setParameter("departament", departament)
                 .getResultList();
 
@@ -28,7 +27,7 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     @Override
     public List<Request> allRequestsByDepWithPage(int startR, int limitR, Departament departament) {
         List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.departament=:departament", Request.class)
+                        "select r from Request r where r.departament=:departament", Request.class)
                 .setParameter("departament", departament)
                 .setFirstResult(startR)
                 .setMaxResults(limitR)
@@ -40,7 +39,7 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     @Override
     public List<Request> allRequestsByDepWithPageWithoutClose(int startR, int limitR, Departament departament) {
         List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.status!=:close and r.departament=:departament ", Request.class)
+                        "select r from Request r where r.status!=:close and r.departament=:departament ", Request.class)
                 .setParameter("departament", departament)
                 .setParameter("close", Status.CLOSED)
                 .setFirstResult(startR)
@@ -53,7 +52,7 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
     @Override
     public List<Request> allRequestsByDepWithPageWithClose(int startR, int limitR, Departament departament) {
         List<Request> requests = getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.status=:close and r.departament=:departament ", Request.class)
+                        "select r from Request r where r.status=:close and r.departament=:departament ", Request.class)
                 .setParameter("departament", departament)
                 .setParameter("close", Status.CLOSED)
                 .setFirstResult(startR)
@@ -65,16 +64,16 @@ public class RequestDaoImpl extends BaseDaoImpl<Request> implements RequestDao {
 
     @Override
     public int quantityRequests(Departament departament, Status status) {
-        if (status.equals(Status.CLOSED)){
+        if (status.equals(Status.CLOSED)) {
             return getSessionFactory().getCurrentSession().createQuery(
-                    "select r from Request r where r.status=:close and r.departament=:departament", Request.class)
+                            "select r from Request r where r.status=:close and r.departament=:departament", Request.class)
                     .setParameter("departament", departament)
                     .setParameter("close", Status.CLOSED)
                     .getResultList().size();
         }
 
         return getSessionFactory().getCurrentSession().createQuery(
-                "select r from Request r where r.status!=:close and r.departament=:departament", Request.class)
+                        "select r from Request r where r.status!=:close and r.departament=:departament", Request.class)
                 .setParameter("departament", departament)
                 .setParameter("close", Status.CLOSED)
                 .getResultList().size();

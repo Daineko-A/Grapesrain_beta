@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "answer_id")
-public class FAQ extends Answer  {
+public class FAQ extends Answer {
     @Getter
     @Setter
     private String title;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,16 +35,17 @@
 
                             <div class="form-group">
                                 <label for="body" th:text="#{gr.bodyannouncement}">Body</label>
-                                <textarea rows="7" class="form-control input-lg" id="body" type="text" th:field="*{body}"></textarea>
+                                <textarea rows="7" class="form-control input-lg" id="body" type="text"
+                                          th:field="*{body}"></textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="begin" >Begin (format: 18-07-2017 20:42)</label>
+                                <label for="begin">Begin (format: 18-07-2017 20:42)</label>
                                 <input class="form-control input-lg" id="begin" type="datetime" th:field="*{begin}">
                             </div>
 
                             <div class="form-group">
-                                <label for="end" >End</label>
+                                <label for="end">End</label>
                                 <input class="form-control input-lg" id="end" type="datetime" th:field="*{end}">
                             </div>
 
@@ -54,14 +55,17 @@
                                     <select th:field="*{departament}" class="btn btn-primary dropdown-toggle">
                                         <option th:each="departament : ${departaments}"
                                                 th:value="${departament.getId()}"
-                                                th:text="${departament.getName()}">Departaments</option>
+                                                th:text="${departament.getName()}">Departaments
+                                        </option>
                                     </select>
                                 </div>
                             </div>
 
                             <br>
 
-                            <button class="btn btn-lg btn-primary btn-block" type="submit"  th:text="#{gr.createreq}">Создать объявление</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{gr.createreq}">
+                                Создать объявление
+                            </button>
                         </form>
                     </div>
                 </div>

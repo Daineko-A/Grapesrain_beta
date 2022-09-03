@@ -1,6 +1,5 @@
 package by.grapesrain;
 
-import by.grapesrain.config.ConfigDB;
 import by.grapesrain.config.ConfigServices;
 import by.grapesrain.config.ConfigWeb;
 import by.grapesrain.config.SecurityConfig;
@@ -15,17 +14,17 @@ import javax.servlet.Filter;
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {SecurityConfig.class, ConfigServices.class};
+        return new Class[]{SecurityConfig.class, ConfigServices.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {ConfigWeb.class};
+        return new Class[]{ConfigWeb.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/"};
+        return new String[]{"/"};
     }
 
     @Override
@@ -33,6 +32,6 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
-        return new Filter[] { characterEncodingFilter};
+        return new Filter[]{characterEncodingFilter};
     }
 }

@@ -1,6 +1,9 @@
 package by.grapesrain.controller;
 
-import by.grapesrain.entitys.*;
+import by.grapesrain.entitys.Departament;
+import by.grapesrain.entitys.Priority;
+import by.grapesrain.entitys.Request;
+import by.grapesrain.entitys.Status;
 import by.grapesrain.services.DepartamentService;
 import by.grapesrain.services.RequestAnswerService;
 import by.grapesrain.services.RequestService;
@@ -9,10 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.jws.WebParam;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -74,7 +78,7 @@ public class RequestRegController {
         request.setStatus(Status.OPEN);
         request.setPriority(Priority.valueOf(priority));
 
-        if(request.getTitle().isEmpty() && request.getBody().isEmpty()){
+        if (request.getTitle().isEmpty() && request.getBody().isEmpty()) {
             return "redirect: /requestform";
         }
 
