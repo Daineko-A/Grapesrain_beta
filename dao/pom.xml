@@ -7,9 +7,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
     </plugins>
@@ -22,16 +24,15 @@
   </parent>
 
   <artifactId>dao</artifactId>
-  <version>${project.version}</version>
+  <version>1.0-SNAPSHOT</version>
   <name>dao</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>5.1.1.RELEASE</spring.version>
-    <hibernate.version>5.2.10.Final</hibernate.version>
-    <spring-security.version>5.5.7</spring-security.version>
     <java.version>1.8</java.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -42,16 +43,15 @@
     </dependency>
 
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
     </dependency>
-
-    <!--<dependency>-->
-      <!--<groupId>org.hibernate</groupId>-->
-      <!--<artifactId>hibernate-ehcache</artifactId>-->
-      <!--<version>5.2.10.Final</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>mysql</groupId>
@@ -62,13 +62,13 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.16</version>
+      <version>1.18.24</version>
     </dependency>
 
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <version>1.4.195</version>
+      <version>2.1.214</version>
     </dependency>
 
     <dependency>
@@ -117,7 +117,7 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
-      <version>1.8.10</version>
+      <version>1.9.9.1</version>
     </dependency>
   </dependencies>
 
